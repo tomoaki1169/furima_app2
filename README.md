@@ -83,9 +83,13 @@ Things you may want to cover:
 |prefecture|string|null: false|
 |post-code|string|null: false|
 |municipality|string|null: false|
+｜jp_prefecture｜string|       |
 
 ## Association
 - belongs_to :users
+*jp_prefectureは、gem jp_prefectureを使用するため
+
+
 
 
 ## brandsテーブル
@@ -111,4 +115,4 @@ Things you may want to cover:
 - belongs_to :users
 
 
-![image](https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fi.gyazo.com%2F510cfad5435950d618167bdd2f45b13f.png)
+![image](https://files.slack.com/files-pri/TK2M4NQC8-F018NQAVB5X/image.png)
