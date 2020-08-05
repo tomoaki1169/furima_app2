@@ -115,4 +115,4 @@ Things you may want to cover:
 - belongs_to :users
 
 
-![image](https://files.slack.com/files-pri/TK2M4NQC8-F018NQAVB5X/image.png)
+![image](https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fi.gyazo.com%2F510cfad5435950d618167bdd2f45b13f.png)
