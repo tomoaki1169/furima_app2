@@ -1,5 +1,5 @@
 @ -1,24 +1,65 @@
-# README
+# README 
 * Deployment instructions
 
 This README would normally document whatever steps are necessary to get the
@@ -33,23 +33,23 @@ Things you may want to cover:
 |--------|------|-------|
 |    name|string|null: false|
 |   price|string|null: false|
-|   image|string|null: false|
-|derivervy-fee|string|null:false|
+|derivervy_fee|string|null:false|
 |    size|string|null: false|
 |  status|string|null: false|
 |    date|string|null: false|
 |    area|string|null: false|
 |   introduction|string|null: false|
-|user-id|string|null:false ,forign_key:true|
-|brand-id|string|null:false,forign_key:true|
-|category-id|string|null:false,forign_key:true|
+|user_id|string|null:false ,forign_key:true|
+|brand_id|string|null:false,forign_key:true|
+|category_id|string|null:false,forign_key:true|
 
 
 * Database initialization
 ### Association
 - belongs_to :user
-- has_many :brands
-- has_many :categories
+- belongs_to :brands
+- belongs_to :categories
+- has_many :images
 
 * How to run the test suite
 ## categroriesテーブル
@@ -66,14 +66,14 @@ Things you may want to cover:
 ## credit-cardsテーブル
 
 |Column|Type|Options|
-|card-company|string|null: false|
-|card-number|string|null: false|
-|card-year|string|null: false|
-|card-manth|string|null: false|
-|card-pass|string|null: false|
+|card_company|string|null: false|
+|card_number|string|null: false|
+|card_year|string|null: false|
+|card_manth|string|null: false|
+|card_pass|string|null: false|
 
 ### Association
-- belongs_to :users
+- has_many :users
 
 
 
@@ -81,7 +81,7 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |prefecture|string|null: false|
-|post-code|string|null: false|
+|post_code|string|null: false|
 |municipality|string|null: false|
 ｜jp_prefecture｜string|       |
 
@@ -98,21 +98,31 @@ Things you may want to cover:
 |name|string|null: false|
 
 ## Association
-- belongs_to :products
+- has_many :products
 
-## profiesテーブル
+## profilesテーブル
 
 |Column|Type|Options|
-|family-name| string| null: false|
-|family-name-kana|string|null :false|
-|first-name|string|null :false|
-|first-name-kana|string|null :false|
-|birth-year|string|null :false|
-|birth-month|string|null :false|
-|birth-day|string|null :false|
+|family_name| string| null: false|
+|family_name_kana|string|null :false|
+|first_name|string|null :false|
+|first_name_kana|string|null :false|
+|birth_year|string|null :false|
+|birth_month|string|null :false|
+|birth_day|string|null :false|
 
 ## Association
 - belongs_to :users
 
 
-![image](https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fi.gyazo.com%2F510cfad5435950d618167bdd2f45b13f.png)
+## imageテーブル
+
+|Column|Type|Options|
+|image|string|null:false|
+|products_id|integer|null: false,foreign_key:true|
+
+## Association
+belongs_to :product
+
+
+![image](https://files.slack.com/files-pri/TK2M4NQC8-F018AGG2DPD/____________________________2020-08-05_15.46.55.png)
