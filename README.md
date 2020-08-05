@@ -47,8 +47,8 @@ Things you may want to cover:
 * Database initialization
 ### Association
 - belongs_to :user
-- belongs_to :brands
-- belongs_to :categories
+- belongs_to :brand
+- belongs_to :category
 - has_many :images
 
 * How to run the test suite
@@ -60,7 +60,7 @@ Things you may want to cover:
 |ancesty|string|          |
 
 ### Association
-- belongs_to :products
+- belongs_to :product
 *ancestryは、gem ancestryを使用するため
 
 ## credit-cardsテーブル
@@ -71,9 +71,10 @@ Things you may want to cover:
 |card_year|string|null: false|
 |card_manth|string|null: false|
 |card_pass|string|null: false|
+|user_id|string|null:false ,forign_key:true|
 
 ### Association
-- has_many :users
+- belongs_to :user
 
 
 
@@ -83,10 +84,11 @@ Things you may want to cover:
 |prefecture|string|null: false|
 |post_code|string|null: false|
 |municipality|string|null: false|
+|user_id|string|null:false ,forign_key:true|
 ｜jp_prefecture｜string|       |
 
 ## Association
-- belongs_to :users
+- belongs_to :user
 *jp_prefectureは、gem jp_prefectureを使用するため
 
 
@@ -110,9 +112,10 @@ Things you may want to cover:
 |birth_year|string|null :false|
 |birth_month|string|null :false|
 |birth_day|string|null :false|
+|user_id|string|null:false ,forign_key:true|
 
 ## Association
-- belongs_to :users
+- belongs_to :user
 
 
 ## imageテーブル
@@ -125,4 +128,4 @@ Things you may want to cover:
 belongs_to :product
 
 
-![image](https://files.slack.com/files-pri/TK2M4NQC8-F017VJKLH7Z/____________________________2020-08-05_16.01.05.png)
+![image](https://files.slack.com/files-tmb/TK2M4NQC8-F018P1BV6FK-c270758b37/____________________________2020-08-05_16.31.33_720.png)
