@@ -125,4 +125,4 @@ Things you may want to cover:
 belongs_to :product
 
 
-![image](https://files.slack.com/files-pri/TK2M4NQC8-F018AGG2DPD/____________________________2020-08-05_15.46.55.png)
+![image](https://files.slack.com/files-pri/TK2M4NQC8-F017VJKLH7Z/____________________________2020-08-05_16.01.05.png)
