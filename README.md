@@ -7,6 +7,7 @@ application up and running.
 * ...
 
 Things you may want to cover:
+
 ## usersテーブル
 
 * Ruby version
@@ -19,6 +20,10 @@ Things you may want to cover:
 * System dependencies
 ### Association
 - has_many :products
+- has_many :profiels
+- has_many :creditcards
+- has_many :addreses
+
 
 * Configuration
 ## productsテーブル
@@ -28,52 +33,82 @@ Things you may want to cover:
 |--------|------|-------|
 |    name|string|null: false|
 |   price|string|null: false|
-|password|string|null: false|
 |   image|string|null: false|
+|derivervy-fee|string|null:false|
 |    size|string|null: false|
 |  status|string|null: false|
 |    date|string|null: false|
 |    area|string|null: false|
+|   introduction|string|null: false|
+|user-id|string|null:false ,forign_key:true|
+|brand-id|string|null:false,forign_key:true|
+|category-id|string|null:false,forign_key:true|
+
 
 * Database initialization
 ### Association
 - belongs_to :user
-- has_many :main_products
+- has_many :brands
+- has_many :categories
 
 * How to run the test suite
-## main_categroryテーブル
-
-* Services (job queues, cache servers, search engines, etc.)
-|Column|Type|Options|
-|------|----|-------|
-|  name|string|null: false|
-
-* Deployment instructions
-### Association
-- belongs_to : products
-- has_many : sub1_categrory
-
-* ...
-## sub1_categroryテーブル
+## categroriesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |  name|string|null: false|
+|ancesty|string|          |
 
 ### Association
-- belongs_to :sub1_categrory
-- has_many : sub2_categrory
+- belongs_to :products
+*ancestryは、gem ancestryを使用するため
 
-## sub2_categroryテーブル
+## credit-cardsテーブル
 
 |Column|Type|Options|
-|------|----|-------|
-|  name|string|null: false|
+|card-company|string|null: false|
+|card-number|string|null: false|
+|card-year|string|null: false|
+|card-manth|string|null: false|
+|card-pass|string|null: false|
 
 ### Association
-- belongs_to : sub1_categrory
+- belongs_to :users
 
 
 
+## addressesテーブル
 
-![image](https://user-images.githubusercontent.com/67726297/89290513-f0666380-d693-11ea-9b1f-df324a92f77c.png)
+|Column|Type|Options|
+|prefecture|string|null: false|
+|post-code|string|null: false|
+|municipality|string|null: false|
+
+## Association
+- belongs_to :users
+
+
+## brandsテーブル
+
+|Column|Type|Options|
+|name|string|null: false|
+
+## Association
+- belongs_to :products
+
+## profiesテーブル
+
+|Column|Type|Options|
+|family-name| string| null: false|
+|family-name-kana|string|null :false|
+|first-name|string|null :false|
+|first-name-kana|string|null :false|
+|birth-year|string|null :false|
+|birth-month|string|null :false|
+|birth-day|string|null :false|
+
+## Association
+- belongs_to :users
+
+
+![image](https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fi.gyazo.com%2F510cfad5435950d618167bdd2f45b13f.png)
