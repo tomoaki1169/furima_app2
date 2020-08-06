@@ -9,68 +9,68 @@
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     %header.header
-        .header__top
-          .title
-            = image_tag src = "/assets/material/logo/logo.png"
-          = form_with url: "#",class:"search" do |f|
-            .search__box
-              = f.text_field :name, placeholder: "キーワードから探す", class: "search-form"
-              %button{type: "submit", class:'search-btn'}   
-                %i.fas.fa-search.search-btn__icon　　　　　　　　　　　　　　　　 
-        .header__bottom
-          .left-box
-            .left-box__categories
-              カテゴリー
-            .left-box__brand
-              ブランド
-          .right-box
-            .right-box__login
-              ログイン
-            .right-box__new-user
-              新規会員登録
+      .header__top
+        .title
+          = image_tag src = "/assets/material/logo/logo.png"
+        = form_with url: "#",class:"search" do |f|
+          .search__box
+            = f.text_field :name, placeholder: "キーワードから探す", class: "search-form"
+            %button{type: "submit", class:'search-btn'}   
+              %i.fas.fa-search.search-btn__icon　　　　　　　　　　　　　　　　 
+      .header__bottom
+        .left-box
+          .left-box__categories
+            カテゴリー
+          .left-box__brand
+            ブランド
+        .right-box
+          .right-box__login
+            ログイン
+          .right-box__new-user
+            新規会員登録
     = yield
   %footer.footer
-      .footer__top
-        .top-contents
-          .top-contents__word
-            誰でもかんたん、人生を変えるフリマアプリ
-            %p 今すぐ無料ダウンロード！
-          .top-contents__store
-        .store
-      .footer__bottom
-        .bottom-contents
-          .bottom-contents__box
-            .box-header
-              FURIMAについて
-            %ul.box-content
-              %li.box-content__word
-                会社概要（運営会社）
-              %li.box-content__word
-                プライバシーポリシー
-              %li.box-content__word
-                FURIMA利用規約
-              %li.box-content__word
-                ポイントに関する特約
-          .bottom-contents__box
-            .box-header
-              FURIMAをみる
-            %ul.box-content
-              %li.box-content__word
-                カテゴリー一覧
-              %li.box-content__word
-                ブランド一覧
-          .bottom-contents__box
-            .box-header
-              ヘルプ＆ガイド
-            %ul.box-content
-              %li.box-content__word
-                FURIMAガイド
-              %li.box-content__word
-                FURIMAロゴ利用ガイドライン
-              %li.box-content__word
-                お知らせ
-        .bottom-items
-          .bottom-items__logo
-            logo
-          .bottom-items__word
-            ©︎FURIMA
+    .footer__top
+      .top-contents
+        .top-contents__word
+          誰でもかんたん、人生を変えるフリマアプリ
+          %p 今すぐ無料ダウンロード！
+        .top-contents__store
+      .store
+    .footer__bottom
+      .bottom-contents
+        .bottom-contents__box
+          .box-header
+            FURIMAについて
+          %ul.box-content
+            %li.box-content__word
+              会社概要（運営会社）
+            %li.box-content__word
+              プライバシーポリシー
+            %li.box-content__word
+              FURIMA利用規約
+            %li.box-content__word
+              ポイントに関する特約
+        .bottom-contents__box
+          .box-header
+            FURIMAをみる
+          %ul.box-content
+            %li.box-content__word
+              カテゴリー一覧
+            %li.box-content__word
+              ブランド一覧
+        .bottom-contents__box
+          .box-header
+            ヘルプ＆ガイド
+          %ul.box-content
+            %li.box-content__word
+              FURIMAガイド
+            %li.box-content__word
+              FURIMAロゴ利用ガイドライン
+            %li.box-content__word
+              お知らせ
+      .bottom-items
+        .bottom-items__logo
+          logo
+        .bottom-items__word
+          ©︎FURIMA
