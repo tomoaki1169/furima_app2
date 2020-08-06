@@ -6,7 +6,7 @@
   height: 110px;
   &__top {
     display: flex;
-    padding: 15px 50px;
+    padding: 15px 200px 0;
     .title img {
       width: 145px;
       background-color: white;
@@ -42,18 +42,34 @@
   &__bottom {
     display: flex;
     justify-content: space-between;
+    font-size: 14px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', YuGothic, 'Yu Gothic Medium', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
     .left-box {
       display: flex;
+      padding: 10px 0;
+      &__categories {
+        margin:0 50px 0 200px
+      }
     }
     .right-box {
       display: flex;
+      padding: 10px 0;
+      &__new-user {
+        margin: 0 200px 0 50px;
+      }
     }
-  
   }
 }
+@mixin header-item {
+  display: flex;
 
+}
 .footer {
   background-color: royalblue;
   bottom: 0;
   display: flex;
+}
+
+.example {
+  background-color: brown;
 }
