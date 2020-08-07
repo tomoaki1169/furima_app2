@@ -124,6 +124,7 @@
     background-image: url("/assets/material/pict/bg-appBanner-pict.jpg");
     height: 360px;
     background-size: cover;
+    background-position: bottom;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -142,6 +143,7 @@
       &__word p {
         font-size: 35px;
         font-weight: 400;
+        padding-left: 30px;
         a:hover {
           opacity: 0.4;
         }
@@ -202,17 +204,12 @@
       
     }
     .bottom-items {
-      flex-direction: column;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      &__logo {
-        text-align: center;
-      }
+
       &__logo {
         width: 155px;
-        
       }
       &__word {
         text-align: center;
@@ -235,10 +232,9 @@
         text-decoration: none;
         color: white;
       }
+      .footer-word:hover {
+        text-decoration: underline;
+      }
     }
   }
-}
-
-.example {
-  background-color: brown;
 }

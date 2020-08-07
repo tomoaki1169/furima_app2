@@ -1,0 +1,63 @@
+.one-box {
+  background-color: yellow;
+  position: relative;
+  height: 562px;
+  background-image: url("/assets/material/pict/bg-mainVisual-pict_pc.jpg");
+  background-size: cover;
+  background-position: bottom;
+  padding: 200px 0 0 50px;
+  &__contents {
+    text-shadow: 0 0 4px #808080;
+    color: white;
+    .top-word {
+      font-size: 60px;
+    }
+    .bottom-word {
+      font-size: 18px;
+    }
+    .bottom-word p {
+      padding: 10px 0 20px;
+    }
+    .one-store {
+      display: flex;
+      .google-play img {
+        width: 220px;
+      }
+      .apple-store img {
+        padding-top: 15px;
+        width: 170px;
+      }
+      .google-play img:hover, .apple-store img:hover {
+        opacity: 0.4;
+      }
+    }
+  }
+}
+.two-box {
+  background-color: steelblue;
+  position: relative;
+  height: 660px;
+}
+.three-box {
+  background-color: teal;
+  position: relative;
+  height: 400px;
+  background-image: url("/assets/material/pict/bg-topMiddleDl-pict.jpg");
+  background-size: cover;
+  background-position: bottom;
+}
+.four-box {
+  background-color: tomato;
+  position: relative;
+  height: 900px;
+}
+.five-box {
+  background-color: plum;
+  position: relative;
+  height: 1150px;
+}
+
+@mixin box {
+  position: relative;
+
+}
