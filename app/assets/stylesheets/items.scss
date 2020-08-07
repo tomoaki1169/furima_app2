@@ -1,19 +1,29 @@
 * {
   box-sizing: border-box;
 }
+
 .header {
   background-color: white;
   height: 110px;
+  width: 100%;
+  position: relative;
   &__top {
     display: flex;
-    padding: 15px 200px 0;
+    margin: 15px 0 0 13.7vw ;
+    padding: 15px 0 0 0;
+    width: 72%;
+    position: absolute;
     .title img {
       width: 145px;
       background-color: white;
     }
     .search {
       display: flex;
-      width: 100%;
+      width: 90%;
+      min-width: 270px;
+      max-width: 935px;
+      margin-top: 5px;
+      position: absolute;
       &__box{
         display: flex;
         width: 100%;
@@ -22,6 +32,7 @@
           height: 36px;
           margin-left: 30px;
           padding: 8px;
+          
         }
         .search-btn {
           width: 36px;
@@ -40,34 +51,105 @@
     }
   }
   &__bottom {
+    width: 72%;
     display: flex;
     justify-content: space-between;
     font-size: 14px;
     font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', YuGothic, 'Yu Gothic Medium', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+    white-space: nowrap;
     .left-box {
       display: flex;
-      padding: 10px 0;
+      padding: 0.5vw 0 0 10vw;
       &__categories {
-        margin:0 50px 0 200px
+        margin:0 50px 0 50px
       }
     }
     .right-box {
       display: flex;
-      padding: 10px 0;
+      padding: 0.5vw 3vw 0 3vw;
       &__new-user {
-        margin: 0 200px 0 50px;
+        padding: 0 50px 0 50px;
       }
     }
   }
 }
-@mixin header-item {
-  display: flex;
 
-}
 .footer {
-  background-color: royalblue;
-  bottom: 0;
-  display: flex;
+  background-color: #242424;
+  width: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', YuGothic, 'Yu Gothic Medium', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+  &__top {
+    background-image: url("/assets/material/pict/bg-appBanner-pict.jpg");
+    
+  }
+  &__bottom {
+    background-color: #242424;
+    color: white;
+    height: 355px;
+    width: 100%;
+    padding: 60px 0 0 ;
+    
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', YuGothic, 'Yu Gothic Medium', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+    .bottom-contents {
+      display: flex;
+      min-width: 80%;
+      position: relative;
+      &__left-box {
+        
+        white-space: nowrap;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        width: 15%;
+        margin: 0 10vw 0 22.5vw;
+      }
+      &__center-box {
+        position: absolute;
+        white-space: nowrap;
+        display: flex;
+        flex-direction: column;
+        width: 15%;
+        margin: 0 10vw 0 42.5vw;
+      }
+      &__right-box {
+        position: absolute;
+        white-space: nowrap;
+        display: flex;
+        flex-direction: column;
+        width: 15%;
+        margin-left: 61.5vw;
+      }
+      
+    }
+    .bottom-items {
+      flex-direction: column;
+      &__logo {
+        text-align: center;
+      }
+      &__logo img{
+        width: 155px;
+        
+      }
+      &__word {
+        text-align: center;
+        padding-left: 10px;
+      }
+    }
+  }
+  
+  .box-header {
+    font-weight: 800;
+    text-align: center;
+    margin-bottom:23px ;
+  }
+  .box-content {
+    font-size: 12px;
+    text-align: center;
+    &__word {
+      margin-bottom: 15px;
+    }
+  }
+
 }
 
 .example {
