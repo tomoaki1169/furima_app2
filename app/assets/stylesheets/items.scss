@@ -9,21 +9,19 @@
   position: relative;
   &__top {
     display: flex;
-    margin: 15px 0 0 13.7vw ;
-    padding: 15px 0 0 0;
-    width: 72%;
+    margin-top: 15px;
+    padding-left: 13.7vw;
     position: absolute;
+    width: 100%;
     .title img {
       width: 145px;
       background-color: white;
     }
     .search {
       display: flex;
-      width: 90%;
-      min-width: 270px;
-      max-width: 935px;
-      margin-top: 5px;
+      padding: 5px 0 0 145px;
       position: absolute;
+      width: 73.2%;
       &__box{
         display: flex;
         width: 100%;
@@ -51,24 +49,25 @@
     }
   }
   &__bottom {
-    width: 72%;
+    width: 87%;
     display: flex;
     justify-content: space-between;
     font-size: 14px;
     font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', YuGothic, 'Yu Gothic Medium', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
     white-space: nowrap;
+    padding-top: 65px;
     .left-box {
       display: flex;
-      padding: 0.5vw 0 0 10vw;
-      &__categories {
-        margin:0 50px 0 50px
+      padding: 5px 0 0 13.5vw;
+      &__brand {
+        padding:0 15px 0 50px;
       }
     }
     .right-box {
       display: flex;
-      padding: 0.5vw 3vw 0 3vw;
-      &__new-user {
-        padding: 0 50px 0 50px;
+      padding: 5px 0 15px 3vw;
+      &__login {
+        padding-right: 15px;
       }
     }
   }
