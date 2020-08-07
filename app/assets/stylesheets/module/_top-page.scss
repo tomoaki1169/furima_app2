@@ -1,5 +1,9 @@
+@mixin white-word {
+  color: white;
+  text-shadow: 0 0 4px #808080;
+}
+
 .one-box {
-  background-color: yellow;
   position: relative;
   height: 562px;
   background-image: url("/assets/material/pict/bg-mainVisual-pict_pc.jpg");
@@ -7,29 +11,15 @@
   background-position: bottom;
   padding: 200px 0 0 50px;
   &__contents {
-    text-shadow: 0 0 4px #808080;
-    color: white;
-    .top-word {
+    @include white-word;
+    .one-top {
       font-size: 60px;
     }
-    .bottom-word {
+    .one-bottom {
       font-size: 18px;
     }
     .bottom-word p {
       padding: 10px 0 20px;
-    }
-    .one-store {
-      display: flex;
-      .google-play img {
-        width: 220px;
-      }
-      .apple-store img {
-        padding-top: 15px;
-        width: 170px;
-      }
-      .google-play img:hover, .apple-store img:hover {
-        opacity: 0.4;
-      }
     }
   }
 }
@@ -39,12 +29,22 @@
   height: 660px;
 }
 .three-box {
-  background-color: teal;
   position: relative;
   height: 400px;
   background-image: url("/assets/material/pict/bg-topMiddleDl-pict.jpg");
   background-size: cover;
   background-position: bottom;
+  padding: 120px 0  0 13vw;
+  &__contents {
+    @include white-word;
+    .three-top {
+      font-size: 25px;
+      font-weight: 550;
+    }
+    .three-bottom {
+      font-size: 17px;
+    }
+  }
 }
 .four-box {
   background-color: tomato;
@@ -61,3 +61,18 @@
   position: relative;
 
 }
+
+.store {
+  display: flex;
+  .google-play img {
+    width: 220px;
+  }
+  .apple-store img {
+    padding-top: 15px;
+    width: 170px;
+  }
+  .google-play img:hover, .apple-store img:hover {
+    opacity: 0.4;
+  }
+}
+
