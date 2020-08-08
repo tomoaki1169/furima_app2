@@ -24,6 +24,25 @@
     }
   }
 }
+@mixin number($left: 0) {
+  position: absolute;
+  top: 0;
+  left: $left;
+  width: 55px;
+  height: 55px;
+  font-size: 30px;
+  background-color: #3ccccc;
+  margin: auto;
+  color: white;
+  padding: 10px 20px;
+}
+@mixin image {
+  width: 310px;
+  height: 310px;
+  object-fit: contain;
+  position: relative;
+}
+
 .two-box {
   position: relative;
   height: 660px;
@@ -46,34 +65,24 @@
       position: absolute;
       padding: 15px 0 0 46.5vw;
     }
-    
   }
   &__bottom {
     display: flex;
     padding: 0 9vw;
-    .two-contents {
+    .bottom-contents {
       margin: 0 3vw;
       position: relative;
       display: flex;
       flex-direction: column;
       align-items: center;
       &__image img{
-        width: 21vw;
-        height: 21vw;
-        object-fit: contain;
-        position: relative;
+       @include image;
       }
       .image-number {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 55px;
-        height: 55px;
-        font-size: 30px;
-        background-color: #3ccccc;
-        margin: auto;
-        color: white;
-        padding: 10px 20px;
+        @include number;
+      }
+      .image-number2 {
+        @include number(7px);
       }
       &__middle {
         font-size: 25px;
@@ -109,20 +118,93 @@
   }
 }
 .four-box {
-  background-color: tomato;
   position: relative;
-  height: 900px;
+  height: 750px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', YuGothic, 'Yu Gothic Medium', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+  &__top {
+    width: 100%;
+    height: 150px;
+    position: relative;
+    padding: 60px 40px;
+    .top-text {
+      position: absolute;
+      font-size: 30px;
+      font-weight: 700;
+      padding-left: 43vw;
+    }
+    .top-under {
+      color: #3ccccc;
+      font-weight: bold;
+      font-size: 35px;
+      position: absolute;
+      padding: 20px 0 0 48vw;
+    }
+  }
+  &__bottom {
+    display: flex;
+    padding: 0 9vw;
+    .bottom-contents {
+      margin: 0 3vw;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      &__image img{
+       @include image;
+      }
+      .image-number {
+        @include number;
+      }
+      .image-number2 {
+        @include number(7px);
+      }
+      &__middle {
+        font-size: 20px;
+        font-weight: 600;
+        margin: 40px 0 20px 0;
+      }
+      &__bottom {
+        font-size: 17px;
+      }
+      span {
+        color: #3ccccc;
+      }
+    }
+  }
+}
+@mixin pickup {
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  padding: 60px 80px;
+  width: 100%;
+  height: 50%;
+  p {
+    color: #3ccccc;
+  }
+  
 }
 .five-box {
-  background-color: plum;
+  background-color: #fcfcfc;
   position: relative;
   height: 1150px;
-}
-
-@mixin box {
   position: relative;
-
+  &__category {
+    @include pickup;
+    .pickup-items {
+      background-color: white;
+      height: 17vw;
+    }
+  }
+  &__brand {
+    @include pickup;
+    .pickup-items {
+      background-color: white;
+      height: 17vw;
+    }
+  }
 }
+
 
 .store {
   display: flex;
