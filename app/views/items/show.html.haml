@@ -6,13 +6,13 @@
         .item-box__image-box
           %ul.main-image
             %li
-              %img{ src: "#", alt: "商品画像1" }
+              　= img_tag src: "#", alt: "商品画像1" 
           .image-list
             %ul.lists
               %li.images
-                %img{ src: "#", alt: "商品画像2" }
+                = img_tag src: "#", alt: "商品画像2" 
               %li.images
-                %img{ src: "#", alt: "商品画像3" }
+                = img_tag src: "#", alt: "商品画像3" 
       .item-box__price
         %span ¥1000
       .item-box__price-detail
@@ -53,21 +53,21 @@
             %td 1-2日で配送
     %ul.links
       %li
-        %a{:href => "#"}
-          %i.fa.fa-angle-left
+        = link_to "#" do
+          = icon(fa, fa-angle-left)
           %span
           前の商品
       %li
-        %a{:href => "#"}
+        = link_to "#" do
           %span 後ろの商品
-          %i.fa.fa-angle-right
+          = icon(fa, fa-angle-right)
     .related-items
       =link_to "ベビー・キッズをもっと見る", "#", class: "more"
     .items-lists
       .item-list
-        %a{:href => "#"}
+        = link_to "#", class: "item-list-button" do
           %figure.item-list__image
-            %img{ src: "#", alt: "商品リスト画像" }
+            %img_tag{ src: "#", alt: "商品リスト画像" }
           .item-list__body
             %h3.item-list__name 商品リスト商品名
             .item-list__details
