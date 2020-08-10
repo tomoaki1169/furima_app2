@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 2020_08_07_073234) do
     t.string "data"
     t.string "area"
     t.string "introduction"
+    t.string "sale_status"
     t.bigint "user_id"
     t.bigint "brand_id"
     t.bigint "category_id"
