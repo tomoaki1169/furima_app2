@@ -67,6 +67,3 @@ class Item < ApplicationRecord
 
 end
 
-# @item.update(deal: "urikire")
-
-# - if @item.sell == "urikire"
