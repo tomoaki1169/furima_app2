@@ -1,10 +1,10 @@
 class ApplicationController < ActionController::Base
-  before_action :basic_auth, if: :ion?
+  before_action :basic_auth, if: :production?
 
   private
   
-  def ion?
-    Rails.env.ion?
+  def production?
+    Rails.env.production?
   end
 
   def basic_auth

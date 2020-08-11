@@ -33,7 +33,7 @@ Things you may want to cover:
 |--------|------|-------|
 |    name|string|null: false|
 |   price|string|null: false|
-|derivery_fee|string|null:false|
+|derivervy_fee|string|null:false|
 |    size|string|null: false|
 |  status|string|null: false|
 |    date|string|null: false|
@@ -41,7 +41,7 @@ Things you may want to cover:
 |   introduction|string|null: false|
 |user_id|string|null:false ,forign_key:true|
 |brand_id|string|null:false,forign_key:true|
-|category_id|string|null:false,foreign_key:true|
+|category_id|string|null:false,forign_key:true|
 
 
 * Database initialization
@@ -71,7 +71,7 @@ Things you may want to cover:
 |card_year|string|null: false|
 |card_manth|string|null: false|
 |card_pass|string|null: false|
-|user_id|string|null:false ,foreign_key:true|
+|user_id|string|null:false ,forign_key:true|
 
 ### Association
 - belongs_to :user
@@ -84,7 +84,7 @@ Things you may want to cover:
 |prefecture|string|null: false|
 |post_code|string|null: false|
 |municipality|string|null: false|
-|user_id|string|null:false ,foreign_key:true|
+|user_id|string|null:false ,forign_key:true|
 ｜jp_prefecture｜string|       |
 
 ## Association
@@ -112,7 +112,7 @@ Things you may want to cover:
 |birth_year|string|null :false|
 |birth_month|string|null :false|
 |birth_day|string|null :false|
-|user_id|string|null:false ,foreign_key:true|
+|user_id|string|null:false ,forign_key:true|
 
 ## Association
 - belongs_to :user
