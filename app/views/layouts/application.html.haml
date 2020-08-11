@@ -1,16 +1,6 @@
 !!!
 %html
   %head
-
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title FurimaApp
-    = csrf_meta_tags
-    = csp_meta_tag
-    = stylesheet_link_tag 'application', media: 'all'
-    = javascript_include_tag 'application'
-  %body
-    = yield
-
     %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
     %title FurimaApp
     = csrf_meta_tags
@@ -22,4 +12,3 @@
     = yield
     = render 'contents/add-items'
     = render 'contents/footer'
-
