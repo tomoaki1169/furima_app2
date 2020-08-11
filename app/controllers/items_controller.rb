@@ -37,7 +37,7 @@ class ItemsController < ApplicationController
     if @item.destroy
       redirect_to root_path
     else
-      render :updata
+      render :edit
     end
 
   end
