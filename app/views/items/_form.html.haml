@@ -5,7 +5,8 @@
       %ul
         - item.errors.full_messages.each do |message|
           %li= message
-          
+  #image-box
+    #previews
   .sellupload
     .form-group
     %label.main-block__label 出品画像
@@ -13,6 +14,22 @@
     %br
     %p.sell_upload__text
       最大まで10枚までアップロードできます
+    - if @item.persisted?
+      - @item.images.each_with_index do |image, i|
+        = image_tag image.image.url, data: { index: i }, width: "100", height: '100'
+    = f.fields_for :images do |image|
+      .js-file_group{"data-index" => "#{image.index}"}
+        = image.file_field :image, class: 'js-file'
+        %br/
+        %span.js-remove 削除
+      - if @item.persisted?
+        = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+    - if @item.persisted?
+      .js-file_group{"data-index" => "#{@item.images.count}"}
+        = file_field_tag :image, name: "item[images_attributes][#{@item.images.count}][image]", class: 'js-file'
+        .js-remove 削除
+        =f.submit
+
   .sell_content
     .form-group
       %label.main-block__label 商品名
@@ -31,6 +48,7 @@
         .form-first
           %label.mainblock__label カテゴリー
           %span.form-require.main-block__name  必須
+          = f.collection_select :catrgory, Item.categories, :second, :first
         .sell_form_box__tab.sell_detail
           .select-wrap
             -# カテゴリーのenum
