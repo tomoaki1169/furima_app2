@@ -1,23 +1,55 @@
-%h1 Listing users
-
-%table
-  %thead
-    %tr
-      %th Name
-      %th Public uid
-      %th
-      %th
-      %th
-
-  %tbody
-    - @users.each do |user|
-      %tr
-        %td= user.name
-        %td= user.public_uid
-        %td= link_to 'Show', user
-        %td= link_to 'Edit', edit_user_path(user)
-        %td= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }
-
-%br
-
-= link_to 'New User', new_user_path
+.toppage
+  .mypage-nav
+    %ul.mypage-nav__list
+      %li.list-mypage
+        .word マイページ
+        %i.fas.fa-angle-right.right-icon
+      %li.list-todo
+        .word やることリスト
+        %i.fas.fa-angle-right.right-icon
+      %li.list-sell
+        .word 出品する
+        %i.fas.fa-angle-right.right-icon
+      %li.list-sold
+        .word 出品した商品
+        %i.fas.fa-angle-right.right-icon
+      %li.list-bought
+        .word 購入した商品
+        %i.fas.fa-angle-right.right-icon
+      %li.list-guide
+        .word ガイド
+        %i.fas.fa-angle-right.right-icon
+      %li.list-inquiry
+        .word お問い合わせ
+        %i.fas.fa-angle-right.right-icon
+    %h3 設定
+    %ul.mypage-nav__list
+      %li.list-profile
+        .word プロフィール
+        %i.fas.fa-angle-right.right-icon
+      %li.list-payment
+        .word お支払い方法
+        %i.fas.fa-angle-right.right-icon
+      %li.list-adress
+        .word 発送元・お届け先住所変更
+        %i.fas.fa-angle-right.right-icon
+      %li.list-personal
+        .word 本人情報
+        %i.fas.fa-angle-right.right-icon
+      %li.list-logout
+        .word ログアウト
+        %i.fas.fa-angle-right.right-icon
+  .mypage-main
+    .information
+      .information__user-name
+        name
+      .information__sell-number
+        number
+    .tab
+      %ul.tab__todo
+        やることリスト
+        %li.tab__todo-list
+          ○○日までに発送
+          
+        %li.tab__todo-list
+          ○○日までに発送
