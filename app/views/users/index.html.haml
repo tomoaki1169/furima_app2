@@ -40,14 +40,24 @@
         .word ログアウト
         %i.fas.fa-angle-right.right-icon
   .mypage-main
-    .information
-      .information__user-name
-        name
-      .information__sell-number
-        number
-    .tab やることリスト
-    %ul.tob-box
-      %li.tab-box__list
-        ○○日までに発送
-      %li.tab-box__list
-        ○○日までに発送
+    .mypage-main__user
+      .information
+        .information__user-name
+          名前
+        .information__sell
+          .sell-word
+            出品数 
+          .sell-number 
+            1
+    .mypage-main__tab 
+      %ul.tab-box
+        .tab-box__word
+          やることリスト
+        %li.tab-box__list
+          .list-word
+            ○○日までに発送
+          %i.fas.fa-angle-right.right1-icon
+        %li.tab-box__list
+          .list-word
+            ○○日までに発送
+          %i.fas.fa-angle-right.right1-icon

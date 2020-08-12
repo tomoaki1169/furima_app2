@@ -1,28 +1,28 @@
+@mixin list($color) {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+  font-size: 14px;
+  color: #343434;
+  background-color: white;
+  border-bottom: $color 1px solid;
+}
+
 .mypage {
-  background-color: #fcfcfc;
+  background-color: #f4f4f4;
   display: flex;
   padding: 24px 8vw 24px 12.6vw;
   .mypage-nav {
-    background-color: rebeccapurple;
     margin-left: 28px;
     width: 400px;
     ul {
       li {
-        background-color: white;
-        display: flex;
-        justify-content: space-between;
-        border-bottom: #ececec 1px solid;
         height: 50px;
-        align-items: center;
-        padding: 0 10px;
-        font-size: 14px;
-        color: #343434;
+        @include list(#ececec);
         .right-icon {
           font-size: 20px;
           color: #cecece;
-        }
-        .right1-icon {
-          font-size: 20px;
         }
       }
       .list-mypage {
@@ -34,25 +34,53 @@
       }
     }
     h3 {
-      background-color: #fcfcfc;
+      background-color: #f4f4f4;
       padding-top: 40px;
       font-weight: 700;
     }
   }
+  .right1-icon {
+    font-size: 20px;
+  }
   .mypage-main {
-    background-color: red;
     margin-left: 24px;
     width: 100%;
-    .information {
-      height: 200px;
-      background-color: royalblue;
+    color: #343434;
+    font-size: 14px;
+    &__user {
+      .information {
+        height: 200px;
+        background-image: image-url("material/photo.jpg");
+        background-size: cover;
+        text-align: center;
+        padding-top: 90px;
+        &__user-name, .sell-number {
+          font-weight: bold;
+          margin-left: 10px;
+        }
+        &__sell {
+          display: flex;
+          justify-content: center;
+          margin-top: 10px;
+        }
+      }
     }
-    .tab {
-      background-color: seagreen;
-      height: 100px;
-    }
-    .tab-box {
-      background-color: tan;
+    &__tab {
+      .tab-box {
+        background-color: white;
+        &__word {
+          height: 75px;
+          text-align: center;
+          padding-top: 25px;
+          font-size: 17px;
+          font-weight: bold;
+          border-top: #3ccccc 1.5px solid;
+        }
+        &__list {
+          height: 85px;
+          @include list(#f4f4f4);
+        }
+      }
     }
   }
 }
