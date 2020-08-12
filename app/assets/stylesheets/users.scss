@@ -17,14 +17,24 @@
     margin-left: 28px;
     width: 400px;
     ul {
-      li {
-        height: 50px;
-        @include list(#ececec);
-        .right-icon {
-          font-size: 20px;
-          color: #cecece;
+        .nav-list {
+          @include list(#ececec);
+          height: 50px;
+          text-decoration: none;
+          cursor: pointer;
+          .right-icon {
+            font-size: 20px;
+            color: #cecece;
+          }
         }
-      }
+        .nav-list:hover {
+          background-color: #fcfcfc;
+          .right-icon, .right1-icon {
+            transform: translateX(.15em);
+            transition: .25s;
+            color: #343434;
+          }
+        }
       .list-mypage {
         background-color: #ececec;
         font-weight: 600;
