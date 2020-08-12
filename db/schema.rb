@@ -30,9 +30,10 @@ ActiveRecord::Schema.define(version: 2020_08_07_073234) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
     t.string "name", null: false
-    t.string "ancesty"
+    t.string "ancestry"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["ancestry"], name: "index_categories_on_ancestry"
   end
 
   create_table "credit_cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
@@ -55,18 +56,18 @@ ActiveRecord::Schema.define(version: 2020_08_07_073234) do
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
-    t.string "name"
-    t.integer "price"
-    t.string "derivery_fee"
-    t.string "size"
-    t.string "status"
-    t.string "data"
+    t.string "name", null: false
+    t.integer "price", null: false
+    t.string "derivery_fee", null: false
+    t.string "size", null: false
+    t.string "status", null: false
+    t.string "data", null: false
     t.string "area"
-    t.string "introduction"
+    t.integer "introduction", null: false
     t.string "sale_status"
-    t.bigint "user_id"
-    t.bigint "brand_id"
-    t.bigint "category_id"
+    t.bigint "user_id", null: false
+    t.bigint "brand_id", null: false
+    t.bigint "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["brand_id"], name: "index_items_on_brand_id"
@@ -97,5 +98,8 @@ ActiveRecord::Schema.define(version: 2020_08_07_073234) do
 
   add_foreign_key "adresses", "users"
   add_foreign_key "credit_cards", "users"
+  add_foreign_key "items", "brands"
+  add_foreign_key "items", "categories"
+  add_foreign_key "items", "users"
   add_foreign_key "profiles", "users"
 end

@@ -1,146 +1,148 @@
-= form_with model: @item, local:true do |f|
-  - if @item.errors.any?
-    .SettingGroupForm__errors
-      %h2= "#{item.errors.full_messages.count}件のエラーが発生しました。"
-      %ul
-        - item.errors.full_messages.each do |message|
-          %li= message
-  #image-box
-    #previews
-    .sellupload
-      .form-group
-      %label.main-block__label 出品画像
-      %span.form-require.main-block__name 必須
-      %br
-      %p.sell_upload__text
-        最大まで10枚までアップロードできます
-      - if @item.persisted?
-        - @item.images.each_with_index do |image, i|
-          = image_tag image.image.url, data: { index: i }, width: "100", height: '100'
-      = f.fields_for :images do |image|
-        .js-file_group{"data-index" => "#{image.index}"}
-          = image.file_field :image, class: 'js-file'
-          %br/
-          %span.js-remove 削除
+.main_wrapper
+  = form_with model: @item, local:true do |f|
+    - if @item.errors.any?
+      .SettingGroupForm__errors
+        %h2= "#{item.errors.full_messages.count}件のエラーが発生しました。"
+        %ul
+          - item.errors.full_messages.each do |message|
+            %li= message
+    #image-box
+      #previews
+      .sellupload
+        .form-group
+        %label.main-block__label 出品画像
+        %span.form-require.main-block__name 必須
+        %br
+        %p.sell_upload__text
+          最大まで10枚までアップロードできます
         - if @item.persisted?
-          = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
-      - if @item.persisted?
-        .js-file_group{"data-index" => "#{@item.images.count}"}
-          = file_field_tag :image, name: "item[images_attributes][#{@item.images.count}][image]", class: 'js-file'
-          .js-remove 削除
-          =f.submit
+          - @item.images.each_with_index do |image, i|
+            = image_tag image.image.url, data: { index: i }, width: "100", height: '100'
+        = f.fields_for :images do |image|
+          .js-file_group{"data-index" => "#{image.index}"}
+            = image.file_field :image, class: 'js-file'
+            %br/
+            %span.js-remove 削除
+          - if @item.persisted?
+            = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+          - if @item.persisted?
+            .js-file_group{"data-index" => "#{@item.images.count}"}
+              = file_field_tag :image, name: "item[images_attributes][#{@item.images.count}][image]", class: 'js-file'
+              .js-remove 削除
 
-  .sell_content
-    .form-group
-      %label.main-block__label 商品名
-      %span.form-require.main-block__name 必須
-      =f.text_field :name,class:'sell_center', placeholder:"商品名(必須 40文字まで)"
+    .sell_content
+      .form-group
+        %label.main-block__label 商品名
+        %span.form-require.main-block__name 必須
+        =f.text_field :name,class:'sell_center', placeholder:"商品名(必須 40文字まで)"
 
-    .form-group
-      %label.main-block__label 商品の説明
-      %span.form-require.main-block__name 必須
-      %br
-      = f.text_field :introduction, class: 'textarea_default', placeholder: "商品の説明(必須 1,000文字以内) (色、素材、重さ、定価、注意点など)"
-
-    .sell_content.clearfix
-      %h3.sell_form_box
-      .sell_form_box
-        .form-first
-          %label.mainblock__label カテゴリー
-          %span.form-require.main-block__name  必須
-          = f.collection_select :catrgory, Item.categories, :second, :first
-        .sell_form_box__tab.sell_detail
-          .select-wrap
-            -# カテゴリーのenum
-
-
-        .sell_space
-        .form-first
-          %label.main-block__label サイズ
-          %span.form-require.main-block__name 必須
-        .sell_form_box__tab
-          .select-wrap
-            = f.collection_select :size, Item.sizes, :second, :first
-
-        .sell_space
-        .form-first
-          %label.main-block__label ブランド
-          %span.form-arbitray.main-block__name 任意
-        .sell_form_box__tab
-          .select-wrap
-            = f.text_field :brand ,class: 'select-default', placeholder:"例) シャネル"
-
-        .sell_space
-        .form-first
-          %label.main-block__label 商品の状態
-          %span.form-require.main-block__name 必須
-        .sell_form_box__tab
-          .select-wrap
-            = f.collection_select :status, Item.statuses, :second, :first
+      .form-group
+        %label.main-block__label 商品の説明
+        %span.form-require.main-block__name 必須
+        %br
+        = f.text_field :introduction, class: 'textarea_default', placeholder: "商品の説明(必須 1,000文字以内) (色、素材、重さ、定価、注意点など)"
 
       .sell_content.clearfix
-        %h3.sell_sub
-          配送について
+        %h3.sell_form_box
+        .sell_form_box
+          .form-first
+            %label.mainblock__label カテゴリー
+            %span.form-require.main-block__name  必須
+            = f.select :category, Item.categories.keys, {include_blank: "選択してください"}
+            -# - @parents.each do |parent|
+            -#   =parent.name
+            -#     - parent.children.each do |child|
+            -#       =child.name
+            -#         - child.children.each do |grandchild|
+            -#           =grandchild.name
 
-          .sell_form_box
-            .sell_space
-            .form-first
-              %label.main-block__label 配送料の負担
-              %span.form-require.main-block__name 必須
-            .sell_form_box__tab
-              .select-wrap
-                = f.collection_select :derivery_fee, Item.derivery_fees, :second, :first
 
+          .sell_space
+          .form-first
+            %label.main-block__label サイズ
+            %span.form-require.main-block__name 必須
+          .sell_form_box__tab
+            .select-wrap
+              = f.select :size, Item.sizes.keys, {include_blank: "選択してください"}
+          .sell_space
+          .form-first
+            %label.main-block__label ブランド
+            %span.form-arbitray.main-block__name 任意
+          .sell_form_box__tab
+            .select-wrap
+              = f.text_field :brand ,class: 'select-default', placeholder:"例) シャネル"
+
+          .sell_space
+          .form-first
+            %label.main-block__label 商品の状態
+            %span.form-require.main-block__name 必須
+          .sell_form_box__tab
+            .select-wrap
+              = f.select :status, Item.statuses.keys, {include_blank: "選択してください"}
+
+        .sell_content.clearfix
+          %h3.sell_sub
+            配送について
+
+            .sell_form_box
               .sell_space
               .form-first
-                %label.main-block__label 発送元の地域
+                %label.main-block__label 配送料の負担
                 %span.form-require.main-block__name 必須
               .sell_form_box__tab
                 .select-wrap
-                  -# 都道府県のメニュバー記載
+                  = f.select :derivery_fee, Item.derivery_fees.keys, {include_blank: "選択してください"}
 
-              .sell_space
-              .form-first
-                %label.main-block__label 発送までの日数
-                %span.form-require.main-block__name 必須
-              .sell_form_box__tab
-                .select-wrap
-                  = f.collection_select :data, Item.data, :second, :first
+                .sell_space
+                .form-first
+                  %label.main-block__label 発送元の地域
+                  %span.form-require.main-block__name 必須
+                .sell_form_box__tab
+                  .select-wrap
+                    -# 都道府県のメニュバー記載
+
+                .sell_space
+                .form-first
+                  %label.main-block__label 発送までの日数
+                  %span.form-require.main-block__name 必須
+                .sell_form_box__tab
+                  .select-wrap
+                    = f.select :data, Item.data.keys, {include_blank: "選択してください"}
 
 
-            .sell_content.clearfix
-              %h3.sell_sub
-                販売価格(300~9,999,999)
+              .sell_content.clearfix
+                %h3.sell_sub
+                  販売価格(300~9,999,999)
 
-              .sell_form_box
-                %ul.sell_price
-                  %li.form-group
-                    .cleafix
-                      %label.main-block__label.l-left 価格
-                      %span.form-require.main-block__name 必須
-                      %span ¥
-                      .l-right.sell-price-input
-                        .l-mark
-                        = f.number_field :price, id: 'sell_center', placeholder: "例）300"
-                      -# = f.field_for :trading do |n|
-                        = n.hidden_field :status, value: 1
-                        = n.hidden_field :user_id, value: 1
+                .sell_form_box
+                  %ul.sell_price
+                    %li.form-group
+                      .cleafix
+                        %label.main-block__label.l-left 価格
+                        %span.form-require.main-block__name 必須
+                        %span ¥
+                        .l-right.sell-price-input
+                          .l-mark
+                          = f.number_field :price, id: 'sell_center', placeholder: "例）300"
+                            -# = f.fields_for :trading do |n|
+                            -#   = n.hidden_field :status, value: 1
+                            -#   = n.hidden_field :user_id, value: 1
 
-                  %li.clearfix
-                    .l-left
-                      販売手数料 (10%)
-                    .l-right.sales-commision -
-                  %li.clearfix.bold
-                    .l-left
-                      販売利益
-                    .l-right.sales-profit -
+                    %li.clearfix
+                      .l-left
+                        販売手数料 (10%)
+                      .l-right.sales-commision -
+                    %li.clearfix.bold
+                      .l-left
+                        販売利益
+                      .l-right.sales-profit -
 
-            .sell_content.clearfix.sell-btn-box
-              .sell_content__text
-                %p 禁止されている出品、行為を必ずご確認ください。
-                %p またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。
-                %p また、出品をもちまして加盟店規約に同意したことになります。
-                = f.submit '出品する', class: 'profile_chapter__btn', id: 'submit'
-                .btn-gray
-                  =link_to '' do
-                    もどる
+              .sell_content.clearfix.sell-btn-box
+                .sell_content__text
+                  %p 禁止されている出品、行為を必ずご確認ください。
+                  %p またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。
+                  %p また、出品をもちまして加盟店規約に同意したことになります。
+                  = f.submit '出品する', class: 'profile_chapter__btn', id: 'submit'
+                  .btn-gray
+                    =link_to '#' do
+                      もどる
