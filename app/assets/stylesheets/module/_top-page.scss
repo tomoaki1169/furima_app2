@@ -6,7 +6,7 @@
 .one-box {
   position: relative;
   height: 562px;
-  background-image: url("/assets/material/pict/bg-mainVisual-pict_pc.jpg");
+  background-image: image-url("material/pict/bg-mainVisual-pict_pc.jpg");
   background-size: cover;
   background-position: bottom;
   padding: 200px 0 0 50px;
@@ -101,7 +101,7 @@
 .three-box {
   position: relative;
   height: 400px;
-  background-image: url("/assets/material/pict/bg-topMiddleDl-pict.jpg");
+  background-image: image-url("material/pict/bg-topMiddleDl-pict.jpg");
   background-size: cover;
   background-position: bottom;
   padding: 120px 0  0 13vw;

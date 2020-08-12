@@ -7,9 +7,11 @@
       %p フリマアプリです
     .store
       .apple-store
-        = link_to image_tag(src="/assets/badge/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg", class: "apple-store__icon"), "#"
+        = link_to "#" do
+          = image_tag("badge/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg", class: "apple-store__icon")
       .google-play
-        = link_to image_tag(src="/assets/badge/google-play-badge.png", class: "google-play__icon"), "#"
+        = link_to "#" do
+          = image_tag("badge/google-play-badge.png", class: "google-play__icon")
 .two-box
   .two-box__top
     .top-text
@@ -19,7 +21,7 @@
   .two-box__bottom
     .bottom-contents
       .bottom-contents__image
-        %img{src:"/assets/material/pict/pict-reason-01.jpg"}
+        = image_tag("material/pict/pict-reason-01.jpg")
         .image-number
           1
       .bottom-contents__middle
@@ -29,7 +31,7 @@
         スマホで入力するだけでかんたんに出品できる！
     .bottom-contents
       .bottom-contents__image
-        %img{src:"/assets/material/pict/pict-reason-02.jpg"}
+        = image_tag("material/pict/pict-reason-02.jpg")
         .image-number2
           2
       .bottom-contents__middle
@@ -39,7 +41,7 @@
         めんどくさい入力は必要なく、検索も購入もスムーズ！
     .bottom-contents
       .bottom-contents__image
-        %img{src:"/assets/material/pict/pict-reason-03.jpg"}
+        = image_tag("material/pict/pict-reason-03.jpg")
         .image-number
           3
       .bottom-contents__middle
@@ -57,9 +59,11 @@
       %p 欲しかったあの商品に出会えるかもしれません。
     .store
       .apple-store
-        = link_to image_tag(src="/assets/badge/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg", class: "apple-store__icon"), "#"
+        = link_to "#" do
+          = image_tag("badge/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg", class: "apple-store__icon")
       .google-play
-        = link_to image_tag(src="/assets/badge/google-play-badge.png", class: "google-play__icon"), "#"
+        = link_to "#" do
+          = image_tag("badge/google-play-badge.png", class: "google-play__icon")
 .four-box
   .four-box__top
     .top-text
@@ -69,21 +73,21 @@
   .four-box__bottom
     .bottom-contents
       .bottom-contents__image
-        %img{src:"/assets/material/icon/icon-01.png"}
+        = image_tag("material/icon/icon-01.png")
       .bottom-contents__middle
         簡単に売り買いできる
       .bottom-contents__bottom
         スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
     .bottom-contents
       .bottom-contents__image
-        %img{src:"/assets/material/icon/icon-03.png"}
+        = image_tag("material/icon/icon-03.png")
       .bottom-contents__middle
         売上金は即日振込みに対応
       .bottom-contents__bottom
         午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
     .bottom-contents
       .bottom-contents__image
-        %img{src:"/assets/material/icon/icon-02.png"}
+        = image_tag("material/icon/icon-02.png")
       .bottom-contents__middle
         様々な支払いに対応
       .bottom-contents__bottom

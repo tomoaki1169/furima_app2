@@ -6,9 +6,11 @@
         %p 今すぐ無料ダウンロード！
       .top-contents__store
         .apple-store
-          = link_to image_tag(src="/assets/badge/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg", class: "apple-store__icon"), "#"
+          = link_to "#" do
+            = image_tag("badge/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg", class: "apple-store__icon")
         .google-play
-          = link_to image_tag(src="/assets/badge/google-play-badge.png", class: "google-play__icon"), "#"
+          = link_to "#" do
+            = image_tag("badge/google-play-badge.png", class: "google-play__icon")
   .footer__bottom
     .bottom-contents
       .bottom-contents__left-box
@@ -51,6 +53,7 @@
             =link_to "#", class:"footer-word" do
               お知らせ
     .bottom-items
-      = link_to image_tag(src="/assets/material/logo/logo-white.png",class: "bottom-items__logo"), "/"
+      = link_to root_path do
+        =image_tag(src="/assets/material/logo/logo-white.png",class: "bottom-items__logo")
       .bottom-items__word
         ©︎FURIMA
