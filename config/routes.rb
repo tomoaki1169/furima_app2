@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  get 'credit_card/new'
-  get 'credit_card/show'
+  get 'credit_cards/new'
+  get 'credit_cards/show'
+  resources :credit_cards, only:[:new, :show]
   root 'items#index'
   resources :users 
     

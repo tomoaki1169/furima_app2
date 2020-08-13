@@ -43,8 +43,9 @@
             %i.fas.fa-question-circle.number-help__icon
             .number-help__title
               カード裏面の番号とは？
-          #card_token.credit-form__submitfield
-            = link_to credit_card_show_path, class:"credits-submit" do
-              追加する
-          =link_to credit_card_show_path , class:"back-btn" do
+          = link_to credit_cards_show_path, id:"card_token", class:"credit-form__submitfield" do
+            .credits-submit
+              .credits-submit__word
+                追加する
+          =link_to credit_cards_show_path , class:"back-btn" do
             もどる
