@@ -1,0 +1,34 @@
+.mypage
+  = render "users/mypage-nav"
+  .mypage-main
+    .mypage-main__payment
+      .mypage-title
+        支払い方法
+      .payment-box
+        .payment-contents
+          .card-content
+            .card-content__information
+              .info-word
+                クレジットカード
+              .info-content
+                .info-content__number
+                  ************1234
+                .info-content__deadline
+                  .deadline-word
+                    有効期限
+                  .deadline-date
+                    08 / 20
+                .info-content__brand
+                  image
+            .card-content__delete
+              .delete-word
+                削除する
+          = link_to credit_card_new_path, class: "card-register" do
+            %i.fas.fa-plus-circle.card-register__icon
+            .card-register__word
+              新規カードを登録する
+        .payment-help
+          = link_to "#", class: "payment-help__box" do
+            .payment-way
+              支払い方法について
+            %i.fas.fa-angle-right.payment-icon

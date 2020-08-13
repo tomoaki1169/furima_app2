@@ -1,97 +1,19 @@
-@mixin list($color) {
+@mixin card-link {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 10px;
-  font-size: 14px;
-  color: #343434;
-  background-color: white;
-  border-bottom: $color 1px solid;
+  text-decoration: none;
+  color: #f0342c;
 }
-
+@mixin form($width) {
+  width: $width;
+  height: 45px;
+  border: #cecece 1px solid;
+  border-radius: 3px;
+  padding: 10px 15px;
+  margin: 15px 0 0 0;
+  font-size: 16px;
+}
 .mypage {
-  background-color: #f4f4f4;
-  display: flex;
-  padding: 24px 8vw 24px 12.6vw;
-  .mypage-nav {
-    margin-left: 28px;
-    width: 400px;
-    ul {
-        .nav-list {
-          @include list(#ececec);
-          height: 50px;
-          text-decoration: none;
-          cursor: pointer;
-          .right-icon {
-            font-size: 20px;
-            color: #cecece;
-          }
-        }
-        .nav-list:hover {
-          background-color: #fcfcfc;
-          .right-icon, .right1-icon {
-            transform: translateX(.15em);
-            transition: .25s;
-            color: #343434;
-          }
-        }
-      .list-mypage {
-        background-color: #ececec;
-        font-weight: 600;
-      }
-      .list-logout, .list-inquiry {
-        border: none;
-      }
-    }
-    h3 {
-      background-color: #f4f4f4;
-      padding-top: 40px;
-      font-weight: 700;
-    }
-  }
-  .right1-icon {
-    font-size: 20px;
-  }
   .mypage-main {
-    margin-left: 24px;
-    width: 100%;
-    color: #343434;
-    font-size: 14px;
-    &__user {
-      .information {
-        height: 200px;
-        background-image: image-url("material/photo.jpg");
-        background-size: cover;
-        text-align: center;
-        padding-top: 90px;
-        &__user-name, .sell-number {
-          font-weight: bold;
-          margin-left: 10px;
-        }
-        &__sell {
-          display: flex;
-          justify-content: center;
-          margin-top: 10px;
-        }
-      }
-    }
-    &__tab {
-      .tab-box {
-        background-color: white;
-        &__word {
-          height: 75px;
-          text-align: center;
-          padding-top: 25px;
-          font-size: 17px;
-          font-weight: bold;
-          border-top: #3ccccc 1.5px solid;
-        }
-        &__list {
-          height: 85px;
-          @include list(#f4f4f4);
-        }
-      }
-    }
     &__logout {
       background-color: white;
       height: 180px;
@@ -109,9 +31,82 @@
         border-radius: 5px;
       }
     }
+    .mypage-title {
+      text-align: center;
+      height: 100px;
+      border-bottom: #f4f4f4 1px solid;
+      font-size: 25px;
+      font-weight: bold;
+      padding-top: 30px;
+    }
+    @import "mypage/payment";
+    &__create-card {
+      background-color: white;
+      .credit-form {
+        padding: 0 170px 50px;
+        .box-form {
+          margin-top: 30px;
+          label {
+            font-weight: bold;
+          }
+          .cardnumber-input {
+            @include form(370px);
+          }
+          .date-select {
+            @include form(150px);
+            margin-right: 10px;
+          }
+          .date-right {
+            margin-left: 10px;
+          }
+          .security-input {
+            @include form(370px);
+          }
+        }
+        .number-help {
+          display: flex;
+          justify-content: flex-end;
+          text-decoration: none;
+          color: #f0342c;
+          margin: 5px 0 30px 0;
+          &__icon {
+            margin-top: 3px;
+          }
+          &__title {
+
+          }
+        }
+        &__submitfield {
+          border: #3ccccc 1px solid;
+          background-color: #3ccccc;
+          width: 370px;
+          height: 45px;
+          border-radius: 3px;
+          text-align: center;
+          padding: 10px;
+          margin: 0 0 30px 0;
+          .credits-submit {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+          }
+        }
+        .back-btn {
+          text-decoration: none;
+          color: #f0342c;
+          margin-left: 155px;
+        }
+      }
+      .credit-point {
+        border: red 1px solid;
+        font-weight: bold;
+        border-radius: 3px;
+        background-color: red;
+        color: white;
+        font-size: 12px;
+        padding: 1px 2.5px;
+      }
+    }
   }
-}
-
-.mypage-main {
-
 }
