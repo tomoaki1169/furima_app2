@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :users
   root 'items#index'
+  resources :users 
   resources :items, except: :show
 end

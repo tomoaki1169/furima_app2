@@ -1,0 +1,52 @@
+.mypage-nav
+  %ul.mypage-nav__list
+    %li.list-mypage
+      =link_to users_path, class:"nav-list" do
+        .word マイページ
+        %i.fas.fa-angle-right.right1-icon
+    %li.list-todo
+      =link_to "#", class:"nav-list" do
+        .word やることリスト
+        %i.fas.fa-angle-right.right-icon
+    %li.list-sell
+      =link_to new_item_path, class:"nav-list" do
+        .word 出品する
+        %i.fas.fa-angle-right.right-icon
+    %li.list-sold
+      =link_to "#", class:"nav-list" do
+        .word 出品した商品
+        %i.fas.fa-angle-right.right-icon
+    %li.list-bought
+      =link_to "#", class:"nav-list" do
+        .word 購入した商品
+        %i.fas.fa-angle-right.right-icon
+    %li.list-guide
+      =link_to "#", class:"nav-list" do
+        .word ガイド
+        %i.fas.fa-angle-right.right-icon
+    %li.list-inquiry
+      =link_to "#", class:"nav-list" do
+        .word お問い合わせ
+        %i.fas.fa-angle-right.right-icon
+  %h3 設定
+  %ul.mypage-nav__list
+    %li.list-profile
+      =link_to "#", class:"nav-list" do
+        .word プロフィール
+        %i.fas.fa-angle-right.right-icon
+    %li.list-payment
+      =link_to "#" , class:"nav-list" do
+        .word お支払い方法
+        %i.fas.fa-angle-right.right-icon
+    %li.list-adress
+      =link_to "#", class:"nav-list" do
+        .word 発送元・お届け先住所変更
+        %i.fas.fa-angle-right.right-icon
+    %li.list-personal
+      =link_to "#", class:"nav-list" do
+        .word 本人情報
+        %i.fas.fa-angle-right.right-icon
+    %li.list-logout
+      =link_to "#", class:"nav-list" do
+        .word ログアウト
+        %i.fas.fa-angle-right.right-icon
