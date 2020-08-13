@@ -92,5 +92,26 @@
         }
       }
     }
+    &__logout {
+      background-color: white;
+      height: 180px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      .logout-btn {
+        text-align: center;
+        background-color: #3ccccc;
+        color: white;
+        height: 48px;
+        width: 315px;
+        padding-top: 15px;
+        border-radius: 5px;
+      }
+    }
   }
+}
+
+.mypage-main {
+
 }
