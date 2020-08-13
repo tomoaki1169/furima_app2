@@ -11,11 +11,21 @@
             %span.credit-point 必須
             %br
             = f.text_field :card_number, type: "text", class: 'cardnumber-input', id:'card-number', placeholder: "半角数字のみ", maxlength: 16
-            .credits-list
-              = image_tag "/assets/card/jcb.gif", class:"creditsIcon"
-              = image_tag "/assets/card/visa.gif", class:"creditsIcon"
-              = image_tag "/assets/card/master.png", class:"creditsIcon"
-              = image_tag "/assets/card/amex.gif", class:"creditsIcon"
+            %ul.credits-list
+              %li.visa-icon
+                = image_tag asset_path("card/visa.gif"), width: "40px", alt:"visa"
+              %li.jcb-icon
+                = image_tag asset_path("card/jcb.gif"), width: "40px", alt:"jbf"
+              %li.saison-icon
+                = image_tag asset_path("card/saison.png"), width: "40px", alt:"saison"
+              %li.master-icon
+                = image_tag asset_path("card/master.png"), width: "40px", alt:"master"
+              %li.amex-icon
+                = image_tag asset_path("card/amex.gif"), width: "40px", alt:"amex"
+              %li.diner-icon
+                = image_tag asset_path("card/diners.gif"), width: "40px", alt:"diners"
+              %li.discover-icon
+                = image_tag asset_path("card/discover.gif"), width: "40px", alt:"discover"
           .credit-form__datefield.box-form
             %label 有効期限
             %span.credit-point 必須

@@ -52,6 +52,12 @@
           .cardnumber-input {
             @include form(370px);
           }
+          ul {
+            display: flex;
+            li {
+              margin: 5px;
+            }
+          }
           .date-select {
             @include form(150px);
             margin-right: 10px;
