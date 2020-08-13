@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :users
+  resources :credit_cards, only:[:new, :show]
   root 'items#index'
+  resources :users 
+    
   resources :items, except: :show
 end

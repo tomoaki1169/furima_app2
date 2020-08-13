@@ -1,0 +1,51 @@
+.mypage
+  = render "users/mypage-nav"
+  .mypage-main
+    .mypage-main__create-card
+      .mypage-title
+        クレジットカード情報入力
+      .credit-form
+        = form_with model: @credit, method: :post, id: "create-form" do |f|
+          .credit-form__numberfield.box-form
+            %label(for="cardnumber-input") カード番号
+            %span.credit-point 必須
+            %br
+            = f.text_field :card_number, type: "text", class: 'cardnumber-input', id:'card-number', placeholder: "半角数字のみ", maxlength: 16
+            %ul.credits-list
+              %li.visa-icon
+                = image_tag asset_path("card/visa.gif"), width: "40px", alt:"visa"
+              %li.jcb-icon
+                = image_tag asset_path("card/jcb.gif"), width: "40px", alt:"jbf"
+              %li.saison-icon
+                = image_tag asset_path("card/saison.png"), width: "40px", alt:"saison"
+              %li.master-icon
+                = image_tag asset_path("card/master.png"), width: "40px", alt:"master"
+              %li.amex-icon
+                = image_tag asset_path("card/amex.gif"), width: "40px", alt:"amex"
+              %li.diner-icon
+                = image_tag asset_path("card/diners.gif"), width: "40px", alt:"diners"
+              %li.discover-icon
+                = image_tag asset_path("card/discover.gif"), width: "40px", alt:"discover"
+          .credit-form__datefield.box-form
+            %label 有効期限
+            %span.credit-point 必須
+            %br
+            = f.select :exp_month, [["01",1],["02",2],["03",3],["04",4],["05",5],["06",6],["07",7],["08",8],["09",9],["10",10],["11",11],["12",12]],{} , class: 'date-select', name: 'exp_month'
+            月
+            = f.select :exp_year, [["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2028],["29",2029]],{} , class: 'date-select date-right', name: 'exp_year'
+            年
+          .credit-form__securityfield.box-form
+            %label セキュリティコード
+            %span.credit-point 必須
+            %br
+            = f.text_field :cvc, type: 'text', class: 'security-input', id: 'cvc', placeholder: 'カード背面4桁もしくは3桁の番号', maxlength: "4"
+          = link_to "#", class: "number-help" do
+            %i.fas.fa-question-circle.number-help__icon
+            .number-help__title
+              カード裏面の番号とは？
+          = link_to credit_cards_show_path, id:"card_token", class:"credit-form__submitfield" do
+            .credits-submit
+              .credits-submit__word
+                追加する
+          =link_to credit_cards_show_path , class:"back-btn" do
+            もどる

@@ -82,7 +82,7 @@
         @include number;
       }
       .image-number2 {
-        @include number(7px);
+        @include number;
       }
       &__middle {
         font-size: 25px;
@@ -151,12 +151,6 @@
       align-items: center;
       &__image img{
        @include image;
-      }
-      .image-number {
-        @include number;
-      }
-      .image-number2 {
-        @include number(7px);
       }
       &__middle {
         font-size: 20px;
