@@ -98,7 +98,18 @@
       ピックアップカテゴリー
       %p 新規投稿商品
     .pickup-items
-      5
+      - @items.each do |item|
+        .item-box
+          = link_to item_path(item.id), class: "item-link" do
+            .item-box__image
+              = image_tag item.images[0].image_url, class: "item-image"
+            .item-box__info
+              .item-box__info__name
+                = item.name
+              .item-box__info__price
+                = "¥#{item.price}"
+              .item-box__info__tax
+                (税込)
   .five-box__brand
     .pickup-text
       ピックアップブランド

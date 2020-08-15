@@ -63,7 +63,7 @@
       text-align: center;
       flex-direction: column;
     }
-    .item-detail {
+    .item-introduction {
       margin-top: 24px;
       line-height: 1.5;
       font-size: 18px;
@@ -91,6 +91,27 @@
           text-decoration: none;
           color: #3CCACE;
         }
+      }
+    }
+    .button-box {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      font-size: 24px;
+      font-weight: bold;
+      &__button {
+        padding: 10px;
+        margin-top: 10px;
+        background-color: #3CCACE;
+        border-radius: 10px;
+        .edit-button, .delete-button, .buy-button {
+          text-decoration: none;
+          color: #fff;
+        }
+      }
+      &__button:hover {
+        opacity: 0.6;
       }
     }
   }
