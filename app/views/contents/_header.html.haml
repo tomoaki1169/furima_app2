@@ -12,10 +12,10 @@
     .left-box
       =link_to "#", class:"left-box__categories" do
         カテゴリー
-      =link_to "#", class:"left-box__brand" do
+      =link_to destroy_user_session_path, method: :delete, class:"left-box__brand" do
         ブランド
     .right-box
-      = link_to "#",class:"right-box__login" do
+      = link_to new_user_session_path,class:"right-box__login" do
         ログイン
-      = link_to "#",class:"right-box__new-user" do
+      = link_to new_user_registration_path,class:"right-box__new-user" do
         新規会員登録
