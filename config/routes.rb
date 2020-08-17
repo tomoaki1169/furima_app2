@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  resources :users
+  resources :credit_cards, only:[:new, :show]
   root 'items#index'
+
   resources :items, except: :show
 
   resources :items,only: [:index, :show, :new, :edit, :destroy] do
@@ -9,4 +10,8 @@ Rails.application.routes.draw do
       get 'get_category_grandchildren', defaults:{ format: 'json' }
     end
   end
+
+  resources :users 
+  resources :items
+
 end
