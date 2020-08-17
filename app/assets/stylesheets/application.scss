@@ -1,5 +1,5 @@
 
-@import "items"
+@import "items";
 
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
@@ -15,10 +15,14 @@
  *
  *= require_tree .
  *= require_self
- */;
+ */
 
   @import "reset";
+  @import "users";
   @import "font-awesome-sprockets";
   @import "font-awesome";
   @import "module/top-page";
+  @import "module/show";
+  @import "module/mypage";
+  @import "module/destroy";
 

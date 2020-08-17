@@ -7,7 +7,7 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.string :size, null:false
       t.string :status, null:false
       t.string :data, null:false
-      t.string :area#, null:false
+      t.string :area, null:false
       t.string :introduction, null:false
       t.string :sale_status
       t.references :user, null:false,foreign_key:true

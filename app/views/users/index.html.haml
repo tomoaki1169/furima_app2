@@ -1,23 +1,24 @@
-%h1 Listing users
-
-%table
-  %thead
-    %tr
-      %th Name
-      %th Public uid
-      %th
-      %th
-      %th
-
-  %tbody
-    - @users.each do |user|
-      %tr
-        %td= user.name
-        %td= user.public_uid
-        %td= link_to 'Show', user
-        %td= link_to 'Edit', edit_user_path(user)
-        %td= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }
-
-%br
-
-= link_to 'New User', new_user_path
+.mypage
+  = render "mypage-nav"
+  .mypage-main
+    .mypage-main__user
+      .information
+        .information__user-name
+          名前
+        .information__sell
+          .sell-word
+            出品数 
+          .sell-number 
+            1
+    .mypage-main__tab 
+      %ul.tab-box
+        .tab-box__word
+          やることリスト
+        %li.tab-box__list
+          .list-word
+            ○○日までに発送
+          %i.fas.fa-angle-right.right1-icon
+        %li.tab-box__list
+          .list-word
+            ○○日までに発送
+          %i.fas.fa-angle-right.right1-icon
