@@ -17,7 +17,7 @@
         ブランド
     -if user_signed_in?
       .right-box
-        = link_to "#", class:"right-box__login" do
+        = link_to users_path, class:"right-box__login" do
           マイページ
         = link_to destroy_user_session_path, method: :delete,class:"right-box__new-user" do
           ログアウト

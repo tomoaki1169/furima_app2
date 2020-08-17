@@ -35,7 +35,7 @@
         .word プロフィール
         %i.fas.fa-angle-right.right-icon
     %li.list-payment
-      =link_to credit_cards_show_path , class:"nav-list" do
+      =link_to "#" , class:"nav-list" do
         .word お支払い方法
         %i.fas.fa-angle-right.right-icon
     %li.list-adress
@@ -47,6 +47,6 @@
         .word 本人情報
         %i.fas.fa-angle-right.right-icon
     %li.list-logout
-      =link_to "#", class:"nav-list" do
+      =link_to edit_user_path(current_user), class:"nav-list" do
         .word ログアウト
         %i.fas.fa-angle-right.right-icon
