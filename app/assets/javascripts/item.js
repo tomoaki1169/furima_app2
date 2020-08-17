@@ -4,7 +4,12 @@ $(function(){
   //fileが選択されたときに発火するイベント
   $('#img-file').change(function(){
     //選択したfileのオブジェクトをpropで所得
-    
+    var file= $(input[type="file"]).prop('files')[0];
+    //FileReaderのreadAsDataURLで指定したfileオブジェクトを読み込む
+    var fileReader = new FileReader();
+    //読み込みが完了すると、srcにfileのURLを格納
+    fileReader.onloadend =new FileReader();
+    //読み込みが完了すると、arcにfile
   })
 })
 
