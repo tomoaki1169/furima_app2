@@ -17,20 +17,15 @@
           %br
           %p.sell_upload__text
             最大まで10枚までアップロードできます
-          - if @item.persisted?
-            - @item.images.each_with_index do |image, i|
-              = image_tag image.image.url, data: { index: i }, width: "100", height: '100'
-          = f.fields_for :images do |image|
-            .js-file_group{"data-index" => "#{image.index}"}
-              = image.file_field :image, class: 'js-file'
-              %br/
-              %span.js-remove 削除
-            - if @item.persisted?
-              = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
-          - if @item.persisted?
-            .js-file_group{"data-index" => "#{@item.images.count}"}
-              = file_field_tag :image, name: "item[images_attributes][#{@item.images.count}][image]", class: 'js-file'
-              .js-remove 削除
+            #image-box-1
+              .item-num-o#image-box__container
+                = f.fields_for :images do |i|
+                  .input-area
+                    =i.file_field :image, type: 'file', name: "item[images_attributes][][image_url]", value:"",  style: "display:none",  id:"img-file"
+                    %label{for: "img-file"}
+                      %i.fas.fa-camera
+
+
 
     .sell_content
       .form-group
@@ -41,17 +36,15 @@
         %label.main-block__label 商品の説明
         %span.form-group__require 必須
         %br
-        = f.text_field :introduction, class: 'textarea_default', placeholder: "商品の説明(必須 1,000文字以内) (色、素材、重さ、定価、注意点など)"
+        = f.text_area :introduction, class: 'textarea_default', placeholder: "商品の説明(必須 1,000文字以内)(色、素材、重さ、定価、注意点など) 　例） 2010年ごろに1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
 
-
-      .listing-form-box
         .category
           = f.label 'カテゴリー', class: 'main-block__label'
           %span.form-group__require 必須
-          .listing-select-wrapper
-            .listing-select-wrapper__box
-              = f.select :category, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
-              %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
+          .select-wrapper
+            .select-wrapper__box
+              = f.select :category_id, @parents.collect{|p| [p.name,p.id]},{include_blank: "選択してください"},{class: 'select-wrapper__box--select', id: 'parent_category'}
+
 
         .size
           %label.main-block__label サイズ
@@ -74,9 +67,6 @@
             .select-wrap
               = f.select :status, Item.statuses.keys, {include_blank: "選択してください"}
 
-        .sell_content.clearfix
-          %h3.sell_sub
-            配送について
 
             .sell_form_box
               .sell_space
@@ -93,9 +83,7 @@
                   %span.form-group__require 必須
                 .sell_form_box__tab
                   .select-wrap
-                    -# 都道府県のメニュバー記載
-                    -# = f.select :are, Item.area.keys, {include_blank: "選択してください"}
-
+                    = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "--", class: 'input'
                 .sell_space
                 .form-first
                   %label.main-block__label 発送までの日数
@@ -131,6 +119,6 @@
 
               .sell_content.clearfix.sell-btn-box
                 .sell_content__text
-                  %p 禁止されている出品、行為を必ずご確認ください。
-                  %p またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。
-                  %p また、出品をもちまして加盟店規約に同意したことになります。
+                  禁止されている出品、行為を必ずご確認ください。
+                  またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。
+                  また、出品をもちまして加盟店規約に同意したことになります。

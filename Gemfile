@@ -78,7 +78,6 @@ end
   gem 'carrierwave'
   gem 'fog-aws'
   gem 'mini_magick'
-  gem 'jp_prefecture'
   gem 'ancestry'
   gem 'carrierwave'
   gem 'public_uid'
