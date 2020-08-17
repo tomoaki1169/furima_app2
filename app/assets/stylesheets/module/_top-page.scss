@@ -6,7 +6,7 @@
 .one-box {
   position: relative;
   height: 562px;
-  background-image: url("/assets/material/pict/bg-mainVisual-pict_pc.jpg");
+  background-image: image-url("material/pict/bg-mainVisual-pict_pc.jpg");
   background-size: cover;
   background-position: bottom;
   padding: 200px 0 0 50px;
@@ -82,7 +82,7 @@
         @include number;
       }
       .image-number2 {
-        @include number(7px);
+        @include number;
       }
       &__middle {
         font-size: 25px;
@@ -101,7 +101,7 @@
 .three-box {
   position: relative;
   height: 400px;
-  background-image: url("/assets/material/pict/bg-topMiddleDl-pict.jpg");
+  background-image: image-url("material/pict/bg-topMiddleDl-pict.jpg");
   background-size: cover;
   background-position: bottom;
   padding: 120px 0  0 13vw;
@@ -152,12 +152,6 @@
       &__image img{
        @include image;
       }
-      .image-number {
-        @include number;
-      }
-      .image-number2 {
-        @include number(7px);
-      }
       &__middle {
         font-size: 20px;
         font-weight: 600;
@@ -174,7 +168,7 @@
 }
 @mixin pickup {
   text-align: center;
-  font-size: 25px;
+  font-size: 28px;
   font-weight: bold;
   padding: 60px 80px;
   width: 100%;
@@ -188,12 +182,44 @@
   background-color: #fcfcfc;
   position: relative;
   height: 1150px;
-  position: relative;
   &__category {
     @include pickup;
     .pickup-items {
       background-color: white;
       height: 17vw;
+      .item-box {
+        width: 220px;
+        height: 244px;
+        border: 1px solid #f8f8f8;
+        .item-link {
+          text-decoration: none;
+          color: black;
+          cursor: pointer;
+        }
+        &__image {
+          position: relative;
+          width: 220px;
+          height: 150px;
+          object-fit: fill;
+        }
+        &__info {
+          display: flex;
+          font-size: 16px;
+          flex-direction: column;
+          text-align: start;
+          padding: 10px;
+          &__price {
+            justify-content: left;
+          }
+          &__tax {
+            justify-content: left;
+            font-size: 10px;
+          }
+        }
+      }
+      .item-box:hover {
+        opacity: 0.4;
+      }
     }
   }
   &__brand {

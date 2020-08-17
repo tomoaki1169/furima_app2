@@ -1,29 +1,31 @@
 .body
   .contents
     .item-box
-      %h2.item-box__name 商品名
+      %h2.item-box__name 
+        = @item.name
       .item-box__image
         .item-box__image-box
           %ul.main-image
             %li
-              　= img_tag src: "#", alt: "商品画像1" 
+              = image_tag @item.images[0].image_url, id: "main-img"
           .image-list
-            %ul.lists
-              %li.images
-                = img_tag src: "#", alt: "商品画像2" 
-              %li.images
-                = img_tag src: "#", alt: "商品画像3" 
+            .lists
+              - @item.images.each do |image|
+                = image_tag image.image_url, class: "images"
       .item-box__price
-        %span ¥1000
+        %span 
+        = "¥#{@item.price}"
       .item-box__price-detail
         %span (税込)
         %span 送料込み
-      .item-detail 商品説明欄です商品説明欄です商品説明欄です商品説明欄です商品説明欄です商品説明欄です商品説明欄です商品説明欄です商品説明欄です商品説明欄です商品説明欄です商品説明欄です商品説明欄です商品説明欄です
+      .item-introduction
+        = @item.introduction
       %table
         %tbody
           %tr 
             %th 出品者
-            %td 出品者名
+            %td 
+              = @item.user.name
           %tr 
             %th カテゴリー
             %td.click
@@ -37,30 +39,44 @@
             %td ユニクロ    
           %tr 
             %th 商品のサイズ
-            %td sサイズ
+            %td 
+              = "#{@item.size}サイズ"
           %tr 
             %th 商品の状態
-            %td 新品/未使用
+            %td 
+              = @item.status
           %tr
             %th 配送料の負担
-            %td 送料込み(出品者負担)
+            %td 
+              = @item.derivery_fee
           %tr
             %th 発送元の地域
             %td
               =link_to "北海道", "#", class: "click"
           %tr
             %th 発送日の目安
-            %td 1-2日で配送
+            %td 
+              = @item.data 
+      .button-box
+        - if user_signed_in? && current_user.id == @item.user_id
+          .button-box__button
+            = link_to edit_item_path(@item.id), class: 'edit-button' do
+              編集する
+          .button-box__button
+            = link_to "削除する", item_path(@item.id), class: 'delete-button', method: :delete
+        - else
+          .button-box__button
+            = link_to "購入画面に進む", "#", class: 'buy-button'
     %ul.links
       %li
         = link_to "#" do
-          = icon(fa, fa-angle-left)
+          %i.fa.fa-angle-left
           %span
           前の商品
       %li
         = link_to "#" do
           %span 後ろの商品
-          = icon(fa, fa-angle-right)
+          %i.fa.fa-angle-right
     .related-items
       =link_to "ベビー・キッズをもっと見る", "#", class: "more"
     .items-lists
