@@ -4,7 +4,6 @@ class CreditCardsController < ApplicationController
 
   def new
     credit_card = CreditCard.where(user_id: current_user.id)
-    render :show if credit_card.exists?
   end
 
   def show
