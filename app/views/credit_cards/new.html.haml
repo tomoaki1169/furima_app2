@@ -5,7 +5,7 @@
       .mypage-title
         クレジットカード情報入力
       .credit-form
-        = form_with model: @credit, method: :post, id: "create-form" do |f|
+        = form_with model: @credit, url: credit_cards_path, method: :post, id: "create-form" do |f|
           .credit-form__numberfield.box-form
             %label(for="cardnumber-input") カード番号
             %span.credit-point 必須
@@ -43,9 +43,7 @@
             %i.fas.fa-question-circle.number-help__icon
             .number-help__title
               カード裏面の番号とは？
-          = link_to credit_cards_show_path, id:"card_token", class:"credit-form__submitfield" do
-            .credits-submit
-              .credits-submit__word
-                追加する
-          =link_to credit_cards_show_path , class:"back-btn" do
+          #card_token.credit-form__submitfield
+            = f.submit '追加する', class: 'credit-submit', id: 'token_submit'
+          =link_to credit_card_path(current_user) , class:"back-btn" do
             もどる

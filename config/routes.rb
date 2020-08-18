@@ -9,8 +9,9 @@ Rails.application.routes.draw do
     post 'addresses', to: 'users/registrations#create_address'
   end
 
-  resources :users
   root 'items#index'
   resources :users 
   resources :items
+  resources :credit_cards, only: [:new, :show, :create]
+    post 'credit_cards/:id', to: 'credit_cards#show'
 end

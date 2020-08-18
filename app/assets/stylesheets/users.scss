@@ -80,9 +80,9 @@
             margin-top: 3px;
           }
         }
-        &__submitfield {
-          text-decoration: none;
-          .credits-submit {
+        &__submit-field {
+          .credit-submit {
+            text-decoration: none;
             border: #3ccccc 1px solid;
             background-color: #3ccccc;
             width: 370px;
@@ -90,10 +90,8 @@
             border-radius: 5px;
             text-align: center;
             margin-bottom: 30px;
-            &__word {
-              color: white;
-              margin-top : 14px;
-            }
+            color: white;
+            cursor: pointer;
           }
         }
         .back-btn {
