@@ -12,6 +12,6 @@ Rails.application.routes.draw do
   root 'items#index'
   resources :users 
   resources :items
-  resources :credit_cards, only: [:new, :show, :create]
+  resources :credit_cards, only: [:new, :show, :create, :destroy] 
     post 'credit_cards/:id', to: 'credit_cards#show'
 end

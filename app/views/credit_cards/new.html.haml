@@ -5,7 +5,7 @@
       .mypage-title
         クレジットカード情報入力
       .credit-form
-        = form_with model: @credit, url: credit_cards_path, method: :post, id: "create-form" do |f|
+        = form_with model: @credit_card, url: credit_cards_path(current_user), method: :post, id: "create-form" do |f|
           .credit-form__numberfield.box-form
             %label(for="cardnumber-input") カード番号
             %span.credit-point 必須
