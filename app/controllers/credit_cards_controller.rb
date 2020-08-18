@@ -14,6 +14,7 @@ class CreditCardsController < ApplicationController
       Payjp.api_key = Rails.application.credentials[:payjp][:PAYJP_SECRET_KEY]
       customer = Payjp::Customer.retrieve(credit_card.customer_id)
       @default_card_information = customer.cards.retrieve(credit_card.card_id)
+
       @card_brand = @default_card_information.brand
       case @card_brand
       when "Visa"
@@ -31,7 +32,7 @@ class CreditCardsController < ApplicationController
       end
       @exp_month = @default_card_information.exp_month.to_s
       @exp_year = @default_card_information.exp_year.to_s.slice(2,3)
-      render :show
+      render action: :show
     end
   end
 
@@ -46,11 +47,8 @@ class CreditCardsController < ApplicationController
         metadata: {user_id: current_user.id}
       )
       @credit_card = CreditCard.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
-      if @credit_card.save
-        render :show
-      else
-        render :new
-      end
+      @credit_card.save
+      redirect_to credit_card_path(current_user)
     end
   end
 
@@ -60,10 +58,8 @@ class CreditCardsController < ApplicationController
     customer = Payjp::Customer.retrieve(@credit_card.customer_id)
     customer.delete
     @credit_card.delete
-    if @credit_card.destroy
-      redirect_to credit_card_path(current_user), alert: "削除しました。"
-    else
-      redirect_to credit_card_path(current_user), alert: "削除できませんでした。"
-    end
+    @credit_card.destroy
+    redirect_to credit_card_path(current_user)
+    
   end
 end

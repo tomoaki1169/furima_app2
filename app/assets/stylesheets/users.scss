@@ -80,17 +80,18 @@
             margin-top: 3px;
           }
         }
-        &__submit-field {
+        &__submitfield {
           .credit-submit {
-            text-decoration: none;
             border: #3ccccc 1px solid;
             background-color: #3ccccc;
             width: 370px;
             height: 45px;
-            border-radius: 5px;
+            border: none;
             text-align: center;
             margin-bottom: 30px;
             color: white;
+            background-color: #3ccccc;
+            border-radius: 5px;
             cursor: pointer;
           }
         }
