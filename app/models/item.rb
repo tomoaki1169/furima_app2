@@ -1,5 +1,6 @@
 class Item < ApplicationRecord
   has_many :images, dependent: :destroy
+  belongs_to :category
   accepts_nested_attributes_for :images, allow_destroy: true
   
   belongs_to :user
@@ -37,7 +38,6 @@ class Item < ApplicationRecord
     "傷や汚れあり": 4,
     "全体的に状態が悪い": 5
     }
-    
     enum derivery_fee:{
       "送料込み(出品者負担)":0,
       "着払い(購入者負担)":1
