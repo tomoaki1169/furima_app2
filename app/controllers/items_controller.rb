@@ -8,8 +8,12 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.new
+
     # データベースから、親カテゴリーのみ抽出
     @parents = Category.where(ancestry:nil)
+
+    render layout: 'new-items'
+
   end
 
   def  create

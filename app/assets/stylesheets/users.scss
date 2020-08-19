@@ -29,6 +29,7 @@
         width: 315px;
         padding-top: 15px;
         border-radius: 5px;
+        text-decoration: none;
       }
     }
     .mypage-title {
@@ -77,9 +78,6 @@
           margin: 5px 0 30px 0;
           &__icon {
             margin-top: 3px;
-          }
-          &__title {
-
           }
         }
         &__submitfield {

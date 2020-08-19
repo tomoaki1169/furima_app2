@@ -15,8 +15,15 @@
         カテゴリー
       =link_to "#", class:"left-box__brand" do
         ブランド
-    .right-box
-      = link_to users_path,class:"right-box__login" do
-        ログイン
-      = link_to "#",class:"right-box__new-user" do
-        新規会員登録
+    -if user_signed_in?
+      .right-box
+        = link_to users_path, class:"right-box__login" do
+          マイページ
+        = link_to destroy_user_session_path, method: :delete,class:"right-box__new-user" do
+          ログアウト
+    -else
+      .right-box
+        = link_to new_user_session_path,class:"right-box__login" do
+          ログイン
+        = link_to new_user_registration_path,class:"right-box__new-user" do
+          新規会員登録

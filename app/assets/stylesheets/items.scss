@@ -122,7 +122,7 @@
   width: 100%;
   font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', YuGothic, 'Yu Gothic Medium', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
   &__top {
-    background-image: url("/assets/material/pict/bg-appBanner-pict.jpg");
+    background-image: image-url("material/pict/bg-appBanner-pict.jpg");
     height: 360px;
     background-size: cover;
     background-position: bottom;

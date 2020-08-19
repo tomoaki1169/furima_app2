@@ -2,5 +2,5 @@
   = render "mypage-nav"
   .mypage-main
     .mypage-main__logout
-      .logout-btn
+      = link_to destroy_user_session_path, method: :delete,class:"logout-btn" do
         ログアウト
