@@ -103,7 +103,7 @@
           = link_to item_path(item.id), class: "item-link" do
             .item-box__image
               = image_tag item.images[0].image_url, class: "item-image"
-              -if item.purchaser_id.present?
+              -if item.purchase_id.present?
               .item-box__image__sold
                 .item-box__image__sold__inner 
                   SOLD

@@ -3,7 +3,7 @@ class PurchaseController < ApplicationController
   end
 
   def done
-    @item_purchaser= Item.find(params[:id])
-    @item_purchaser.update( purchaser_id: current_user.id)
+    @item = Item.find(params[:id])
+    @item.update( purchaser_id: current_user.id)
   end
 end
