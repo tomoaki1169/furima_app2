@@ -27,8 +27,8 @@ $(function(){
     $('.select-wrapper').append(grandchildSelectHtml);
   }
   // 親カテゴリー選択後のイベント
-  $('#parent_category').on('change', function(){
-    var parentCategory = $('#parent_category').val(); //選択された親カテゴリーのidを取得
+  $('#item_category_id').on('change', function(){
+    var parentCategory = $('#item_category_id').val(); //選択された親カテゴリーのidを取得
     console.log(parentCategory)
     if (parentCategory != ""){ //親カテゴリーが初期値でないことを確認
       $.ajax({
