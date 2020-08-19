@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2020_08_15_084205) do
 
 ActiveRecord::Schema.define(version: 2020_08_13_054737) do
 
-  create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
     t.string "address_family_name", null: false
     t.string "address_first_name", null: false
     t.string "address_family_name_kana", null: false
