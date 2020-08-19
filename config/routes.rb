@@ -9,7 +9,6 @@ Rails.application.routes.draw do
     post 'addresses', to: 'users/registrations#create_address'
   end
 
-  resources :users
   root 'items#index'
 
   resources :items, except: :show
@@ -22,6 +21,9 @@ Rails.application.routes.draw do
   end
 
   resources :users 
-  resources :items
-
+  resources :items do
+    resources :purchase, only: [:index] do
+      get 'done', to: 'purchase#done'
+    end
+  end
 end

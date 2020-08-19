@@ -201,6 +201,25 @@
           width: 220px;
           height: 150px;
           object-fit: fill;
+          &__sold {
+            border-width: 100px 100px 0 0;
+            border-color: #ea352d transparent transparent transparent;
+            display: block;
+            position: absolute;
+            top: 0;
+            z-index: 1;
+            border-style: solid;
+            &__inner {
+              top: -80px;
+              font-size: 20px;
+              position: absolute;
+              z-index: 2;
+              color: #fff;
+              transform: rotate(-45deg);
+              letter-spacing: 2px;
+              font-weight: 600;
+            }
+          }
         }
         &__info {
           display: flex;
