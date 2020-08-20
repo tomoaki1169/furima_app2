@@ -96,6 +96,7 @@
                 .sell_form_box__tab
                   .select-wrap
                     = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "選択してください", class: 'input'
+
                 .sell_space
                 .form-first
                   %label.main-block__label 発送までの日数
