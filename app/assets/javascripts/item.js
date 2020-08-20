@@ -66,10 +66,6 @@ $(function() {
       if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
     });
 
-    $(".js-file_group").change(function () {
-      $(this).find(input).remove()
-    });
-
     $(document).on('click', "#image-box__container", function() {
       console.log("aaa")
       $('.js-file:last').trigger('click')
