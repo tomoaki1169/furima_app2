@@ -44,6 +44,10 @@ $(function() {
         if ( $('.images').length < 10) {
         // fileIndexの先頭の数字を使ってinputを作る
           $('#image-box').append(buildFileField(fileIndex[0]));
+          console.log(fileIndex)
+          fileIndex.
+          console.log(fileIndex)
+
         }
 
 
@@ -72,6 +76,10 @@ $(function() {
       // 画像入力欄が0個にならないようにしておく
       if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
     });
+
+    // $(".js-file_group").change(function () {
+    //   $(this).find(input).remove()
+    // });
 
     $(document).on('click', "#image-box__container", function() {
       $('.js-file:last').trigger('click')
