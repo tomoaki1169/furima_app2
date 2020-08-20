@@ -1,4 +1,5 @@
-class PurchaseController < ApplicationController
+class PurchasesController < ApplicationController
+  layout "purchase"
   def index
   end
 
