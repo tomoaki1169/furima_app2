@@ -1,3 +1,4 @@
+
 $(function() {
   // 画像用のinputを生成する関数
     const buildFileField = (num)=> {
@@ -11,7 +12,12 @@ $(function() {
     }
     // プレビュー用のimgタグを生成する関数
     const buildImg = (index, url)=> {
-      const html = `<img data-index="${index}" image="${url}" width="100px" height="100px">`;
+      const html = `<div>
+      <div style="width:100px">
+      <img data-index="${index}" src="${url}" width="80px" height="70px">
+      <span class="js-remove">削除</span>
+      </div>
+      </div>`;
       return html;
     }
   
@@ -33,10 +39,14 @@ $(function() {
       if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
         img.setAttribute('image', blobUrl);
       } else {  // 新規画像追加の処理
-        $('#previews').append(buildImg(targetIndex, blobUrl));
+        $('#image-box__container').append(buildImg(targetIndex, blobUrl));
+        if ( targetIndex < 10) {
         // fileIndexの先頭の数字を使ってinputを作る
-        $('#image-box').append(buildFileField(fileIndex[0]));
+          $('#image-box').append(buildFileField(fileIndex[0]));
+        }
+        
         fileIndex.shift();
+        
         // 末尾の数に1足した数を追加する
         fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
       }
@@ -55,4 +65,13 @@ $(function() {
       // 画像入力欄が0個にならないようにしておく
       if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
     });
-  });
+
+    $(".js-file_group").change(function () {
+      $(this).find(input).remove()
+    });
+
+    $(document).on('click', "#image-box__container", function() {
+      console.log("aaa")
+      $('.js-file:last').trigger('click')
+    });
+});
