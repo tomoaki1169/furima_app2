@@ -44,9 +44,6 @@ $(function() {
         if ( $('.images').length < 10) {
         // fileIndexの先頭の数字を使ってinputを作る
           $('#image-box').append(buildFileField(fileIndex[0]));
-          console.log(fileIndex)
-          fileIndex.
-          console.log(fileIndex)
 
         }
 
