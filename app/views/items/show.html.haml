@@ -8,10 +8,10 @@
           %ul.main-image
             %li
               = image_tag @item.images[0].image_url, class: "main-img"
-              -if item.purchase_id.present?
-              .sold
-                .sold__inner 
-                  SOLD
+              -if @item.purchase.present?
+                .sold
+                  .sold__inner 
+                    SOLD
           .image-list
             .lists
               - @item.images.each do |image|
