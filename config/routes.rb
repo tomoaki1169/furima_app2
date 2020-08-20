@@ -11,6 +11,6 @@ Rails.application.routes.draw do
 
   resources :users
   root 'items#index'
-  resources :users 
+  resources :purchase, only[:index]
   resources :items
 end
