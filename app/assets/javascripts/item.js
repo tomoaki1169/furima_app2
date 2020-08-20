@@ -13,7 +13,7 @@ $(function() {
     // プレビュー用のimgタグを生成する関数
     const buildImg = (index, url)=> {
       const html = `<div>
-      <div style="width:100px", class='test'>
+      <div style="width:100px", class='images'>
       <img data-index="${index}" src="${url}" width="80px" height="70px">
       <span class="js-remove">削除</span>
       </div>
@@ -24,7 +24,7 @@ $(function() {
     // file_fieldのnameに動的なindexをつける為の配列
     let fileIndex = [1,2,3,4,5,6,7,8,9,10];
     // 既に使われているindexを除外
-    lastIndex = $('.js-file_group:last').data('index');
+    lastIndex = $('.js-file_group:last').attr('data-index');
     fileIndex.splice(0, lastIndex);
   
     $('.hidden-destroy').hide();
@@ -41,9 +41,13 @@ $(function() {
         img.setAttribute('image', blobUrl);
       } else {  // 新規画像追加の処理
         $('#image-box__container').append(buildImg(targetIndex, blobUrl));
-        if ( $('.test').length < 10) {
+        if ( $('.images').length < 10) {
         // fileIndexの先頭の数字を使ってinputを作る
           $('#image-box').append(buildFileField(fileIndex[0]));
+          console.log(fileIndex)
+          fileIndex.
+          console.log(fileIndex)
+
         }
 
 
@@ -52,7 +56,7 @@ $(function() {
         // else image > 5 && image < 8
         //   $('.image-box').css("display: block")
         //   $('#image-box__container').append(buildImg(targetIndex, blobUrl));
-        // fileIndex.shift();
+        fileIndex.shift();
         
         // 末尾の数に1足した数を追加する
         fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
