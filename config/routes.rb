@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   end
 
   root 'items#index'
-
   resources :items, except: :show
 
   resources :items,only: [:index, :show, :new, :edit, :destroy] do
