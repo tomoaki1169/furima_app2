@@ -13,7 +13,7 @@ $(function() {
     // プレビュー用のimgタグを生成する関数
     const buildImg = (index, url)=> {
       const html = `<div>
-      <div style="width:100px">
+      <div style="width:100px", class='images'>
       <img data-index="${index}" src="${url}" width="80px" height="70px">
       <span class="js-remove">削除</span>
       </div>
@@ -24,13 +24,14 @@ $(function() {
     // file_fieldのnameに動的なindexをつける為の配列
     let fileIndex = [1,2,3,4,5,6,7,8,9,10];
     // 既に使われているindexを除外
-    lastIndex = $('.js-file_group:last').data('index');
+    lastIndex = $('.js-file_group:last').attr('data-index');
     fileIndex.splice(0, lastIndex);
   
     $('.hidden-destroy').hide();
   
     $('#image-box').on('change', '.js-file', function(e) {
       const targetIndex = $(this).parent().data('index');
+      console.log(targetIndex)
       // ファイルのブラウザ上でのURLを取得する
       const file = e.target.files[0];
       const blobUrl = window.URL.createObjectURL(file);
@@ -40,11 +41,18 @@ $(function() {
         img.setAttribute('image', blobUrl);
       } else {  // 新規画像追加の処理
         $('#image-box__container').append(buildImg(targetIndex, blobUrl));
-        if ( targetIndex < 10) {
+        if ( $('.images').length < 10) {
         // fileIndexの先頭の数字を使ってinputを作る
           $('#image-box').append(buildFileField(fileIndex[0]));
+
         }
-        
+
+
+        // if image < 4
+        //   $('#image-box__container').append(buildImg(targetIndex, blobUrl));
+        // else image > 5 && image < 8
+        //   $('.image-box').css("display: block")
+        //   $('#image-box__container').append(buildImg(targetIndex, blobUrl));
         fileIndex.shift();
         
         // 末尾の数に1足した数を追加する
@@ -66,12 +74,11 @@ $(function() {
       if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
     });
 
-    $(".js-file_group").change(function () {
-      $(this).find(input).remove()
-    });
+    // $(".js-file_group").change(function () {
+    //   $(this).find(input).remove()
+    // });
 
     $(document).on('click', "#image-box__container", function() {
-      console.log("aaa")
       $('.js-file:last').trigger('click')
     });
 });

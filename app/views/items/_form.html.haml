@@ -56,7 +56,7 @@
           %span.form-group__require 必須
           .select-wrapper
             .select-wrapper__box
-              = f.collection_select :category_id, @parents, :id, :name, prompt: "選択してください",class: 'select-wrapper__box--select'
+              = f.collection_select :category_id, @parents, :id, :name, prompt: "選択してください", class: 'select-wrapper__box--select'
 
         .size
           %label.main-block__label サイズ
@@ -96,6 +96,7 @@
                 .sell_form_box__tab
                   .select-wrap
                     = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "選択してください", class: 'input'
+
                 .sell_space
                 .form-first
                   %label.main-block__label 発送までの日数
