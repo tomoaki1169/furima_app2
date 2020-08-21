@@ -64,7 +64,7 @@ end
   private
 
   def item_params
-    params.require(:item).permit(:name, :price, :derivery_fee, :size, :status, :data, :area, :introduction, :user, :brand_id, :category_id,images_attributes: [:image, :_destroy, :id])
+    params.require(:item).permit(:name, :price, :derivery_fee, :size, :status, :data, :area, :introduction, :user_id, :brand_id, :category_id,images_attributes: [:image, :_destroy, :id])
   end
 
   def set_item

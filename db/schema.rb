@@ -18,12 +18,13 @@ ActiveRecord::Schema.define(version: 2020_08_19_085232) do
     t.string "address_family_name_kana", null: false
     t.string "address_first_name_kana", null: false
     t.string "post_code", null: false
-    t.string "prefecture", null: false
+    t.integer "prefecture_id"
     t.string "municipality", null: false
     t.string "house_number", null: false
     t.string "building_name"
     t.string "phone_number"
     t.bigint "user_id", null: false
+    t.string "city"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_addresses_on_user_id"
@@ -37,9 +38,10 @@ ActiveRecord::Schema.define(version: 2020_08_19_085232) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
-    t.string "ancesty"
+    t.string "ancestry"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["ancestry"], name: "index_categories_on_ancestry"
   end
 
   create_table "credit_cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -68,8 +70,8 @@ ActiveRecord::Schema.define(version: 2020_08_19_085232) do
     t.string "size", null: false
     t.string "status", null: false
     t.string "data", null: false
-    t.string "area"
-    t.string "introduction", null: false
+    t.string "area", null: false
+    t.integer "introduction", null: false
     t.string "sale_status"
     t.bigint "user_id", null: false
     t.bigint "brand_id", null: false
