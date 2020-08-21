@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_13_054737) do
+ActiveRecord::Schema.define(version: 2020_08_19_085232) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "address_family_name", null: false
@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2020_08_13_054737) do
     t.string "address_family_name_kana", null: false
     t.string "address_first_name_kana", null: false
     t.string "post_code", null: false
-    t.string "prefecture", null: false
+    t.integer "prefecture_id"
     t.string "municipality", null: false
     t.string "house_number", null: false
     t.string "building_name"
@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 2020_08_13_054737) do
     t.string "area", null: false
     t.integer "introduction", null: false
     t.string "sale_status"
-    t.bigint "user_id", null: false
+    t.bigint "user_id"
     t.bigint "brand_id", null: false
     t.bigint "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
