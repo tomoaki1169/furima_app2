@@ -13,7 +13,6 @@ class Item < ApplicationRecord
   validates :introduction, presence: true,length:{maximum: 1000}
 
 
-
   enum sale_status:{
     "販売中":0,
     "売り切れ":1
