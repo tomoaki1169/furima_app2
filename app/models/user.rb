@@ -12,8 +12,12 @@ class User < ApplicationRecord
   VALID_PASSWORD_REGEX = /\A[a-z0-9]+\z/i
   validates :password, presence: true, length: { minimum: 7 }, format: { with: VALID_PASSWORD_REGEX }
 
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :prefecture
+
   has_one :profile
   has_one :address
   has_many :items
   has_many :credit_cards
+  has_many :purchase
 end

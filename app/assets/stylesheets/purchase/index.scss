@@ -1,0 +1,166 @@
+.purchase {
+  background-color: #f4f4f4;
+  min-width: 700px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', YuGothic, 'Yu Gothic Medium', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+  color: #343434;
+  .purchase-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 40px;
+    .top-logo {
+      height: 130px;
+    }
+    .purchase-confirmation {
+      background-color: white;
+      width: 700px;
+      padding: 0 170px ;
+      &__title {
+        text-align: center;
+        height: 100px;
+        border-bottom: #f4f4f4 1px solid;
+        font-size: 23px;
+        font-weight: bold;
+        padding: 35px 0 10px;
+        
+      }
+      &__item {
+        padding: 25px 15px;
+        border-bottom: #f4f4f4 1px solid;
+        height: 131px;
+        display: flex;
+        position: relative;
+        .item-image {
+          width: 80px;
+          height: 80px;
+          background-color: blue;
+          border-radius: 5px;
+          position: absolute;
+
+        }
+        .item-box {
+          margin-left: 90px;
+          p {
+            font-size: 14px;
+          }
+          .item-price {
+            font-size: 12px;
+            margin-left: 90px;
+            .shipping-price {
+              font-size: 14px;
+              font-weight: bold;
+            }
+          }
+        }
+      }
+      &__price {
+        border-bottom: #f4f4f4 1px solid;
+        height: 90px;
+        padding: 30px 15px;
+        .item-price {
+          display: flex;
+          justify-content: space-between;
+          
+          &__label {
+            font-size: 18px;
+            font-weight: bold;
+          }
+          &__price {
+            font-size: 23px;
+            font-weight: bold;
+          }
+        }
+      }
+      &__payment {
+        border-bottom: #f4f4f4 1px solid;
+        height: 170px;
+        padding: 30px 15px;
+        .item-payment {
+          font-size: 14px;
+          &__title {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            .payment-label {
+              font-weight: bold;
+            }
+          }
+        }
+      }
+      &__address {
+        border-bottom: #f4f4f4 1px solid;
+        height: 140px;
+        padding: 30px 15px;
+        .item-address {
+          font-size: 14px;
+          &__title {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            .address-label {
+              font-weight: bold;
+            }
+          }
+        }
+      }
+      &__btn {
+        text-decoration: none;
+        text-align: center;
+        .btn-enter {
+          background-color: #3ccccc;
+          color: white;
+          font-weight: bold;
+          font-size: 16px;
+          margin: 30px 10px 50px;
+          padding-top: 13px;
+          height: 48px;
+          border-radius: 3px;
+        }
+        .btn-enter:hover {
+          background-color: darkcyan;
+        }
+      }
+      .change-btn {
+        display: flex;
+        text-decoration: none;
+        color: #f0342c;
+        &__icon {
+          margin: 4px 0 0 10px ;
+        }
+      }
+    }
+    .purchase-lists {
+      display: flex;
+      padding: 30px 0;
+      
+      .list {
+        text-decoration: none;
+        font-size: 12px;
+        margin-right: 20px;
+        color: #343434;
+      }
+      .list:hover {
+        text-decoration: underline;
+        color: grey;
+      }
+      .last {
+        margin-right: 0;
+      }
+    }
+    .bottom-logo {
+      &__word {
+        text-align: center;
+        font-size: 11px;
+      }
+    }
+    .purchase-logo {
+      &__top {
+        width: 200px;
+        margin-top: 40px;
+      }
+      &__bottom {
+        width: 120px;
+      }
+    }
+  }
+}

@@ -19,10 +19,11 @@
     %br/
     = f.text_field :post_code, autofocus: true, placeholder: "例) 810-0801"
   .field
-    = f.label :prefecture, "都道府県"
+    = f.label :prefecture_id, "都道府県"
     必須
     %br/
-    = f.text_field :prefecture, autofocus: true, placeholder: "例) 福岡県"
+    -# = f.collection_select method, collection, value_method, text_method,   :prefecture, autofocus: true, placeholder: "例) 福岡県"
+    = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "選択してください"
   .field
     = f.label :municipality, "市町村"
     必須
