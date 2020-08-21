@@ -21,7 +21,8 @@
                 .info-content__brand
                   = image_tag asset_path("card/#{@card_src}"), alt: @card_brand
             .card-content__delete
-              = link_to "削除する", credit_card_path,  method: :delete, class: "delete-word", data: { confrirm: "本当に削除しますか？"};
+              = link_to credit_card_path, method: :delete, class: "delete-word" do
+                削除する
           = link_to new_credit_card_path, class: "card-register" do
             %i.fas.fa-plus-circle.card-register__icon
             .card-register__word

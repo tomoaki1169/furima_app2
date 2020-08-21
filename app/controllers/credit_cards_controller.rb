@@ -14,7 +14,6 @@ class CreditCardsController < ApplicationController
       Payjp.api_key = Rails.application.credentials[:payjp][:PAYJP_SECRET_KEY]
       customer = Payjp::Customer.retrieve(credit_card.customer_id)
       @default_card_information = customer.cards.retrieve(credit_card.card_id)
-
       @card_brand = @default_card_information.brand
       case @card_brand
       when "Visa"
@@ -32,7 +31,6 @@ class CreditCardsController < ApplicationController
       end
       @exp_month = @default_card_information.exp_month.to_s
       @exp_year = @default_card_information.exp_year.to_s.slice(2,3)
-      render action: :show
     end
   end
 
@@ -60,6 +58,5 @@ class CreditCardsController < ApplicationController
     @credit_card.delete
     @credit_card.destroy
     redirect_to credit_card_path(current_user)
-    
   end
 end

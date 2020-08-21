@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 2020_08_13_054737) do
     t.string "building_name"
     t.string "phone_number"
     t.bigint "user_id", null: false
+    t.string "city"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_addresses_on_user_id"
@@ -37,9 +38,10 @@ ActiveRecord::Schema.define(version: 2020_08_13_054737) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
-    t.string "ancesty"
+    t.string "ancestry"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["ancestry"], name: "index_categories_on_ancestry"
   end
 
   create_table "credit_cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -67,7 +69,7 @@ ActiveRecord::Schema.define(version: 2020_08_13_054737) do
     t.string "status", null: false
     t.string "data", null: false
     t.string "area", null: false
-    t.string "introduction", null: false
+    t.integer "introduction", null: false
     t.string "sale_status"
     t.bigint "user_id", null: false
     t.bigint "brand_id", null: false
@@ -89,6 +91,13 @@ ActiveRecord::Schema.define(version: 2020_08_13_054737) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
+
+  create_table "purchases", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "item_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
