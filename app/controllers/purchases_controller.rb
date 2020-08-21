@@ -50,12 +50,9 @@ class PurchasesController < ApplicationController
             customer: Payjp::Customer,retrieve(@credit_card.customer_id),
             currency: "jpy"
           )
+          redirect_to action: 'done'
         else
-          Payjp::Charge.create(
-            amount: @item.price,
-            card: params['payjp-token'],
-            currency: 'jpy'
-          )
+          redirect_to credit_card_path(current_user), alert: "クレジットカードを登録してください"
         end
       @purchase = Purchase.create(buyer_id: current_user.id, item_id: params[:item_id])
       end
