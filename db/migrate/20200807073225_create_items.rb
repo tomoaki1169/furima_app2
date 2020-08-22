@@ -5,13 +5,12 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.integer :price, null:false
       t.string :derivery_fee, null:false
       t.string :size, null:false
-      t.string :status, null:false
       t.string :data, null:false
-      t.string :area, null:false
+      t.string :brands_name
       t.integer :introduction, null:false
-      t.string :sale_status
+      t.string :sale_status, null:false
+      t.integer :prefecture_id, null:false
       t.references :user,foreign_key:true
-      t.references :brand, null:false,foreign_key:true
       t.references :category, null:false,foreign_key:true
       t.timestamps
     end
