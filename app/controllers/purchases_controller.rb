@@ -1,14 +1,11 @@
 class PurchasesController < ApplicationController
   require "payjp"
+  before_action :set_card, :set_item
 
-  def purchase
-    @item = Item.find(params[:item_id])
-    @images = @item.images.all
+  def index
     if user_signed_in?
-      @user = current_user
-      if @user.credit_card.present?
+      if current_user.credit_card.present?
         Payjp.api_key = Rails.application.credentials[:payjp][:PAYJP_SECRET_KEY]
-        @credit_card = CreditCard.find_by(user_id: current_user.id)
         customer = Payjp::Customer.retrieve(@credit_card.customer_id)
         @customer_card = customer.cards.retrieve(@credit_card.card_id)
         @card_brand = @customer_card.brand
@@ -36,14 +33,11 @@ class PurchasesController < ApplicationController
   end
 
   def pay
-    @item = Item.find(params[:item_id])
-    @images = @item.images.all
     if @item.purchase.present?
       redirect_to item_path(@item.id),alert: "売り切れています"
     else
       @item.with_lock do
         if current_user.credit_card.present?
-          @credit_card = CreditCard.find_by(usser_id:current_user.id)
           Payjp.api_key = Rails.application.credentials[:payjp][:PAYJP_SECRET_KEY]
           charge = payjp::Charge.create(
             amount: @item.price,
@@ -64,7 +58,16 @@ class PurchasesController < ApplicationController
   end
 
   def done
-    @item = Item.find(params[:id])
     @item.update( purchase_id: current_user.id)
+  end
+
+  private
+  def set_card
+    @credit_card = CreditCard.find_by(user_id: current_user.index)
+  end
+
+  def set_item
+    @item = Item.find(params[:item_id])
+    @images = @item.images.all
   end
 end
