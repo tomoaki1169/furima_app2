@@ -1,10 +1,11 @@
-# frozen_string_literal: true
-
 class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
-
+ 
+  layout 'no_footer'
+  # render 'new', layout: 'no_footer'
   # GET /resource/sign_in
   # def new
+  #   # render :layout => 'no_footer'
   #   super
   # end
 

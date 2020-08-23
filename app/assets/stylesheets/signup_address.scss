@@ -1,0 +1,44 @@
+.signup-content-address {
+  box-sizing: border-box;
+  background-color: whitesmoke;
+  height: 1300px;
+  width: 100vw;
+  padding-top: 30px;
+  .signup-main-address {
+    background-color: white;
+    width: 600px;
+    margin: 50px auto 0;
+    .signup-main-title-address {
+      font-size: 20px;
+      text-align: center;
+      font-weight: bolder;
+      padding: 15px;
+      border-bottom: 1px whitesmoke solid;
+    }
+    .information-text-address {
+      height: 900px;
+      padding-top: 30px;
+      padding-left: 150px;
+      .form-field {
+        margin-top: 20px;
+        .form-require {
+          background-color: turquoise;
+          border: solid 1px turquoise;
+          color: white;
+        }
+        &__input {
+          width: 300px;
+          height: 40px;
+        }
+      }
+    }
+    .next-btn {
+      background-color: turquoise;
+      color: white;
+      width: 300px;
+      height: 40px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+  }
+}
