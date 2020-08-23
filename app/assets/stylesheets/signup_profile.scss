@@ -1,53 +1,12 @@
-.signup-content {
-  box-sizing: border-box;
-  background-color: whitesmoke;
-  height: 100vh;
-  width: 100vw;
-  padding-top: 30px;
-  // padding: 100px 400px 350px;
+.form-field__input__name {
+  height:40px;
+  width: 150px;
 }
 
-.signup-main {
-  // text-align: center;
-  background-color: white;
-  width: 600px;
-  margin: 50px auto;
-  padding-bottom: 50px;
-  h2 {
-    // height: 30px;
-    font-size: 20px;
-    text-align: center;
-    font-weight: bolder;
-    padding: 15px;
-    border-bottom: 1px whitesmoke solid;
-  }
-  .text-form {
-    height: 100%;
-    padding-top: 30px;
-    padding-left: 150px;
-    .field {
-      margin-top: 20px;
-      .form__require {
-        background-color: turquoise;
-        border: solid 1px turquoise;
-        color: white;
-      }
-      .date_select {
-        width: 300px;
-        height: 40px;
-      }
-    }
-    &__input {
-      width: 300px;
-      height: 40px;
-    }
-  }
-  .next-btn {
-    background-color: turquoise;
-    color: white;
-    width: 300px;
-    height: 40px;
-    margin-top: 20px;
-    margin-bottom: 40px;
-  }
+#profile_birth_day_1i,#profile_birth_day_2i,#profile_birth_day_3i{
+  margin-bottom: 40px;
+  border-radius: 5px;
+  width: 80px;
+  height: 40px;
+
 }

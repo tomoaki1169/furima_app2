@@ -1,29 +1,29 @@
 .signup-content
   .signup-main
-    %h2 会員情報入力
+    %h2.signup-main-title 会員情報入力
     = form_for(@user, url: user_registration_path) do |f|
       = render "devise/shared/error_messages", resource: @user
-      .text-form
-        .field
+      .information-text 
+        .form-field
           = f.label :name, "ニックネーム"
-          %span.form__require 必須
+          %span.form-require 必須
           %br/
-          = f.text_field :name, autofocus: true, placeholder: "例) フリマ太朗",class: 'text-form__input'
-        .field
+          = f.text_field :name, autofocus: true, placeholder: "例) フリマ太朗",class: 'form-field__input'
+        .form-field
           = f.label :email, "メールアドレス"
-          %span.form__require 必須
+          %span.form-require 必須
           %br/
-          = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "PC・携帯どちらでも可",class: 'text-form__input'
-        .field
+          = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "PC・携帯どちらでも可",class: 'form-field__input'
+        .form-field
           = f.label :password, "パスワード"
-          %span.form__require 必須
+          %span.form-require 必須
           %br/
-          = f.password_field :password, autocomplete: "new-password", placeholder: "半角英数字 7文字以上",class: 'text-form__input'
-        .field
+          = f.password_field :password, autocomplete: "new-password", placeholder: "半角英数字 7文字以上",class: 'form-field__input'
+        .form-field
           = f.label :password_confirmation, "パスワード(確認用)"
-          %span.form__require 必須
+          %span.form-require 必須
           %br/
-          = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "半角英数字 7文字以上", class: 'text-form__input'
+          = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "半角英数字 7文字以上", class: 'form-field__input'
         .actions
           = f.submit "次へ", class: 'next-btn'
 -# = render "devise/shared/links"

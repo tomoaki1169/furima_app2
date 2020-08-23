@@ -1,46 +1,49 @@
-%h2 会員情報入力
-= form_with model: @address, local: true do |f|
-  = render "devise/shared/error_messages", resource: @address
-  .field
-    = f.label :address_family_name, "送付先氏名"
-    必須
-    %br/
-    = f.text_field :address_family_name, placeholder: "例) 鈴木"
-    = f.text_field :address_first_name, placeholder: "例) 一郎"
-  .field
-    = f.label :address_family_name_kana, "送付先氏名(カナ)"
-    必須
-    %br/
-    = f.text_field :address_family_name_kana, placeholder: "例) スズキ"
-    = f.text_field :address_first_name_kana, placeholder: "例) イチロウ"
-  .field
-    = f.label :post_code, "郵便番号"
-    必須
-    %br/
-    = f.text_field :post_code, autofocus: true, placeholder: "例) 810-0801"
-  .field
-    = f.label :prefecture, "都道府県"
-    必須
-    %br/
-    = f.text_field :prefecture, autofocus: true, placeholder: "例) 福岡県"
-  .field
-    = f.label :municipality, "市町村"
-    必須
-    %br/
-    = f.text_field :municipality, autofocus: true, placeholder: "例) 福岡市"
-  .field
-    = f.label :house_number, "番地"
-    必須
-    %br/
-    = f.text_field :house_number, autofocus: true, placeholder: "例) 中洲4丁目6-12"
-  .field
-    = f.label :building_name, "建物名"
-    %br/
-    = f.text_field :building_name, autofocus: true, placeholder: "例) プラート中洲 8F"
-  .field
-    = f.label :phone_number, "電話番号"
-    %br/
-    = f.text_field :phone_number, autofocus: true, placeholder: "例) 090-XXXX-XXXX"
-  .actions
-    = f.submit "登録"
-= render "devise/shared/links"
+.signup-content-address
+  .signup-main-address
+    %h2.signup-main-title-address 会員情報入力
+    = form_with model: @address, local: true do |f|
+      = render "devise/shared/error_messages", resource: @address
+      .information-text-address
+        .form-field
+          = f.label :address_family_name, "送付先氏名"
+          %span.form-require 必須
+          %br/
+          = f.text_field :address_family_name, placeholder: "例) 鈴木",class: 'form-field__input__name'
+          = f.text_field :address_first_name, placeholder: "例) 一郎",class: 'form-field__input__name'
+        .form-field
+          = f.label :address_family_name_kana, "送付先氏名(カナ)"
+          %span.form-require 必須
+          %br/
+          = f.text_field :address_family_name_kana, placeholder: "例) スズキ",class: 'form-field__input__name'
+          = f.text_field :address_first_name_kana, placeholder: "例) イチロウ",class: 'form-field__input__name'
+        .form-field
+          = f.label :post_code, "郵便番号"
+          %span.form-require 必須
+          %br/
+          = f.text_field :post_code, autofocus: true, placeholder: "例) 810-0801",class: 'form-field__input'
+        .form-field
+          = f.label :prefecture, "都道府県"
+          %span.form-require 必須
+          %br/
+          = f.text_field :prefecture, autofocus: true, placeholder: "例) 福岡県",class: 'form-field__input'
+        .form-field
+          = f.label :municipality, "市町村"
+          %span.form-require 必須
+          %br/
+          = f.text_field :municipality, autofocus: true, placeholder: "例) 福岡市",class: 'form-field__input'
+        .form-field
+          = f.label :house_number, "番地"
+          %span.form-require 必須
+          %br/
+          = f.text_field :house_number, autofocus: true, placeholder: "例) 中洲4丁目6-12",class: 'form-field__input'
+        .form-field
+          = f.label :building_name, "建物名"
+          %br/
+          = f.text_field :building_name, autofocus: true, placeholder: "例) プラート中洲 8F",class: 'form-field__input'
+        .form-field
+          = f.label :phone_number, "電話番号"
+          %br/
+          = f.text_field :phone_number, autofocus: true, placeholder: "例) 090-XXXX-XXXX",class: 'form-field__input'
+        .actions
+          = f.submit "登録",class: 'next-btn'
+      -# = render "devise/shared/links"
