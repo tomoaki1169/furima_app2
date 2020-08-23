@@ -25,7 +25,6 @@
           = f.label :prefecture_id, "都道府県"
           %span.form-require 必須
           %br/
-          -# = f.collection_select method, collection, value_method, text_method,   :prefecture, autofocus: true, placeholder: "例) 福岡県"
           = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "選択してください",class: 'form-field__input'
         .form-field
           = f.label :municipality, "市町村"
