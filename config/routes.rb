@@ -9,9 +9,18 @@ Rails.application.routes.draw do
     get 'addresses', to: 'users/registrations#new_address'
     post 'addresses', to: 'users/registrations#create_address'
   end
-
-  resources :users
   root 'items#index'
+  resources :items, except: :show
+  resources :items,only: [:index, :show, :new, :edit, :destroy] do
+    collection do
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults:{ format: 'json' }
+    end
+  end
   resources :users 
-  resources :items
+  resources :items do
+    resources :purchase, only: [:index] do
+      get 'done', to: 'purchase#done'
+    end
+  end
 end

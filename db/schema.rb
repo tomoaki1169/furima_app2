@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_13_054737) do
+ActiveRecord::Schema.define(version: 2020_08_19_085232) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "address_family_name", null: false
@@ -18,36 +18,30 @@ ActiveRecord::Schema.define(version: 2020_08_13_054737) do
     t.string "address_family_name_kana", null: false
     t.string "address_first_name_kana", null: false
     t.string "post_code", null: false
-    t.string "prefecture", null: false
+    t.integer "prefecture_id"
     t.string "municipality", null: false
     t.string "house_number", null: false
     t.string "building_name"
     t.string "phone_number"
     t.bigint "user_id", null: false
+    t.string "city"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
-  create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
-    t.string "ancesty"
+    t.string "ancestry"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["ancestry"], name: "index_categories_on_ancestry"
   end
 
   create_table "credit_cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "card_company", null: false
-    t.string "card_yaer", null: false
-    t.string "card_manth", null: false
-    t.string "card_pass", null: false
     t.bigint "user_id", null: false
+    t.string "customer_id", null: false
+    t.string "card_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_credit_cards_on_user_id"
@@ -64,19 +58,17 @@ ActiveRecord::Schema.define(version: 2020_08_13_054737) do
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.integer "price", null: false
-    t.string "derivery_fee", null: false
-    t.string "size", null: false
-    t.string "status", null: false
-    t.string "data", null: false
-    t.string "area"
+    t.integer "derivery_fee", null: false
+    t.integer "size", null: false
+    t.integer "data", null: false
+    t.string "brands_name"
     t.string "introduction", null: false
-    t.string "sale_status"
-    t.bigint "user_id", null: false
-    t.bigint "brand_id", null: false
+    t.integer "status", null: false
+    t.integer "prefecture_id", null: false
+    t.bigint "user_id"
     t.bigint "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["brand_id"], name: "index_items_on_brand_id"
     t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["user_id"], name: "index_items_on_user_id"
   end
@@ -93,6 +85,13 @@ ActiveRecord::Schema.define(version: 2020_08_13_054737) do
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
+  create_table "purchases", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "item_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", default: "", null: false
@@ -107,7 +106,6 @@ ActiveRecord::Schema.define(version: 2020_08_13_054737) do
 
   add_foreign_key "addresses", "users"
   add_foreign_key "credit_cards", "users"
-  add_foreign_key "items", "brands"
   add_foreign_key "items", "categories"
   add_foreign_key "items", "users"
   add_foreign_key "profiles", "users"

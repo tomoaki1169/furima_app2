@@ -7,7 +7,11 @@
         .item-box__image-box
           %ul.main-image
             %li
-              = image_tag @item.images[0].image_url, id: "main-img"
+              = image_tag @item.images[0].image_url, class: "main-img"
+              -if @item.purchase.present?
+                .sold
+                  .sold__inner 
+                    SOLD
           .image-list
             .lists
               - @item.images.each do |image|
@@ -29,17 +33,18 @@
           %tr 
             %th カテゴリー
             %td.click
-              = link_to "ベビー・キッズ", "#", class: "click"
+              = @item.category.root.name
               %br
-              = link_to "ベビー服(男の子用) ~95cm", "#", class: "click"
+              = @item.category.parent.name
               %br
-              = link_to "アウター", "#", class: "click"
+              = @item.category.name
           %tr 
             %th ブランド
-            %td ユニクロ    
+            %td
+              = @item.brands_name
           %tr 
             %th 商品のサイズ
-            %td 
+            %td
               = "#{@item.size}サイズ"
           %tr 
             %th 商品の状態
@@ -52,7 +57,7 @@
           %tr
             %th 発送元の地域
             %td
-              =link_to "北海道", "#", class: "click"
+              = @item.prefecture_id
           %tr
             %th 発送日の目安
             %td 
@@ -60,8 +65,7 @@
       .button-box
         - if user_signed_in? && current_user.id == @item.user_id
           .button-box__button
-            = link_to edit_item_path(@item.id), class: 'edit-button' do
-              編集する
+            = link_to "編集する", edit_item_path(@item.id), class: 'edit-button', method: :get
           .button-box__button
             = link_to "削除する", item_path(@item.id), class: 'delete-button', method: :delete
         - else

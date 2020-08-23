@@ -1,0 +1,116 @@
+
+.main_wrapper{
+  background-color: silver;
+}
+
+
+
+form{
+    background-color: white;
+    margin: 0 auto;
+    max-width: 600px;
+    width: 100%;
+    border-radius: 4px;
+    padding: 32px 24px;
+  }
+
+.main-block__label{
+    font-size: 20px;
+    font-weight: bolder;
+  }
+
+.form-group{
+
+  &__require{
+    background-color: red;
+    margin: 0 0 0 8;
+    padding: 2px 4px;
+    color: white;
+    border-radius: 2px;
+    font-size: 12px;
+  }
+
+  .sell_center{
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    height: 48px;
+    margin: 0;
+    outline: none;
+    padding: 0 16px;
+  }
+
+  .textarea_default{
+    height: 150px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin: 0;
+    outline: none;
+    padding: 0 16px;
+  }
+
+}
+
+  .sell_upload{
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    &__text{
+      margin: 10px;
+      font-size: 12px;
+    }
+  }
+
+
+  select ,input{
+    width:100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    height: 48px;
+    margin: 0;
+    outline: none;
+    padding: 0 16px;
+  }
+
+  .form_section_register_btns{
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+
+    .profile_chapter__btn{
+      background-color: #3ccace;
+      color: #ffffff;
+      border-radius: 16px;
+    }
+  }
+  .js-file_group{
+    display: none;
+  }
+  .item-num-o{
+    width: 100%;
+    height: 110px;
+    background-color: rgb(245, 245, 245);
+    border: dotted 4px silver;
+    border-radius: 20px;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+    .sell_content__text{
+      padding-top: 10px;
+      font-size: 12px;
+    }
+
+
+    #images-boxes{
+      display: flex;
+
+    } 
+
+
+
