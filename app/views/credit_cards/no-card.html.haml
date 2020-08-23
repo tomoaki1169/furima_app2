@@ -1,0 +1,17 @@
+.mypage
+  = render "users/mypage-nav"
+  .mypage-main
+    .mypage-main__payment
+      .mypage-title
+        支払い方法
+      .payment-box
+        .payment-contents
+          = link_to new_credit_card_path, class: "card-register" do
+            %i.fas.fa-plus-circle.card-register__icon
+            .card-register__word
+              新規カードを登録する
+        .payment-help
+          = link_to "#", class: "payment-help__box" do
+            .payment-way
+              支払い方法について
+            %i.fas.fa-angle-right.payment-icon

@@ -70,7 +70,7 @@
             = link_to "削除する", item_path(@item.id), class: 'delete-button', method: :delete
         - else
           .button-box__button
-            = link_to "購入画面に進む", "#", class: 'buy-button'
+            = link_to "購入画面に進む", item_purchases_path(@items),class: 'buy-button'
     %ul.links
       %li
         = link_to "#" do
