@@ -15,7 +15,6 @@
               = @item.name
             .item-price
               %span
-                送料込み（税込）
                 = @item.derivery_fee
               %span.shipping-price
                 ¥
@@ -60,7 +59,7 @@
             = @address.post_code
           %p.item-address__info
             = @address.municipality
-      = link_to "#", method: :patch, class: "purchase-confirmation__btn" do
+      = form_tag(action: :pay, method: :post, item_id: @item), class: "purchase-confirmation__btn" do
         .btn-enter
           購入する
     %ul.purchase-lists

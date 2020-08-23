@@ -1,0 +1,13 @@
+.transaction-done
+  .transaction-done__content
+    .transaction-done__text
+      購入が完了しました！
+    .transaction-done__image
+      = image_tag @top_image.image.url, alt:"商品画像", class: "transaction-done__image--img"
+    .transaction-done__title
+      = @item.name
+    .transaction-done__price
+      .transaction-done__price--text
+        = @item.price
+      .transaction-done__price--info
+        = @item.derivery_fee
