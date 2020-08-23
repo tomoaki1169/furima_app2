@@ -6,8 +6,8 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.integer :derivery_fee, null:false
       t.integer :size, null:false
       t.integer :data, null:false
-      t.integer :brands_name
-      t.integer :introduction, null:false
+      t.string :brands_name
+      t.string :introduction, null:false
       t.integer :status, null:false
       t.integer :prefecture_id, null:false
       t.references :user,foreign_key:true

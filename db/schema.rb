@@ -63,8 +63,8 @@ ActiveRecord::Schema.define(version: 2020_08_19_085232) do
     t.integer "derivery_fee", null: false
     t.integer "size", null: false
     t.integer "data", null: false
-    t.integer "brands_name"
-    t.integer "introduction", null: false
+    t.string "brands_name"
+    t.string "introduction", null: false
     t.integer "status", null: false
     t.integer "prefecture_id", null: false
     t.bigint "user_id"
