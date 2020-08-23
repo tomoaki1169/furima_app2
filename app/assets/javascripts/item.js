@@ -48,11 +48,6 @@ $(function() {
         }
 
 
-        // if image < 4
-        //   $('#image-box__container').append(buildImg(targetIndex, blobUrl));
-        // else image > 5 && image < 8
-        //   $('.image-box').css("display: block")
-        //   $('#image-box__container').append(buildImg(targetIndex, blobUrl));
         fileIndex.shift();
         
         // 末尾の数に1足した数を追加する
