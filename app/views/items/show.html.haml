@@ -33,22 +33,23 @@
           %tr 
             %th カテゴリー
             %td.click
-              = link_to "ベビー・キッズ", "#", class: "click"
+              = @item.category.root.name
               %br
-              = link_to "ベビー服(男の子用) ~95cm", "#", class: "click"
+              = @item.category.parent.name
               %br
-              = link_to "アウター", "#", class: "click"
+              = @item.category.name
           %tr 
             %th ブランド
-            %td ユニクロ    
+            %td
+              = @item.brands_name
           %tr 
             %th 商品のサイズ
-            %td 
+            %td
               = "#{@item.size}サイズ"
           %tr 
             %th 商品の状態
             %td 
-              = @item.sale_status
+              = @item.status
           %tr
             %th 配送料の負担
             %td 
@@ -56,7 +57,7 @@
           %tr
             %th 発送元の地域
             %td
-              =link_to "北海道", "#", class: "click"
+              = @item.prefecture_id
           %tr
             %th 発送日の目安
             %td 

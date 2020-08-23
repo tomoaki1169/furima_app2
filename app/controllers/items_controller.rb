@@ -57,14 +57,14 @@ class ItemsController < ApplicationController
   # 子カテゴリーが選択された後に動くアクション
   def get_category_grandchildren
     # 選択された子カテゴリーに紐付く孫カテゴリーの配列を所得
-    @category_grandchildren = Category.find(params[:child_id]).children
+    @category_grandchildren = Category.find(params[:child_id]).children 
   end
 end
 
   private
 
   def item_params
-    params.require(:item).permit(:name, :price, :derivery_fee, :size, :sale_status, :status,:data,:introduction, :brands_name,:prefecture_id,:category_id,images_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id)
+    params.require(:item).permit(:name, :price, :derivery_fee, :size,:status,:data,:introduction, :brands_name,:prefecture_id,:category_id,images_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id)
   end
 
   def set_item
