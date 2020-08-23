@@ -1,27 +1,29 @@
 .login-main {
+  box-sizing: border-box;
   background-color: whitesmoke;
-  .login-contents {
-    padding: 100px 500px 350px;
-    .login-form {
-      height: 60vh;
-      text-align: center;
-      background-color: white;
-      &__email {
-        margin-top: 70px;
-        width: 300px;
-        height: 50px;
-      }
-      &__password {
-        width: 300px;
-        height: 50px;
-      }
-      .login-btn {
-        width: 300px;
-        height: 50px;
-        margin-top: 20px;
-        color: white;
-        background-color: turquoise;
-      }
+  height: 100vh;
+  width: 100vw;
+  padding-top: 30px;
+  .login-form {
+    height: 350px;
+    width: 400px;
+    margin: 80px auto 0;
+    text-align: center;
+    background-color: white;
+    &__email {
+      width: 300px;
+      height: 50px;
+    }
+    &__password {
+      width: 300px;
+      height: 50px;
+    }
+    .login-btn {
+      width: 300px;
+      height: 50px;
+      margin-top: 40px;
+      color: white;
+      background-color: turquoise;
     }
   }
 }
