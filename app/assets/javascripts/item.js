@@ -43,8 +43,7 @@ $(function() {
         $('#image-box__container').append(buildImg(targetIndex, blobUrl));
         if ( $('.images').length < 10) {
         // fileIndexの先頭の数字を使ってinputを作る
-          $('#image-box').append(buildFileField(fileIndex[0]));
-
+          $('#image-box__container').append(buildFileField(fileIndex[0]));
         }
 
 
