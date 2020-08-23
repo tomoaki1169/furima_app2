@@ -8,5 +8,6 @@ FactoryBot.define do
     prefecture_id                      {"1"}                    
     municipality                       {"福岡市"}
     house_number                       {"博多区112"}
+    association :user
   end
 end

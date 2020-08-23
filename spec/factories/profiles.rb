@@ -5,5 +5,6 @@ FactoryBot.define do
     family_name_kana            {"タナカ"} 
     first_name_kana             {"タロウ"}
     birth_day                   {"2000-01-01"}
+    association :user
   end
 end
