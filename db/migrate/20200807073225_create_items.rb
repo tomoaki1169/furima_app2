@@ -3,12 +3,12 @@ class CreateItems < ActiveRecord::Migration[6.0]
     create_table :items do |t|
       t.string :name, null:false
       t.integer :price, null:false
-      t.string :derivery_fee, null:false
-      t.string :size, null:false
-      t.string :data, null:false
+      t.integer :derivery_fee, null:false
+      t.integer :size, null:false
+      t.integer :data, null:false
       t.string :brands_name
-      t.integer :introduction, null:false
-      t.string :sale_status, null:false
+      t.string :introduction, null:false
+      t.integer :status, null:false
       t.integer :prefecture_id, null:false
       t.references :user,foreign_key:true
       t.references :category, null:false,foreign_key:true
