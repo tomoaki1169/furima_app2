@@ -9,7 +9,7 @@
       = form_with model: @item, local: true do |f|
         .purchase-confirmation__item
           .item-image
-            = image_tag asset_path('curry.png'), class: 'purchase-item', alt: '購入アイテム画像'
+            = image_tag @item.images[0].image_url, class: 'purchase-item', alt: '購入アイテム画像'
           .item-box
             %p
               = @item.name
