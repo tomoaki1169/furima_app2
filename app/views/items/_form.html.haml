@@ -77,10 +77,9 @@
             %span.form-group__require 必須
           .sell_form_box__tab
             .select-wrap
-              = f.select :sale_status, Item.sale_statuses.keys, {include_blank: "選択してください"}
+              = f.select :status, Item.statuses.keys, {include_blank: "選択してください"}
 
 
-            .sell_form_box
               .sell_space
               .form-first
                 %label.main-block__label 配送料の負担
