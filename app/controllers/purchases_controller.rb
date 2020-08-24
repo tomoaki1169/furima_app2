@@ -1,11 +1,10 @@
 class PurchasesController < ApplicationController
   require "payjp"
-
   before_action :set_card, :set_item
 
   def index
     unless user_signed_in?
-      redirect_to user_session_path, alert: "ログインしてください"
+      redirect_to user_session_path
     end
     if @credit_card.blank?
       render "credit_cards/no-card"
@@ -52,6 +51,7 @@ class PurchasesController < ApplicationController
   layout "purchase"
 
   def done
+    @item.update( buyer_id: current_user.id)
   end
 
   private
