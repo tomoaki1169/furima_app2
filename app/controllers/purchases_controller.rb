@@ -16,6 +16,7 @@ class PurchasesController < ApplicationController
       @exp_month = @default_card_information.exp_month.to_s
       @exp_year = @default_card_information.exp_year.to_s.slice(2,3)
       @card_brand = @default_card_information.brand
+      @send_id = Address.where(user_id: current_user.id).first
       case @card_brand
       when "Visa"
         @card_src = "visa.gif"
@@ -34,32 +35,27 @@ class PurchasesController < ApplicationController
   end
 
   def pay
-    if @item.purchase.present?
-      redirect_to item_path(@item.id),alert: "売り切れています"
+    pay_card = CreditCard.find_by(user_id: current_user.id)
+    if pay_card.present?
+      Payjp.api_key = Rails.application.credentials[:payjp][:PAYJP_SECRET_KEY]
+      Payjp::Charge.create(
+        amount: @item.price,
+        customer: Payjp::Customer.retrieve(pay_card.customer_id),
+        currency: "jpy"
+      )
+      redirect_to action: 'done'
     else
-      @item.with_lock do
-        if current_user.credit_card.present?
-          Payjp.api_key = Rails.application.credentials[:payjp][:PAYJP_SECRET_KEY]
-          charge = payjp::Charge.create(
-            amount: @item.price,
-            customer: Payjp::Customer.retrieve(@credit_card.customer_id),
-            currency: "jpy"
-          )
-          redirect_to action: 'done'
-        else
-          redirect_to credit_card_path(current_user), alert: "クレジットカードを登録してください"
-        end
-      @purchase = Purchase.create(buyer_id: current_user.id, item_id: params[:item_id])
-      end
+      redirect_to credit_card_path(current_user), alert: "クレジットカードを登録してください"
     end
   end
 
   layout "purchase"
+
   def done
-    @item.update( purchase_id: current_user.id)
   end
 
   private
+
   def set_card
     @credit_card = CreditCard.where(user_id: current_user.id).first
   end
@@ -67,4 +63,5 @@ class PurchasesController < ApplicationController
   def set_item
     @item = Item.find(params[:item_id])
   end
+
 end
