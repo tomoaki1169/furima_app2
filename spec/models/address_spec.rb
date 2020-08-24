@@ -13,48 +13,48 @@ require 'rails_helper'
       it "address_first_nameがない場合は登録できないこと" do
         address = FactoryBot.build(:address, address_first_name: nil)
         address.valid?
-        expect(address.errors[:address_first_name]).to include("全角で入力して下さい", "を入力してください")
+        expect(address.errors[:address_first_name]).to include("全角で入力して下さい", "can't be blank")
       end
 
 
       it "address_family_nameがない場合は登録できないこと" do
         address = FactoryBot.build(:address, address_family_name: nil)
         address.valid?
-        expect(address.errors[:address_family_name]).to include("全角で入力して下さい", "を入力してください")
+        expect(address.errors[:address_family_name]).to include("全角で入力して下さい", "can't be blank")
       end
 
 
       it "address_first_name_kanaがない場合は登録できないこと" do
         address = FactoryBot.build(:address, address_first_name_kana: nil)
         address.valid?
-        expect(address.errors[:address_first_name_kana]).to include("全角カタカナのみで入力して下さい", "を入力してください")
+        expect(address.errors[:address_first_name_kana]).to include("全角カタカナのみで入力して下さい", "can't be blank")
       end
 
 
       it "address_family_name_kanaがない場合は登録できないこと" do
         address = FactoryBot.build(:address, address_family_name_kana: nil)
         address.valid?
-        expect(address.errors[:address_family_name_kana]).to include("全角カタカナのみで入力して下さい", "を入力してください")
+        expect(address.errors[:address_family_name_kana]).to include("全角カタカナのみで入力して下さい", "can't be blank")
       end
 
 
       it "post_codeがない場合は登録できないこと" do
         address = FactoryBot.build(:address, post_code: nil)
         address.valid?
-        expect(sending_destination.errors[:post_code]).to include("は不正な値です", "を入力してください")
+        expect(address.errors[:post_code]).to include("is invalid", "can't be blank")
       end
 
       it "prefecture_idがない場合は登録できないこと" do
         address = FactoryBot.build(:address, prefecture_id: nil)
         address.valid?
-        expect(address.errors[:prefecture_code]).to include("を入力してください")
+        expect(address.errors[:prefecture_id]).to include()
       end
     
 
       it "house_numberがない場合は登録できないこと" do
         address = FactoryBot.build(:address, house_number: nil)
         address.valid?
-        expect(address.errors[:house_number]).to include("を入力してください")
+        expect(address.errors[:house_number]).to include("can't be blank")
       end
     end
   end

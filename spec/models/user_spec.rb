@@ -10,56 +10,56 @@ require 'rails_helper'
         expect(user).to be_valid
       end
 
-      it " nameがない場合は登録できないこと" do
+      it "nameがない場合は登録できないこと" do
         user = FactoryBot.build(:user, name: "" )
         user.valid?
-        expect(user.errors[:name]).to include("を入力してください")
+        expect(user.errors[:name]).to include("can't be blank")
       end
 
       it "emailがない場合は登録できないこと" do
         user = FactoryBot.build(:user, email: nil)
         user.valid?
-        expect(user.errors[:email]).to include("を入力してください")
+        expect(user.errors[:email]).to include("can't be blank", "is invalid")
       end
 
       it "passwordがない場合は登録できないこと" do
         user = FactoryBot.build(:user, password: nil)
         user.valid?
-        expect(user.errors[:password]).to include("を入力してください", "は7文字以上で入力してください", "は不正な値です")
+        expect(user.errors[:password]).to include("can't be blank", "is too short (minimum is 7 characters)", "is invalid")
       end
 
       it "passwordが存在してもpassword_confirmationがない場合は登録できないこと" do
         user = FactoryBot.build(:user, password_confirmation: "")
         user.valid?
-        expect(user.errors[:password_confirmation]).to include("とパスワードの入力が一致しません")
+        expect(user.errors[:password_confirmation]).to include("doesn't match Password")
       end
 
       it "重複したnameが存在する場合は登録できない" do
-        user = create(:user)
+        user = FactoryBot.create(:user)
         another_user = FactoryBot.build(:user, name: user.name)
         another_user.valid?
-        expect(another_user.errors[:name]).to include("はすでに存在します")
+        expect(another_user.errors[:name]).to include("has already been taken")
       end
 
       it "emailに@とドメインが存在する場合は登録できること " do
-        user = create(:user)
+        user = FactoryBot.create(:user)
         another_user = FactoryBot.build(:user, email: "kkk@gmail.com")
         another_user.valid?
         expect(user).to be_valid
       end
 
       it "emailに@とドメインがない場合は登録できないこと " do
-        user = create(:user)
+        user = FactoryBot.create(:user)
         another_user = FactoryBot.build(:user, email: "kkkgmail")
         another_user.valid?
-        expect(another_user.errors[:email]).to include("は不正な値です")
+        expect(another_user.errors[:email]).to include("is invalid")
       end
 
       it "重複したemailが存在する場合は登録できない" do
-        user = create(:user)
+        user = FactoryBot.create(:user)
         another_user = FactoryBot.build(:user, email: user.email)
         another_user.valid?
-        expect(another_user.errors[:email]).to include("はすでに存在します")
+        expect(another_user.errors[:email]).to include("has already been taken")
       end
     
       it " passwordが7文字以上であれば登録できること " do
@@ -71,7 +71,7 @@ require 'rails_helper'
       it " passwordが6文字以下であれば登録できないこと " do
         user = FactoryBot.build(:user, password: "passwo", password_confirmation: "password")
         user.valid?
-        expect(user.errors[:password]).to include("は7文字以上で入力してください")
+        expect(user.errors[:password]).to include("is too short (minimum is 7 characters)")
       end
     end
   end

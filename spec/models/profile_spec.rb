@@ -13,31 +13,31 @@ require 'rails_helper'
       it "family_nameがない場合は登録できないこと" do
         profile = FactoryBot.build(:profile, family_name: nil)
         profile.valid?
-        expect(profile.errors[:family_name]).to include("全角で入力して下さい", "を入力してください")
+        expect(profile.errors[:family_name]).to include("全角で入力してください", "can't be blank")
       end
 
       it "first_nameがない場合は登録できないこと" do
         profile = FactoryBot.build(:profile, first_name: nil)
         profile.valid?
-        expect(profile.errors[:first_name]).to include("全角で入力して下さい", "を入力してください")
+        expect(profile.errors[:first_name]).to include("全角で入力してください", "can't be blank")
       end
 
       it "family_name_kanaがない場合は登録できないこと" do
         profile = FactoryBot.build(:profile, family_name_kana: nil)
         profile.valid?
-        expect(profile.errors[:family_name_kana]).to include("全角カタカナのみで入力して下さい", "を入力してください")
+        expect(profile.errors[:family_name_kana]).to include("全角カタカナのみで入力して下さい", "can't be blank")
       end
       
       it "first_name_kanaがない場合は登録できないこと" do
         profile = FactoryBot.build(:profile, first_name_kana: nil)
         profile.valid?
-        expect(profile.errors[:first_name_kana]).to include("全角カタカナのみで入力して下さい", "を入力してください")
+        expect(profile.errors[:first_name_kana]).to include("全角カタカナのみで入力して下さい", "can't be blank")
       end
 
       it "birth_dayがない場合は登録できないこと" do
         profile = FactoryBot.build(:profile, birth_day: nil)
         profile.valid?
-        expect(profile.errors[:birth_day]).to include("を入力してください")
+        expect(profile.errors[:birth_day]).to include("can't be blank")
       end
 
       it "family_nameが全角である場合は登録できること" do
@@ -48,7 +48,7 @@ require 'rails_helper'
       it "family_nameが全角でない場合は登録できないこと" do
         profile = FactoryBot.build(:profile, family_name: "yamada")
         profile.valid?
-        expect(profile.errors[:family_name]).to include("全角で入力して下さい")
+        expect(profile.errors[:family_name]).to include("全角で入力してください")
       end
 
       it "first_nameが全角である場合は登録できること" do
@@ -59,7 +59,7 @@ require 'rails_helper'
       it "first_nameが全角でない場合は登録できないこと" do
         profile = FactoryBot.build(:profile, first_name: "tarou")
         profile.valid?
-        expect(profile.errors[:first_name]).to include("全角で入力して下さい")
+        expect(profile.errors[:first_name]).to include("全角で入力してください")
       end
 
       it "family_name_kanaが全角カタカナである場合は登録できること" do
