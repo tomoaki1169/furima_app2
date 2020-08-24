@@ -1,5 +1,6 @@
 class PurchasesController < ApplicationController
   require "payjp"
+
   before_action :set_card, :set_item
 
   def index
@@ -7,13 +8,14 @@ class PurchasesController < ApplicationController
       redirect_to user_session_path, alert: "ログインしてください"
     end
     if @credit_card.blank?
-      redirect_to 
+      render "credit_cards/no-card"
     else
-      current_user.credit_card.present?
       Payjp.api_key = Rails.application.credentials[:payjp][:PAYJP_SECRET_KEY]
       customer = Payjp::Customer.retrieve(@credit_card.customer_id)
-      @customer_card = customer.cards.retrieve(@credit_card.card_id)
-      @card_brand = @customer_card.brand
+      @default_card_information = customer.cards.retrieve(@credit_card.card_id)
+      @exp_month = @default_card_information.exp_month.to_s
+      @exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+      @card_brand = @default_card_information.brand
       case @card_brand
       when "Visa"
         @card_src = "visa.gif"
@@ -28,9 +30,7 @@ class PurchasesController < ApplicationController
       when "Discover"
         @card_src = "discover.gif"
       end
-        @exp_month = @default_card_information.exp_month.to_s
-        @exp_year = @default_card_information.exp_year.to_s.slice(2,3)
-      end
+    end
   end
 
   def pay
@@ -61,11 +61,10 @@ class PurchasesController < ApplicationController
 
   private
   def set_card
-    @credit_card = CreditCard.find_by(user_id: current_user.id)
+    @credit_card = CreditCard.where(user_id: current_user.id).first
   end
 
   def set_item
-    @items = Item.find(params[:item_id])
-    @images = @item.images.all
+    @item = Item.find(params[:item_id])
   end
 end

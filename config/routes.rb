@@ -16,14 +16,14 @@ Rails.application.routes.draw do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults:{ format: 'json' }
     end
-  end
-  resources :users 
-  resources :items do
     resources :purchases, only: [:index] do
-      post 'pay', to: 'purchases#pay'
-      get 'done', to: 'purchase#done'
+      member do
+        post 'pay', to: 'purchases#pay'
+        get 'done', to: 'purchases#done'
+      end
     end
   end
+  resources :users 
   resources :credit_cards, only: [:new, :show, :create, :destroy] do
     post 'credit_cards/:id', to: 'credit_cards#show'
   end
