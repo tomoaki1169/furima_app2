@@ -9,7 +9,7 @@ class PurchasesController < ApplicationController
     if @credit_card.blank?
       redirect_to credit_card_path(current_user)
     else
-      Payjp.api_key = Rails.application.credentials[:payjp][:PAYJP_SECRET_KEY]
+      Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_SECRET_KEY]
       customer = Payjp::Customer.retrieve(@credit_card.customer_id)
       @default_card_information = customer.cards.retrieve(@credit_card.card_id)
       @exp_month = @default_card_information.exp_month.to_s
@@ -36,7 +36,7 @@ class PurchasesController < ApplicationController
   def pay
     pay_card = CreditCard.find_by(user_id: current_user.id)
     if pay_card.present?
-      Payjp.api_key = Rails.application.credentials[:payjp][:PAYJP_SECRET_KEY]
+      Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_SECRET_KEY]
       Payjp::Charge.create(
         amount: @item.price,
         customer: Payjp::Customer.retrieve(pay_card.customer_id),
