@@ -1,0 +1,6 @@
+- if Favorite.find_by(user_id: current_user.id, item_id: @item.id)
+  = link_to "/items/#{@item.id}/favorites/#{@item.favorites.ids}", method: :delete, class:"element", remote: true do
+    = icon("fas", "heart", class: "like")
+- else
+  = link_to "/items/#{@item.id}/likes", method: :post, class:"element", remote: true do
+    = icon("fas", "heart", class: "unlike")

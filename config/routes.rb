@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions',
@@ -21,6 +22,8 @@ Rails.application.routes.draw do
         post 'pay', to: 'purchases#pay'
         get 'done', to: 'purchases#done'
       end
+    end
+    resources :favorites, only: [:create, :destroy] do
     end
     collection do
       get 'get_category_children', defaults: { format: 'json' }

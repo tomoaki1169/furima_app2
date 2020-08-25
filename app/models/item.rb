@@ -6,6 +6,11 @@ class Item < ApplicationRecord
   has_one :purchase
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
+  has_many :favorites, dependent: :destroy
+
+  def favorite_user(id)
+    favorites.find_by(user_id: user_id)
+  end
 
   validates :images, length: { minimum: 1, maximum: 10 }
   validates :name,presence: true,length: {maximum: 40}
