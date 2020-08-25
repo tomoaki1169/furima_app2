@@ -35,7 +35,7 @@
           border-radius: 5px;
         }
         .item-box {
-          margin-left: 90px;
+          margin-left: 35px;
           p {
             font-size: 14px;
           }
@@ -44,7 +44,7 @@
             margin-left: 90px;
             .shipping-price {
               font-size: 14px;
-              font-weight: bold;
+              font-weight: bold;white-space: nowrap
             }
           }
         }
@@ -81,6 +81,9 @@
               font-weight: bold;
             }
           }
+          figure {
+            margin: 0;
+          }
         }
       }
       &__address {
@@ -111,6 +114,9 @@
           padding-top: 13px;
           height: 48px;
           border-radius: 3px;
+        }
+        a {
+          text-decoration: none;
         }
         .btn-enter:hover {
           background-color: darkcyan;

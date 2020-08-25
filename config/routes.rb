@@ -10,17 +10,28 @@ Rails.application.routes.draw do
     post 'addresses', to: 'users/registrations#create_address'
   end
   root 'items#index'
+
+
+  resources :users 
+  resources :items do
+
   resources :items, except: :show
   resources :items,only: [:index, :show, :new, :edit, :destroy] do
     collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults:{ format: 'json' }
     end
+
     resources :purchases, only: [:index] do
       member do
         post 'pay', to: 'purchases#pay'
         get 'done', to: 'purchases#done'
       end
+    end
+
+    collection do
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults:{ format: 'json' }
     end
   end
   resources :users 

@@ -1,7 +1,8 @@
 .signup-content {
   box-sizing: border-box;
   background-color: whitesmoke;
-  height: 100vh;
+  // height: 100vh;
+  height: 1200px;
   width: 100vw;
   padding-top: 30px;
   .signup-main {
@@ -41,4 +42,8 @@
       margin-bottom: 20px;
     }
   }
+}
+
+.field_with_errors {
+  display: contents;
 }

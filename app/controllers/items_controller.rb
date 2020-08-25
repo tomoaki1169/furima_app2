@@ -9,12 +9,9 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.new
-
     # データベースから、親カテゴリーのみ抽出
     @parents = Category.where(ancestry:nil)
-
-    render layout: 'new-items'
-
+    
   end
 
   def  create
@@ -23,6 +20,7 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path
     else
+      @item.images.new
       render :new
     end
   end
@@ -72,4 +70,5 @@ end
 
   def set_item
     @item = Item.find(params[:id])
+    @items = Item.where(id: params[:id])
   end
