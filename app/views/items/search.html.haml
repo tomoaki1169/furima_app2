@@ -1,0 +1,15 @@
+.search-item
+  - @items.each do |item|
+    .search-list
+      =link_to item_path(item) do
+        .search-list__image
+          = image_tag item.images[0].image_url, class: "item-image"
+          -if item.buyer_id.present?
+            .search-sold
+              .sold-inner 
+                SOLD
+        .search-list__price
+          = "¥#{item.price}"
+        .search-list__info
+          .search-name
+            = item.name

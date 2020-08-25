@@ -11,23 +11,21 @@ Rails.application.routes.draw do
   end
   root 'items#index'
 
-  resources :items, except: :show
   resources :items,only: [:index, :show, :new, :edit, :destroy] do
     collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults:{ format: 'json' }
     end
-
     resources :purchases, only: [:index] do
       member do
         post 'pay', to: 'purchases#pay'
         get 'done', to: 'purchases#done'
       end
     end
-
     collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults:{ format: 'json' }
+      get 'search'
     end
   end
   resources :users 

@@ -1,0 +1,58 @@
+.search-item {
+  display: flex;
+  flex-wrap: wrap;
+  
+  .search-list {
+    margin: 20px;
+    height: 260px;
+    width: 200px;
+    position: relative;
+    box-shadow: 0 1px 10px #cccccc;
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', YuGothic, 'Yu Gothic Medium', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+    &__image {
+      .item-image {
+        width: 200px;
+        height: 190px;
+        position: absolute;
+        z-index: 1;
+      }
+      .search-sold {
+        border-width: 100px 100px 0 0;
+        border-color: #ea352d transparent transparent transparent;
+        display: block;
+        position: absolute;
+        top: 0;
+        z-index: 5;
+        border-style: solid;
+        .sold-inner {
+          top: -80px;
+          font-size: 20px;
+          position: absolute;
+          z-index: 3;
+          color: #fff;
+          transform: rotate(-45deg);
+          letter-spacing: 2px;
+          font-weight: 600;
+        }
+      }
+    }
+    &__price {
+      border-radius: 0 20px 20px 0;
+      text-align: center;
+      height: 30px;
+      width: 70px;
+      z-index: 9;
+      margin-top: 150px;
+      padding-top: 5px;
+      background: rgba(#343434,0.6);
+      color: white;
+      position: absolute;
+    }
+    &__info {
+      padding: 195px 0 0 10px;
+      position: absolute;
+      color: #343434;
+    }
+
+  }
+}
