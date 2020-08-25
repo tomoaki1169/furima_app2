@@ -83,3 +83,4 @@ end
   gem 'public_uid'
   gem 'payjp'
   gem 'active_hash'
+  gem 'gretel'
