@@ -6,7 +6,6 @@ $(function() {
                       <input class="js-file" type="file"
                       name="item[images_attributes][${num}][image]"
                       id="item_images_attributes_${num}_image"><br>
-                      <div class="js-remove">削除</div>
                     </div>`;
       return html;
     }
@@ -60,6 +59,9 @@ $(function() {
       if (hiddenCheck) hiddenCheck.prop('checked', true);
       $(this).parent().remove();
       $(`img[data-index="${targetIndex}"]`).remove();
+      console.log(targetIndex);
+      console.log($(`#item_images_attributes_${targetIndex}_image`));
+      $(`#item_images_attributes_${targetIndex}_image`).remove();
 
       // 画像入力欄が0個にならないようにしておく
       if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
