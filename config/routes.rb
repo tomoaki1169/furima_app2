@@ -12,9 +12,6 @@ Rails.application.routes.draw do
   root 'items#index'
 
 
-  resources :users 
-  resources :items do
-
   resources :items, except: :show
   resources :items,only: [:index, :show, :new, :edit, :destroy] do
     collection do
