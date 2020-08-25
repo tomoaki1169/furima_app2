@@ -7,7 +7,7 @@ class PurchasesController < ApplicationController
       redirect_to user_session_path
     end
     if @credit_card.blank?
-      render "credit_cards/no-card"
+      redirect_to credit_card_path(current_user)
     else
       Payjp.api_key = Rails.application.credentials[:payjp][:PAYJP_SECRET_KEY]
       customer = Payjp::Customer.retrieve(@credit_card.customer_id)
