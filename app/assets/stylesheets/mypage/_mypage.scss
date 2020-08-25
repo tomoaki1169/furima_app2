@@ -1,0 +1,171 @@
+@mixin card-link {
+  display: flex;
+  text-decoration: none;
+  color: #f0342c;
+}
+@mixin form($width) {
+  width: $width;
+  height: 45px;
+  border: #cecece 1px solid;
+  border-radius: 3px;
+  padding: 10px 15px;
+  margin: 15px 0 0 0;
+  font-size: 16px;
+}
+.mypage {
+  .mypage-main {
+    &__logout {
+      background-color: white;
+      height: 180px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      .logout-btn {
+        text-align: center;
+        background-color: #3ccccc;
+        color: white;
+        height: 48px;
+        width: 315px;
+        padding-top: 15px;
+        border-radius: 5px;
+        text-decoration: none;
+      }
+    }
+    .mypage-title {
+      text-align: center;
+      height: 100px;
+      border-bottom: #f4f4f4 1px solid;
+      font-size: 25px;
+      font-weight: bold;
+      padding-top: 30px;
+    }
+    &__payment {
+      background-color: white;
+      width: 100%;
+      .payment-box {
+        padding: 0 160px;
+        .payment-contents {
+          border-bottom: #f4f4f4 1px solid;
+          .card-content {
+            display: flex;
+            justify-content: space-between;
+            &__information {
+              .info-word {
+                margin: 30px 0;
+                font-weight: bold;
+              }
+              .info-content{
+                &__deadline {
+                  display: flex;
+                  .deadline-word {
+                    margin-right: 5px;
+                  }
+                }
+              }
+            }
+            &__delete {
+              padding-top: 100px;
+              .delete-word {
+                text-decoration: none;
+                padding: 6px 10px;
+                border: #f0342c 1px solid;
+                font-weight: bold;
+                color: #f0342c;
+                border-radius: 5px;
+              }
+            }
+          }
+          .card-register {
+            @include card-link;
+            text-decoration: none;
+            padding: 20px 0;
+            &__icon {
+              margin: 3px 5px 0 0;
+            }
+          }
+        }
+        .payment-help {
+          padding: 30px 3px 50px 0;
+          &__box {
+            @include card-link;
+            justify-content: flex-end;
+            .payment-icon {
+              margin: 3px 0 0 8px;
+            }
+          }
+        }
+      }
+    }
+    &__create-card {
+      background-color: white;
+      .credit-form {
+        padding: 0 170px 50px;
+        .box-form {
+          margin-top: 30px;
+          label {
+            font-weight: bold;
+          }
+          .cardnumber-input {
+            @include form(370px);
+          }
+          ul {
+            display: flex;
+            li {
+              margin: 5px;
+            }
+          }
+          .date-select {
+            @include form(150px);
+            margin-right: 10px;
+          }
+          .date-right {
+            margin-left: 10px;
+          }
+          .security-input {
+            @include form(370px);
+          }
+        }
+        .number-help {
+          display: flex;
+          justify-content: flex-end;
+          text-decoration: none;
+          color: #f0342c;
+          margin: 5px 0 30px 0;
+          &__icon {
+            margin-top: 3px;
+          }
+        }
+        &__submitfield {
+          .credit-submit {
+            border: #3ccccc 1px solid;
+            background-color: #3ccccc;
+            width: 370px;
+            height: 45px;
+            border: none;
+            text-align: center;
+            margin-bottom: 30px;
+            color: white;
+            background-color: #3ccccc;
+            border-radius: 5px;
+            cursor: pointer;
+          }
+        }
+        .back-btn {
+          text-decoration: none;
+          color: #f0342c;
+          margin-left: 155px;
+        }
+      }
+      .credit-point {
+        border: red 1px solid;
+        font-weight: bold;
+        border-radius: 3px;
+        background-color: red;
+        color: white;
+        font-size: 12px;
+        padding: 1px 2.5px;
+      }
+    }
+  }
+}

@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
+  before_action :move_to_index, except: [:index, :show, :search]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :move_to_index, except: [:index, :show, :search]
 
   def index
     @items = Item.includes(:images).order('created_at DESC')
@@ -59,7 +61,11 @@ class ItemsController < ApplicationController
     # 選択された子カテゴリーに紐付く孫カテゴリーの配列を所得
     @category_grandchildren = Category.find(params[:child_id]).children 
   end
-end
+
+  def search
+    @items = Item.search(params[:keyword])
+  end
+
 
   private
 
@@ -71,5 +77,10 @@ end
 
   def set_item
     @item = Item.find(params[:id])
-    @items = Item.where(id: params[:id])
   end
+  def move_to_index
+    unless user_signed_in?
+      redirect_to action: :index
+    end
+  end
+end

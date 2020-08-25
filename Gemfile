@@ -82,8 +82,7 @@ end
   gem 'carrierwave'
   gem 'public_uid'
   gem 'payjp'
-
-  gem 'gretel'
-
   gem 'active_hash'
+  gem 'rails-i18n'
+  gem 'gretel'
 
