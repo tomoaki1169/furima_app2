@@ -1,3 +1,5 @@
+- breadcrumb :item
+= render "layouts/breadcrumbs"
 .main_wrapper
   = form_with model: @item, local:true do |f|
     - if @item.errors.any?
@@ -19,11 +21,10 @@
               最大まで10枚までアップロードできます
       #image-box-1
         .item-num-o#image-box__container
-        =f.fields_for :images do |i|
           .input-area
-          - if @item.persisted?
-            - @item.images.each_with_index do |image, i|
-              = image_tag image.image.url, data: { index: i }, width: "100", height: '100'
+            - if @item.persisted?
+              - @item.images.each_with_index do |image, i|
+                = image_tag image.image.url, data: { index: i }, width: "100", height: '100'
 
         = f.fields_for :images do |image|
           .js-file_group{"data-index" => "#{image.index}"}
@@ -32,8 +33,8 @@
             %span.js-remove 削除
           - if @item.persisted?
             = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
-        - if @item.persisted?
-          .js-file_group{"data-index" => "#{@item.images.count}"}
+          - if @item.persisted?
+            .js-file_group{"data-index" => "#{@item.images.count}"}
 
             .input-area
               = file_field_tag :image, name: "item[images_attributes][#{@item.images.count}][image]", class: 'js-file'

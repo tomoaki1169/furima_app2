@@ -53,7 +53,7 @@ $(function() {
     });
   
     $('#image-box').on('click', '.js-remove', function() {
-      const targetIndex = $(this).parent().data('index');
+      const targetIndex = $(this).prev().data('index');
       // 該当indexを振られているチェックボックスを取得する
       const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
       

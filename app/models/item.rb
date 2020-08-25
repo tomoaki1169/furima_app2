@@ -10,9 +10,17 @@ class Item < ApplicationRecord
 
 
   validates :name,presence: true,length: {maximum: 40}
-
+  # validates :image,presence: true
+  validates :derivery_fee,presence: true
+  validates :data,presence: true
+  validates :size,presence:true
+  validates :status,presence:true
+  validates :user_id,presence:true
+  validates :category_id,presence:true
   validates :price,numericality: { greater_than:300,less_than: 9999999,message:"販売中は300以上9,999,999以内で入力してください"}
   validates :introduction, presence: true,length:{maximum: 1000}
+  validates :user_id,presence: true
+  validates :prefecture_id,presence: true
 
 
   enum size:{
