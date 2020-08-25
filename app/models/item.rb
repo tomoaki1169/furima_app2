@@ -8,7 +8,6 @@ class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
 
-
   validates :name,presence: true,length: {maximum: 40}
   # validates :image,presence: true
   validates :derivery_fee,presence: true
@@ -21,8 +20,7 @@ class Item < ApplicationRecord
   validates :introduction, presence: true,length:{maximum: 1000}
   validates :user_id,presence: true
   validates :prefecture_id,presence: true
-
-
+  
   enum size:{
     "XXS以下":0,
     "XS(SS)":1,

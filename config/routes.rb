@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
 
   resources :users 
-  resources :items do
+  resources :items 
 
   resources :items, except: :show
   resources :items,only: [:index, :show, :new, :edit, :destroy] do
