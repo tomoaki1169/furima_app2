@@ -43,7 +43,7 @@ $(function() {
         $('#image-box__container').append(buildImg(targetIndex, blobUrl));
         if ( $('.images').length < 10) {
         // fileIndexの先頭の数字を使ってinputを作る
-          $('#image-box').append(buildFileField(fileIndex[0]));
+          $('#image-box-1').append(buildFileField(fileIndex[0]));
         }
         fileIndex.shift();
         
@@ -53,10 +53,9 @@ $(function() {
     });
   
     $('#image-box').on('click', '.js-remove', function() {
-      const targetIndex = $(this).parent().data('index');
+      const targetIndex = $(this).prev().data('index');
       // 該当indexを振られているチェックボックスを取得する
-      const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
-      
+      const hiddenCheck = $(`input[data-index="${targetIndex}"]`);
       // もしチェックボックスが存在すればチェックを入れる
       if (hiddenCheck) hiddenCheck.prop('checked', true);
       $(this).parent().remove();

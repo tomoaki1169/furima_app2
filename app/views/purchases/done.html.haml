@@ -1,3 +1,12 @@
-購入完了しました
-= link_to "/" do
-  トップページへ戻る
+.purchase-done
+  .purchase-done__title
+    購入完了しました
+  .purchase-done__text
+    ご利用ありがとうございます。
+    %p 注文内容が記載されたメールを送信しました。
+    %p 商品が発送されるまでしばらくお待ちください。
+  .purchase-done__return
+    = link_to 'トップページへ戻る', "/", class: "return-toppage"
+      
+    = link_to 'マイページへ戻る', users_path, class: "return-mypage"
+      

@@ -2,19 +2,16 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
-    @items = Item.includes(:images).order('created_at DESC')
+    @items = Item.includes(:images).order('created_at DESC').limit(6)
   end
   
 
   def new
     @item = Item.new
     @item.images.new
-
     # データベースから、親カテゴリーのみ抽出
     @parents = Category.where(ancestry:nil)
-
-    render layout: 'new-items'
-
+    
   end
 
   def  create
@@ -23,6 +20,7 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path
     else
+      @item.images.new
       render :new
     end
   end
@@ -31,6 +29,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @parents = Category.where(ancestry:nil)
   end
 
   def update
@@ -72,4 +71,5 @@ end
 
   def set_item
     @item = Item.find(params[:id])
+    @items = Item.where(id: params[:id])
   end

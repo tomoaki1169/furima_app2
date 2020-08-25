@@ -1,3 +1,5 @@
+- breadcrumb :items
+= render "layouts/breadcrumbs"
 .body
   .contents
     .item-box
@@ -7,8 +9,8 @@
         .item-box__image-box
           %ul.main-image
             %li
-              = image_tag @item.images[0].image_url, class: "main-img"
-              -if @item.buyer_id.present?
+              = image_tag @item.images[0].image_url, size: '450x346', class: "main-img"
+              -if @item.purchase.present?
                 .sold
                   .sold__inner 
                     SOLD

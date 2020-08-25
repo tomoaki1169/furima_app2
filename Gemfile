@@ -84,3 +84,5 @@ end
   gem 'payjp'
   gem 'active_hash'
   gem 'rails-i18n'
+  gem 'gretel'
+

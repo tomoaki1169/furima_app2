@@ -1,0 +1,36 @@
+@mixin return {
+  background-color: #3ccccc;
+  color: white;
+  border: #3ccccc 1px solid;
+  border-radius: 1px;
+  padding: 10px 10px;
+  text-decoration: none;
+  font-size: 15px;
+}
+.purchase-done {
+  height: 450px;
+  &__title {
+    text-align: center;
+    padding: 30px 0 ;
+    border-bottom: #f4f4f4 1px solid;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  &__text {
+    text-align: center;
+    font-size: 14px;
+    padding: 30px 0;
+  }
+  &__return {
+    text-align: center;
+    border-bottom: #f4f4f4 1px solid;
+    padding-bottom: 50px;
+    .return-toppage {
+      @include return;
+    }
+    .return-mypage {
+      @include return;
+      margin-left: 20px;
+    }
+  }
+}
