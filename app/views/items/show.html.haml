@@ -22,6 +22,16 @@
       .item-box__price-detail
         %span (税込)
         %span 送料込み
+      .button-box
+        - if @item.buyer_id.present?
+          SOLD
+        - elsif user_signed_in?
+          - unless current_user.id == @item.user_id
+            .button-box__button
+              = link_to "購入画面に進む", item_purchases_path(@item.id),class: 'buy-button' 
+        - else
+          .button-box__button
+            = link_to "ログインがまだな方はこちらからお願いします", new_user_session_path, class: 'buy-button'
       .item-introduction
         = @item.introduction
       %table
@@ -57,20 +67,17 @@
           %tr
             %th 発送元の地域
             %td
-              = @item.prefecture_id
+              = @item.prefecture.name
           %tr
             %th 発送日の目安
             %td 
               = @item.data 
-      .button-box
+      .seller-button
         - if user_signed_in? && current_user.id == @item.user_id
           .button-box__button
             = link_to "編集する", edit_item_path(@item.id), class: 'edit-button', method: :get
           .button-box__button
             = link_to "削除する", item_path(@item.id), class: 'delete-button', method: :delete
-        - else
-          .button-box__button
-            = link_to "購入画面に進む", "#", class: 'buy-button'
     %ul.links
       %li
         = link_to "#" do

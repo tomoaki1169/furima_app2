@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {
     registrations: 'users/registrations',
+    sessions: 'users/sessions',
   }
   devise_scope :user do
     get 'profiles', to: 'users/registrations#new_profile'
@@ -15,11 +16,15 @@ Rails.application.routes.draw do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults:{ format: 'json' }
     end
+    resources :purchases, only: [:index] do
+      member do
+        post 'pay', to: 'purchases#pay'
+        get 'done', to: 'purchases#done'
+      end
+    end
   end
   resources :users 
-  resources :items do
-    resources :purchase, only: [:index] do
-      get 'done', to: 'purchase#done'
-    end
+  resources :credit_cards, only: [:new, :show, :create, :destroy] do
+    post 'credit_cards/:id', to: 'credit_cards#show'
   end
 end

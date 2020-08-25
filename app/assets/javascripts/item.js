@@ -20,22 +20,22 @@ $(function() {
       </div>`;
       return html;
     }
-  
+
     // file_fieldのnameに動的なindexをつける為の配列
     let fileIndex = [1,2,3,4,5,6,7,8,9,10];
     // 既に使われているindexを除外
     lastIndex = $('.js-file_group:last').attr('data-index');
     fileIndex.splice(0, lastIndex);
-  
+
     $('.hidden-destroy').hide();
-  
+
     $('#image-box').on('change', '.js-file', function(e) {
       const targetIndex = $(this).parent().data('index');
       console.log(targetIndex)
       // ファイルのブラウザ上でのURLを取得する
       const file = e.target.files[0];
       const blobUrl = window.URL.createObjectURL(file);
-  
+
       // 該当indexを持つimgがあれば取得して変数imgに入れる(画像変更の処理)
       if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
         img.setAttribute('image', blobUrl);
@@ -45,13 +45,6 @@ $(function() {
         // fileIndexの先頭の数字を使ってinputを作る
           $('#image-box-1').append(buildFileField(fileIndex[0]));
         }
-
-
-        // if image < 4
-        //   $('#image-box__container').append(buildImg(targetIndex, blobUrl));
-        // else image > 5 && image < 8
-        //   $('.image-box').css("display: block")
-        //   $('#image-box__container').append(buildImg(targetIndex, blobUrl));
         fileIndex.shift();
         
         // 末尾の数に1足した数を追加する
@@ -65,10 +58,9 @@ $(function() {
       const hiddenCheck = $(`input[data-index="${targetIndex}"]`);
       // もしチェックボックスが存在すればチェックを入れる
       if (hiddenCheck) hiddenCheck.prop('checked', true);
-  
       $(this).parent().remove();
       $(`img[data-index="${targetIndex}"]`).remove();
-  
+
       // 画像入力欄が0個にならないようにしておく
       if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
     });

@@ -6,16 +6,14 @@
     .purchase-confirmation
       .purchase-confirmation__title
         購入内容の確認
-      = form_with model: @item, local: true do |f|
         .purchase-confirmation__item
           .item-image
-            = image_tag asset_path('curry.png'), class: 'purchase-item', alt: '購入アイテム画像'
+            = image_tag "#{@item.images[0].image_url}", class: 'purchase-item', alt: '購入アイテム画像'
           .item-box
             %p
               = @item.name
             .item-price
               %span
-                送料込み（税込）
                 = @item.derivery_fee
               %span.shipping-price
                 ¥
@@ -38,11 +36,11 @@
               %i.fas.fa-angle-right.change-btn__icon
           %p.item-praice__info
             クレジットカード
-            = "**** **** **** " + @card_information.last4
+            = "**** **** **** " + @default_card_information.last4
           %p.item-price__info
             有効期限
-            - exp_month = @card_information.exp_month.to_s
-            - exp_year = @card_information.exp_year.to_s.slice(2,3)
+            - exp_month = @default_card_information.exp_month.to_s
+            - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
             = exp_month + " / " + exp_year
           %figure.item-price__card-logo
             = image_tag "#{@credit_card_src}", width:'34',height:'20', alt:'master-card'
@@ -57,12 +55,13 @@
               %i.fas.fa-angle-right.change-btn__icon
           %p.item-address__info
             〒
-            = @address.post_code
+            //= @address.post_code
           %p.item-address__info
-            = @address.municipality
-      = link_to "#", method: :patch, class: "purchase-confirmation__btn" do
-        .btn-enter
-          購入する
+            //= @address.municipality
+      .purchase-confirmation__btn
+        = link_to pay_item_purchase_path(id: @item.id), method: :post do
+          .btn-enter
+            購入する
     %ul.purchase-lists
       %li
         = link_to "#", class: "list" do

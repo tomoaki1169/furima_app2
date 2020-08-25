@@ -81,4 +81,5 @@ end
   gem 'ancestry'
   gem 'carrierwave'
   gem 'public_uid'
+  gem 'payjp'
   gem 'active_hash'

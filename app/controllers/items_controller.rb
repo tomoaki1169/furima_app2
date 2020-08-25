@@ -5,6 +5,7 @@ class ItemsController < ApplicationController
     @items = Item.includes(:images).order('created_at DESC').limit(6)
   end
   
+
   def new
     @item = Item.new
     @item.images.new
