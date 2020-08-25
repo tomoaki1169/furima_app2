@@ -71,4 +71,5 @@ end
 
   def set_item
     @item = Item.find(params[:id])
+    @items = Item.where(id: params[:id])
   end
