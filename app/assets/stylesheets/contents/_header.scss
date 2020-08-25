@@ -1,0 +1,88 @@
+.header {
+  background-color: white;
+  height: 110px;
+  width: 100%;
+  position: relative;
+  &__top {
+    display: flex;
+    margin-top: 15px;
+    padding-left: 13.7vw;
+    position: absolute;
+    width: 100%;
+    .title {
+      width: 145px;
+      background-color: white;
+    }
+    .search-form {
+      width: 100%;
+      position: relative;
+      .search {
+        display: flex;
+        padding: 5px 0 0 0;
+        position: absolute;
+        width: 83%;
+        &__box{
+          display: flex;
+          width: 100%;
+          padding-left: 30px;
+          .search-form {
+            width: 100%;
+            height: 36px;
+            padding: 8px;
+          }
+          .search-btn {
+            width: 36px;
+            height: 36px;
+            border: none;
+            padding-left: 8px;
+            background-color: #3ccccc;
+            &__icon {
+              color: white;
+              text-decoration: none;
+              font-size: 20px;
+              
+            }
+          }
+        }
+      }
+    }
+  }
+  &__bottom {
+    width: 87%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', YuGothic, 'Yu Gothic Medium', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+    white-space: nowrap;
+    padding-top: 65px;
+    .left-box {
+      display: flex;
+      padding: 5px 0 0 13.5vw;
+      &__categories {
+        text-decoration: none;
+        color: black;
+      }
+      &__brand {
+        padding:0 15px 0 50px;
+        text-decoration: none;
+        color: black;
+      }
+      &__categories:hover, &__brand:hover {
+        color: #ffb43c;
+      }
+    }
+    .right-box {
+      display: flex;
+      padding: 5px 0 15px 3vw;
+      &__login {
+        padding-right: 15px;
+        text-decoration: none;
+        color: black;
+      }
+      &__new-user {
+        text-decoration: none;
+        color: black;
+      }
+    }
+  }
+}

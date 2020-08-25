@@ -1,79 +1,65 @@
-.purchase
-  .purchase-box
-    .top-logo
-      = link_to root_path do
-        = image_tag("material/logo/logo.png",class: "purchase-logo__top")
-    .purchase-confirmation
-      .purchase-confirmation__title
-        購入内容の確認
-        .purchase-confirmation__item
-          .item-image
-            = image_tag "#{@item.images[0].image_url}", class: 'purchase-item', alt: '購入アイテム画像'
-          .item-box
-            %p
-              = @item.name
-            .item-price
-              %span
-                = @item.derivery_fee
-              %span.shipping-price
-                ¥
-                = @item.price
-        .purchase-confirmation__price
-          .item-price
-            .item-price__label
-              支払い金額
-            .item-price__price
-              ¥
-              = @item.price
-      .purchase-confirmation__payment
-        .item-payment
-          .item-payment__title
-            .payment-label
-              支払い方法
-            = link_to "#", class: "change-btn" do
-              .change-btn__word
-                変更する
-              %i.fas.fa-angle-right.change-btn__icon
-          %p.item-praice__info
-            クレジットカード
-            = "**** **** **** " + @default_card_information.last4
-          %p.item-price__info
-            有効期限
-            - exp_month = @default_card_information.exp_month.to_s
-            - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
-            = exp_month + " / " + exp_year
-          %figure.item-price__card-logo
-            = image_tag "#{@credit_card_src}", width:'34',height:'20', alt:'master-card'
-      .purchase-confirmation__address
-        .item-address
-          .item-address__title
-            .address-label
-              配送先
-            = link_to "#", class: "change-btn" do
-              .change-btn__word
-                変更する
-              %i.fas.fa-angle-right.change-btn__icon
-          %p.item-address__info
-            〒
-            //= @address.post_code
-          %p.item-address__info
-            //= @address.municipality
-      .purchase-confirmation__btn
-        = link_to pay_item_purchase_path(id: @item.id), method: :post do
-          .btn-enter
-            購入する
-    %ul.purchase-lists
-      %li
-        = link_to "#", class: "list" do
-          プライバシーポリシー
-      %li
-        = link_to "#", class: "list" do
-          フリマ利用規約
-      %li
-        = link_to "#", class: "list last" do
-          特定商取引に関する表記
-    .bottom-logo
-      = link_to root_path do
-        = image_tag("material/logo/logo-gray.png", class: "purchase-logo__bottom")
-      .bottom-logo__word
-        ©︎FURIMA
+.purchase-confirmation__title
+  購入内容の確認
+.purchase-confirmation__item
+  .item-image
+    = image_tag "#{@item.images[0].image_url}", class: 'purchase-item', alt: '購入アイテム画像'
+  .item-box
+    %p
+      = @item.name
+    .item-price
+      %span
+        = @item.derivery_fee
+      %span.shipping-price
+        = "¥ #{@item.price}"
+.purchase-confirmation__price
+  .item-price
+    .item-price__label
+      支払い金額
+    .item-price__price
+      ¥
+      = @item.price
+.purchase-confirmation__payment
+  .item-payment
+    .item-payment__title
+      .payment-label
+        支払い方法
+      = link_to "#", class: "change-btn" do
+        .change-btn__word
+          変更する
+        %i.fas.fa-angle-right.change-btn__icon
+    %p.item-praice__info
+      クレジットカード
+      .payment-card
+        = "**** **** **** " + @default_card_information.last4
+    %p.item-price__info
+      有効期限
+      - exp_month = @default_card_information.exp_month.to_s
+      - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+      = exp_month + " / " + exp_year
+    %figure.item-price__card-logo
+      = image_tag asset_path("card/#{@card_src}"), width:'54',height:'40', alt:'master-card'
+.purchase-confirmation__address
+  .item-address
+    .item-address__title
+      .address-label
+        配送先
+      = link_to "#", class: "change-btn" do
+        .change-btn__word
+          変更する
+        %i.fas.fa-angle-right.change-btn__icon
+    %p.item-address__info
+      〒
+      = @address.post_code
+    %p.item-address__info
+      = @address.municipality
+      = @address.house_number
+      = @address.building_name
+    %p.item-address__info
+      - last_name = @address.address_family_name
+      - first_name = @address.address_first_name
+      = last_name + first_name
+.purchase-confirmation__btn
+  = link_to pay_item_purchase_path(id: @item.id), method: :post do
+    .btn-enter
+      購入する
+
