@@ -188,6 +188,9 @@
       background-color: white;
       height: 17vw;
       display: flex;
+      overflow-x: auto;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
       .item-box {
         width: 220px;
         height: 244px;
@@ -247,6 +250,62 @@
     .pickup-items {
       background-color: white;
       height: 17vw;
+      display: flex;
+      overflow-x: auto;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+      .item-box {
+        width: 220px;
+        height: 244px;
+        border: 1px solid #f8f8f8;
+        .item-link {
+          text-decoration: none;
+          color: black;
+          cursor: pointer;
+        }
+        &__image {
+          position: relative;
+          width: 220px;
+          height: 150px;
+          object-fit: fill;
+          &__sold {
+            border-width: 100px 100px 0 0;
+            border-color: #ea352d transparent transparent transparent;
+            display: block;
+            position: absolute;
+            top: 0;
+            z-index: 1;
+            border-style: solid;
+            &__inner {
+              top: -80px;
+              font-size: 20px;
+              position: absolute;
+              z-index: 2;
+              color: #fff;
+              transform: rotate(-45deg);
+              letter-spacing: 2px;
+              font-weight: 600;
+            }
+          }
+        }
+        &__info {
+          display: flex;
+          font-size: 16px;
+          flex-direction: column;
+          text-align: start;
+          padding: 10px;
+          &__price {
+            justify-content: left;
+          }
+          &__tax {
+            justify-content: left;
+            font-size: 10px;
+          }
+        }
+      }
+      .item-box:hover {
+        opacity: 0.4;
+      }
     }
   }
 }

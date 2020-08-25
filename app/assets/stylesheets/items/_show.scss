@@ -59,9 +59,13 @@
         display: flex;
         justify-content: center;
         margin-top: 10px;
+        width: 620px;
         .lists {
           display: flex;
           justify-content: center;
+          overflow-x: auto;
+          white-space: nowrap;
+          padding-left: 140px;
           .images {
             margin-left: 10px;
             border: 1px solid rgb(194, 192, 192);

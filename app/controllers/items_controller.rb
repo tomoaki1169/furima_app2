@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :show, :search]
 
   def index
-    @items = Item.includes(:images).order('created_at DESC').limit(6)
+    @items = Item.includes(:images).order('created_at DESC')
   end
   
 
