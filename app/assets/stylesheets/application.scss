@@ -1,5 +1,4 @@
 @import "items";
-
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -19,6 +18,7 @@
 @import "reset";
 @import "users";
 @import "font-awesome-sprockets";
+@import "font-awesome";
 @import "module/show";
 @import "module/mypage";
 @import "module/destroy";
@@ -31,3 +31,6 @@
 @import "new";
 @import "completion_of_registration";
 @import "breadcrums";
+@import "module/top-page";
+
+
