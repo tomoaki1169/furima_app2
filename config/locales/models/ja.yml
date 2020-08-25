@@ -1,7 +1,6 @@
 ja:
   activerecord:
     models:
-      user: ユーザー
     attributes:
       user:
         name: ニックネーム
@@ -22,4 +21,20 @@ ja:
         prefecture: 都道府県
         municipality: 市町村
         house_number: 番地
-      
+      item:
+        name: 商品名
+        introduction: 商品の説明
+        category: カテゴリー
+        size: サイズ
+        status: 商品の状態
+        derivery_fee: 配送料の負担
+        prefecture_id: 発送元の地域
+        data: 発送までの日数
+        price: 価格
+        
+        
+        
+        
+        
+        
+        
