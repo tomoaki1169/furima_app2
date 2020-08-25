@@ -1,7 +1,7 @@
 - breadcrumb :item
 = render "layouts/breadcrumbs"
 .main_wrapper
-  = form_with model: @item, local:true do |f|
+  = form_with model: @item, local:true, class: "form1" do |f|
     - if @item.errors.any?
       .SettingGroupForm__errors
         %h2= "#{@item.errors.full_messages.count}件のエラーが発生しました。"
