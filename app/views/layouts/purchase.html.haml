@@ -9,4 +9,25 @@
     = stylesheet_link_tag 'application', media: 'all'
     = javascript_include_tag 'application'
   %body
-    = yield
+    .purchase
+      .purchase-box
+        .top-logo
+          = link_to root_path do
+            = image_tag("material/logo/logo.png",class: "purchase-logo__top")
+        .purchase-confirmation
+          = yield
+        %ul.purchase-lists
+          %li
+            = link_to "#", class: "list" do
+              プライバシーポリシー
+          %li
+            = link_to "#", class: "list" do
+              フリマ利用規約
+          %li
+            = link_to "#", class: "list last" do
+              特定商取引に関する表記
+        .bottom-logo
+          = link_to root_path do
+            = image_tag("material/logo/logo-gray.png", class: "purchase-logo__bottom")
+          .bottom-logo__word
+            ©︎FURIMA

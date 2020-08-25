@@ -1,6 +1,6 @@
 class PurchasesController < ApplicationController
   require "payjp"
-  before_action :set_card, :set_item
+  before_action :set_card, :set_item, :set_send
 
   def index
     unless user_signed_in?
@@ -64,4 +64,7 @@ class PurchasesController < ApplicationController
     @item = Item.find(params[:item_id])
   end
 
+  def set_send
+    @address = Address.where(user_id: current_user.id).first
+  end
 end

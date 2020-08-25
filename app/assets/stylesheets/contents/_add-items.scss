@@ -1,0 +1,24 @@
+.add-items {
+  background-color: #3ccccc;
+  color: white;
+  position: fixed;
+  text-align: center;
+  text-decoration: none;
+  width: 116px;
+  height: 116px;
+  border-radius: 5px;
+  padding-top: 17px;
+  bottom: 30px;
+  right: 30px;
+  z-index: 5;
+  &__word {
+    font-size: 17px;
+  }
+  &__icon {
+    font-size: 55px;
+    margin-top: 5px;
+  }
+}
+.add-items:hover {
+  opacity: 0.9;
+}
