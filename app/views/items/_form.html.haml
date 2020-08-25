@@ -1,3 +1,5 @@
+- breadcrumb :item
+= render "layouts/breadcrumbs"
 .main_wrapper
   = form_with model: @item, local:true do |f|
     - if @item.errors.any?
@@ -32,8 +34,8 @@
             %span.js-remove 削除
           - if @item.persisted?
             = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
-        - if @item.persisted?
-          .js-file_group{"data-index" => "#{@item.images.count}"}
+          - if @item.persisted?
+            .js-file_group{"data-index" => "#{@item.images.count}"}
 
             .input-area
               = file_field_tag :image, name: "item[images_attributes][#{@item.images.count}][image]", class: 'js-file'
