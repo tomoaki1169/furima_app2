@@ -1,9 +1,10 @@
 class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :show, :search]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :move_to_index, except: [:index, :show, :search]
 
   def index
-    @items = Item.includes(:images).order('created_at DESC')
+    @items = Item.includes(:images).order('created_at DESC').limit(6)
   end
   
 
@@ -30,6 +31,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @parents = Category.where(ancestry:nil)
   end
 
   def update

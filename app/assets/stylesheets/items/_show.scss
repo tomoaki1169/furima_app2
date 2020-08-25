@@ -126,7 +126,8 @@
         margin-top: 10px;
         background-color: #3CCACE;
         border-radius: 10px;
-        .edit-button, .delete-button, .buy-button {
+        .edit-button, .delete-button, {
+          padding-left: 280px;
           text-decoration: none;
           color: #fff;
         }
