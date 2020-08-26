@@ -58,8 +58,12 @@
           %span.form-group__require 必須
           .select-wrapper
             .select-wrapper__box
-              = f.collection_select :category_id, @parents, :id, :name, prompt: "選択してください", class: 'select-wrapper__box--select'
-
+            - if @item.persisted?
+              = f.collection_select :category_id, @parents, :id, :name, {prompt: "選択してください", selected: @item.category.root_id}, class: 'select-wrapper__box--select'
+              = f.collection_select :category_id, @item.category.parent.parent.children, :id, :name, {prompt: "選択してください", selected: @item.category.parent_id}, class: 'select-wrapper__box--select children_wrapper'
+              = f.collection_select :category_id, @item.category.parent.children, :id, :name, {prompt: "選択してください", selected: @item.category_id}, class: 'select-wrapper__box--select', id: 'grandchildren_wrapper'
+            - else 
+              = f.collection_select :category_id, @parents, :id, :name, prompt: "選択してください", class: 'select-wrapper__box--select'     
         .size
           %label.main-block__label サイズ
           %span.form-group__require 必須
