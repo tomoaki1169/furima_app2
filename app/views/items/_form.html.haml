@@ -21,7 +21,7 @@
               最大まで10枚までアップロードできます
       #image-box-1
         .item-num-o#image-box__container
-          = icon('fa-camera',class:"Contents__btn--icon")
+          -# = icon('fa-camera',class:"Contents__btn--icon")
           .items-images
             - if @item.persisted?
               - @item.images.each_with_index do |image, i|
