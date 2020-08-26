@@ -100,6 +100,12 @@
     position: relative;
     display: flex;
     flex-wrap: wrap;
+
+
+    .Contents__btn--icon{
+      height: 24px;
+      width: 24px;
+    }
   }
 
     .sell_content__text{

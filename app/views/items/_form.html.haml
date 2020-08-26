@@ -21,6 +21,7 @@
               最大まで10枚までアップロードできます
       #image-box-1
         .item-num-o#image-box__container
+          = icon('fa-camera',class:"Contents__btn--icon")
           .items-images
             - if @item.persisted?
               - @item.images.each_with_index do |image, i|
@@ -36,7 +37,6 @@
             = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
           - if @item.persisted?
             .js-file_group{"data-index" => "#{@item.images.count}"}
-
             .input-area
               = file_field_tag :image, name: "item[images_attributes][#{@item.images.count}][image]", class: 'js-file'
               .js-remove 削除
