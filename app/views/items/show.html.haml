@@ -24,6 +24,8 @@
       .item-box__price-detail
         %span (税込)
         %span 送料込み
+      #like{ id: @item.id }
+        = render "favorites/favorite"
       .button-box
         - if @item.buyer_id.present?
           SOLD

@@ -21,4 +21,5 @@ class User < ApplicationRecord
   has_many :credit_cards
   has_many :purchase
   has_many :favorites
+  has_many :favorite_items, through: :favorites, source: :item
 end
