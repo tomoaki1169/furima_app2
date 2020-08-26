@@ -9,7 +9,7 @@ class CreditCardsController < ApplicationController
   def show
     credit_card = CreditCard.where(user_id: current_user.id).first
     if credit_card.blank?
-      redirect_to credit_card_path(current_user)
+      render "no-card"
     else
       Payjp.api_key = Rails.application.credentials[:payjp][:PAYJP_SECRET_KEY]
       customer = Payjp::Customer.retrieve(credit_card.customer_id)
