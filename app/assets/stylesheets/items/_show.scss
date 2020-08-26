@@ -66,6 +66,7 @@
           overflow-x: auto;
           white-space: nowrap;
           padding-left: 140px;
+          padding-right: 140px;
           .images {
             margin-left: 10px;
             border: 1px solid rgb(194, 192, 192);
@@ -130,10 +131,14 @@
         margin-top: 10px;
         background-color: #3CCACE;
         border-radius: 10px;
-        .edit-button, .delete-button, {
+        .edit-button, .delete-button {
           padding-left: 280px;
           text-decoration: none;
           color: #fff;
+        }
+        .buy-button {
+          color: #fff;
+          text-decoration: none;
         }
       }
       &__button:hover {

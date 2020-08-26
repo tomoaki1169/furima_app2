@@ -59,8 +59,6 @@ $(function() {
       if (hiddenCheck) hiddenCheck.prop('checked', true);
       $(this).parent().remove();
       $(`img[data-index="${targetIndex}"]`).remove();
-      console.log(targetIndex);
-      console.log($(`#item_images_attributes_${targetIndex}_image`));
       $(`#item_images_attributes_${targetIndex}_image`).remove();
 
       // 画像入力欄が0個にならないようにしておく

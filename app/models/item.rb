@@ -14,7 +14,7 @@ class Item < ApplicationRecord
   validates :data,presence: true
   validates :size,presence:true
   validates :status,presence:true
-  validates :price,numericality: { greater_than:300,less_than: 9999999,message:"販売中は300以上9,999,999以内で入力してください"}
+  validates :price,numericality: { greater_than:299,less_than: 9999999,message:"販売中は300以上9,999,999以内で入力してください"}
   validates :introduction, presence: true,length:{maximum: 1000}
   validates :prefecture_id,presence: true
   

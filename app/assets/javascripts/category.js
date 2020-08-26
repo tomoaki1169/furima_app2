@@ -29,7 +29,6 @@ $(function(){
   // 親カテゴリー選択後のイベント
   $('#item_category_id').on('change', function(){
     var parentCategory = $('#item_category_id').val(); //選択された親カテゴリーのidを取得
-    console.log(parentCategory)
     if (parentCategory != ""){ //親カテゴリーが初期値でないことを確認
       $.ajax({
         url: '/items/get_category_children',

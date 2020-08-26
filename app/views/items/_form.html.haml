@@ -1,7 +1,7 @@
 - breadcrumb :item
 = render "layouts/breadcrumbs"
 .main_wrapper
-  = form_with model: @item, local:true do |f|
+  = form_with model: @item, local:true, class: "form1" do |f|
     - if @item.errors.any?
       .SettingGroupForm__errors
         %h2= "#{@item.errors.full_messages.count}件のエラーが発生しました。"
@@ -126,7 +126,6 @@
                     %li.clearfix.bold
                       .l-left
                         販売利益
-                        = f.number_field :price, style: "display: none", id:"price"
                         .right_bar_2
 
               .form_section_register_btns
