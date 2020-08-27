@@ -4,11 +4,6 @@ class Item < ApplicationRecord
   accepts_nested_attributes_for :images, allow_destroy: true
   belongs_to :user
   has_many :favorites
-  has_many :favorite_users, through: :favorites
-
-  def favorited_by?(user)
-    favorites.where(user_id: user.id).exits?
-  end
   
   has_one :purchase
   extend ActiveHash::Associations::ActiveRecordExtensions
