@@ -24,8 +24,6 @@
       .item-box__price-detail
         %span (税込)
         %span 送料込み
-      #like{ id: @item.id }
-        = render "favorites/favorite"
       .button-box
         - if @item.buyer_id.present?
           SOLD
@@ -76,6 +74,9 @@
             %th 発送日の目安
             %td 
               = @item.data 
+      .item-box__favorite
+        #favorite.favorite-btn{ id: @item.id }
+          = render "favorites/favorite"
       .seller-button
         - if user_signed_in? && current_user.id == @item.user_id
           .button-box__button

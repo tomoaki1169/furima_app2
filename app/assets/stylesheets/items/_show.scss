@@ -119,6 +119,46 @@
         }
       }
     }
+    &__favorite {
+      margin: 10px 0;
+      text-align: center;
+      .favorite-btn {
+        width: 125px;
+        .element {
+          text-decoration: none;
+          .like-box {
+            padding: 5px 15px;
+            border: #f0342c 1px solid;
+            display: flex;
+            color: #f0342c;
+            border-radius: 30px;
+            .like {
+              font-size: 18px;
+              margin-top: 1px;
+            }
+          }
+          .unlike-box {
+            border:gray 1px solid;
+            display: flex;
+            color: gray;
+            padding: 5px 15px;
+            border-radius: 30px;
+            .unlike {
+              font-size: 18px;
+              margin-top: 1px;
+            }
+          }
+          .favorite-word {
+            margin-left: 8px;
+            font-size: 14px;
+          }
+          .count {
+            font-size: 14px;
+            margin: 1px 0 0 8px;
+          }
+        }
+      }
+    }
     .button-box {
       text-align: center;
       display: flex;

@@ -1,0 +1,16 @@
+-if Favorite.find_by(user_id: current_user.id, item_id: @item.id)
+  = link_to "/items/#{@item.id}/favorites/#{@item.favorites.ids}", method: :delete, class:"element", remote: true do
+    .like-box
+      %i.fas.fa-heart.like
+      .favorite-word
+        いいね!
+      .count
+        = @item.favorites.length
+-else
+  = link_to "/items/#{@item.id}/favorites", method: :post, class:"element", remote: true do
+    .unlike-box
+      %i.far.fa-heart.unlike
+      .favorite-word
+        いいね!
+      .count
+        = @item.favorites.length
