@@ -50,11 +50,12 @@ $(function() {
         fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
       }
 
-      // if (images <= 5)
+      // if (images <= 5) {
       //   $('#image-box__container').append(buildImg(targetIndex,blobUrl));
-      // else (images > 5 && images <= 10)
+      // } else (images > 5 && images <= 10) {
       //   $('.image-box').css("display:block")
       //   $('#image-box__container').append(buildImg(targetIndex,blobUrl));
+      // } 
     });
     // $(".js-file_group").change(function () {
     //   $(this).find(input).remove()
