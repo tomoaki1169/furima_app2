@@ -91,7 +91,7 @@
           %span 後ろの商品
           %i.fa.fa-angle-right
     .related-items
-      =link_to "ベビー・キッズをもっと見る", "#", class: "more"
+      =link_to "#{@item.category.root.name}をもっと見る", "#", class: "more"
     .items-lists
       .item-list
         = link_to "#", class: "item-list-button" do

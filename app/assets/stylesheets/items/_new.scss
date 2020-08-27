@@ -80,14 +80,17 @@
   .form_section_register_btns{
     padding-top: 10px;
     padding-bottom: 10px;
-
-
-    .profile_chapter__btn{
-      background-color: #3ccace;
-      color: #ffffff;
-      border-radius: 16px;
-    }
   }
+    
+
+
+  .profile_chapter__btn{
+    background-color: #3ccace;
+    color: #ffffff;
+    border-radius: 16px;
+    font-weight: bold;
+  }
+
   .js-file_group{
     display: none;
   }
@@ -138,7 +141,6 @@
       color: white;
       background-color:#ee3d72;
       padding: 3px;
-      box-sizing:  content-box;
     }
 
     .item-images {
