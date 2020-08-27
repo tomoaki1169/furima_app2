@@ -114,6 +114,10 @@
                 = "¥#{item.price}"
               .item-box__info__tax
                 (税込)
+              .item-box__info__favorite
+                %i.far.fa-heart.favorite
+                .count
+                  = item.favorites.length
   .five-box__brand
     .pickup-text
       ピックアップブランド
@@ -135,3 +139,7 @@
                 = "¥#{item.price}"
               .item-box__info__tax
                 (税込)
+              .item-box__info__favorite
+                %i.far.fa-heart.favorite
+                .count
+                  = item.favorites.length

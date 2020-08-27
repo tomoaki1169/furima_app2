@@ -74,6 +74,9 @@
             %th 発送日の目安
             %td 
               = @item.data 
+      .item-box__favorite
+        #favorite.favorite-btn{ id: @item.id }
+          = render "favorites/favorite"
       .seller-button
         - if @item.buyer_id.present?
         - else user_signed_in? && current_user.id == @item.user_id

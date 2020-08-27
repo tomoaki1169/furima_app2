@@ -52,6 +52,16 @@
       padding: 195px 0 0 10px;
       position: absolute;
       color: #343434;
+      .search-favorite {
+
+        display: flex;
+        font-weight: normal;
+        font-size: 14px;
+        .favorite {
+          color: gray;
+          margin:2px 5px 0 0;
+        }
+      }
     }
 
   }

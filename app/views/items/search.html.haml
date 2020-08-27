@@ -13,3 +13,7 @@
         .search-list__info
           .search-name
             = item.name
+          .search-favorite
+            %i.far.fa-heart.favorite
+            .count
+              = item.favorites.length
