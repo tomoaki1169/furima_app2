@@ -79,11 +79,14 @@
           = render "favorites/favorite"
       .seller-button
         - if @item.buyer_id.present?
-        - else user_signed_in? && current_user.id == @item.user_id
+          .button-box__no
+        - elsif user_signed_in? && current_user.id == @item.user_id
           .button-box__button
             = link_to "編集する", edit_item_path(@item.id), class: 'edit-button', method: :get
           .button-box__button
             = link_to "削除する", item_path(@item.id), class: 'delete-button', method: :delete
+        - else
+          .button-box__no
       .comment-area
         .comment-show-field
           - if @comments
