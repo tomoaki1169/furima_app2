@@ -96,14 +96,24 @@
           %i.fa.fa-angle-right
     .related-items
       =link_to "#{@item.category.root.name}をもっと見る", "#", class: "more"
-    .items-lists
-      .item-list
-        = link_to "#", class: "item-list-button" do
-          %figure.item-list__image
-            %img_tag{ src: "#", alt: "商品リスト画像" }
-          .item-list__body
-            %h3.item-list__name 商品リスト商品名
-            .item-list__details
-              %ul 
-                %li 30000円
-                %p (税込) 
+    .show-items
+      - @items.each do |item|
+        = link_to item_path(item), class: "item-link" do
+          .items-lists
+            .items-lists__image
+              = image_tag item.images[0].image_url, size: '220x150', class: "item-image"
+              -if item.buyer_id.present?
+                .items-lists__image__sold
+                  .items-lists__image__sold__inner 
+                    SOLD
+            .items-lists__info
+              .items-lists__info__name
+                = item.name
+              .items-lists__info__price
+                = "¥#{item.price}"
+              .items-lists_info__tax
+                (税込)
+              .items-lists__info__favorite
+                %i.far.fa-heart.favorite
+                .count
+                  = item.favorites.length

@@ -206,29 +206,68 @@
       text-decoration: none;
     }
   }
-  .items-lists {
-    width: 220px;
-    height: 277px;
-    background-color: #fff;
+  .show-items {
+    width: 700px;
     display: flex;
-    .item-list-button {
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    .item-link {
       text-decoration: none;
-      color: #333;
-      figure {
-        width: 220px;
-        height: 150px;
-        border: 1px solid rgb(194, 192, 192);
-        margin-inline-start: 0;
-      }
-      .item-list__body {
-        padding-left: 16px;
-        li {
-          font-weight: bold;
+      color: black;
+      .items-lists {
+        margin-right: 20px;
+        font-size: 15px;
+        background-color: white;
+        &__image {
+          position: relative;
+          width: 220px;
+          height: 150px;
+          object-fit: fill;
+          &__sold {
+            border-width: 100px 100px 0 0;
+            border-color: #ea352d transparent transparent transparent;
+            display: block;
+            position: absolute;
+            top: 0;
+            z-index: 1;
+            border-style: solid;
+            &__inner {
+              top: -80px;
+              font-size: 20px;
+              position: absolute;
+              z-index: 2;
+              color: #fff;
+              transform: rotate(-45deg);
+              letter-spacing: 2px;
+              font-weight: 600;
+            }
+          }
         }
-        p {
-          font-size: 10px;
+        &__info {
+          display: flex;
+          font-size: 16px;
+          flex-direction: column;
+          text-align: start;
+          padding: 10px;
+          &__price {
+            justify-content: left;
+          }
+          &__tax {
+            justify-content: left;
+            font-size: 10px;
+          }
+          &__favorite {
+            display: flex;
+            font-weight: normal;
+            font-size: 14px;
+            .favorite {
+              color: gray;
+              margin:2px 5px 0 0;
+            }
+          }
         }
       }
     }
   }
-} 
+}
