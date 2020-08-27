@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :show, :search]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
-
+  layout 'new-items'
   def index
     @items = Item.includes(:images).order('created_at DESC')
   end
