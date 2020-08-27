@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_sale_items,   only:   [:index, :show]
 
   # GET /users
   # GET /users.json
@@ -61,6 +62,7 @@ class UsersController < ApplicationController
     end
   end
 
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
@@ -70,5 +72,9 @@ class UsersController < ApplicationController
     # Only allow a list of trusted parameters through.
     def user_params
       params.require(:user).permit(:name, :public_uid)
+    end
+
+    def set_sale_items
+      @sale_items = Item.where(user_id: current_user.id)
     end
 end
