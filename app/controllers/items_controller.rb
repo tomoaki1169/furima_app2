@@ -28,6 +28,8 @@ class ItemsController < ApplicationController
 
   def show
     @items = Item.includes(:images).limit(3).order('created_at DESC')
+    @comment = Comment.new
+    @comments = @item.comments.includes(:user)
   end
 
   def edit

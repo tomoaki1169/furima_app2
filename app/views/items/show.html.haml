@@ -84,6 +84,26 @@
             = link_to "編集する", edit_item_path(@item.id), class: 'edit-button', method: :get
           .button-box__button
             = link_to "削除する", item_path(@item.id), class: 'delete-button', method: :delete
+      .comment-area
+        .comment-show-field
+          - if @comments
+            %span.border -------------------------------------------------------------------------
+            %h3.question-comment ＜コメント一覧＞
+            .comment-box
+              - @comments.each do |comment|
+                %p.user-name
+                = comment.user.name
+                %strong ：
+                = comment.text
+
+        .comment-write-field
+          - if current_user
+            %p.careful-text 相手のことを考えて丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+            = form_with(model: [@item, @comment], html: {class: "comment-form"}, local: true, id: "new_comment") do |form|
+              = form.text_area :text, rows: "4", class: "comment-form__text-form"
+              = form.submit "投稿する", class: "comment-form__comment-btn"
+          - else
+            %p.need-login ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
     %ul.links
       %li
         = link_to "#" do
