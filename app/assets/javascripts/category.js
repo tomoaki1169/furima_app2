@@ -7,8 +7,8 @@ $(function(){
   // 子カテゴリーの表示作成
   function appendChildrenBox(insertHTML){
     var childSelectHtml = '';
-    childSelectHtml = `<div class='select-wrapper__box' id= 'children_wrapper'>
-                          <select class="select-wrapper__box--select" id="child_category" name="item[category_id]">
+    childSelectHtml = `<div class='select-wrapper__box '>
+                          <select class="select-wrapper__box--select children_wrapper" name="item[category_id]">
                             <option value="---" data-category="選択してください">選択してください</option>
                             ${insertHTML}
                           <select>
@@ -19,7 +19,7 @@ $(function(){
   function appendGrandchildrenBox(insertHTML){
     var grandchildSelectHtml = '';
     grandchildSelectHtml = `<div class='select-wrapper__box' id= 'grandchildren_wrapper'>
-                                <select class="select-wrapper__box--select" id="grandchild_category" name="item[category_id]">
+                                <select class="select-wrapper__box--select" id="grandchildren_wrapper" name="item[category_id]">
                                 <option value="---" data-category="選択してください">選択してください</option>
                                   ${insertHTML}
                                 </select>
@@ -38,7 +38,7 @@ $(function(){
       })
 
       .done(function(children){
-        $('#children_wrapper').remove(); //親が変更された時、子以下を削除する
+        $('.children_wrapper').remove(); //親が変更された時、子以下を削除する
         $('#grandchildren_wrapper').remove();
         var insertHTML = '';
         children.forEach(function(child){
@@ -50,13 +50,13 @@ $(function(){
         alert('カテゴリー取得に失敗しました');
       })
     }else{
-      $('#children_wrapper').remove(); //親カテゴリーが初期値になった時、子以下を削除する
+      $('.children_wrapper').remove(); //親カテゴリーが初期値になった時、子以下を削除する
       $('#grandchildren_wrapper').remove();
     }
   });
   // 子カテゴリー選択後のイベント
-  $('.select-wrapper').on('change', '#child_category', function(){
-    var childCategory = $('#child_category ').val(); //選択された子カテゴリーのidを取得
+  $('.select-wrapper').on('change', '.children_wrapper', function(){
+    var childCategory = $(this).val(); //選択された子カテゴリーのidを取得
     console.log(childCategory)
     if (childCategory != "---"){ //子カテゴリーが初期値でないことを確認
       $.ajax({

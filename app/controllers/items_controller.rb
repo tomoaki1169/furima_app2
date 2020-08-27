@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :show, :search]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
-
+  
   def index
     @items = Item.includes(:images).order('created_at DESC')
   end
@@ -12,7 +12,7 @@ class ItemsController < ApplicationController
     @item.images.new
     # データベースから、親カテゴリーのみ抽出
     @parents = Category.where(ancestry:nil)
-    
+    render :layout => 'new-items'
   end
 
   def  create

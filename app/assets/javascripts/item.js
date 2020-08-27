@@ -49,7 +49,17 @@ $(function() {
         // 末尾の数に1足した数を追加する
         fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
       }
+
+      // if (images <= 5) {
+      //   $('#image-box__container').append(buildImg(targetIndex,blobUrl));
+      // } else (images > 5 && images <= 10) {
+      //   $('.image-box').css("display:block")
+      //   $('#image-box__container').append(buildImg(targetIndex,blobUrl));
+      // } 
     });
+    // $(".js-file_group").change(function () {
+    //   $(this).find(input).remove()
+    // });
   
     $('#image-box').on('click', '.js-remove', function() {
       const targetIndex = $(this).prev().data('index');
@@ -64,10 +74,6 @@ $(function() {
       // 画像入力欄が0個にならないようにしておく
       if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
     });
-
-    // $(".js-file_group").change(function () {
-    //   $(this).find(input).remove()
-    // });
 
     $(document).on('click', "#image-box__container", function() {
       $('.js-file:last').trigger('click')
