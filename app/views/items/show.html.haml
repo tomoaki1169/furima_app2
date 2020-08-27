@@ -10,7 +10,7 @@
           %ul.main-image
             %li
               = image_tag @item.images[0].image_url, size: '450x346', class: "main-img"
-              -if @item.purchase.present?
+              -if @item.buyer_id.present?
                 .sold
                   .sold__inner 
                     SOLD
