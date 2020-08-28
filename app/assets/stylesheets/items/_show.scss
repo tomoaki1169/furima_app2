@@ -35,7 +35,7 @@
         border: 1px solid rgb(194, 192, 192);
         li {
           .sold {
-            border-width: 100px 100px 0 0;
+            border-width: 150px 150px 0 0;
             border-color: #ea352d transparent transparent transparent;
             display: block;
             position: absolute;
@@ -43,8 +43,8 @@
             z-index: 1;
             border-style: solid;
             &__inner {
-              top: -80px;
-              font-size: 20px;
+              top: -120px;
+              font-size: 37px;
               position: absolute;
               z-index: 2;
               color: #fff;
